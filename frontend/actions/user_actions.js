@@ -8,7 +8,7 @@ const receiveUser = user => ({
     type: RECEIVE_USER,
     user
 });
-const receiveUser = users => ({
+const receiveUsers = users => ({
     type: RECEIVE_USERS,
     users
 });
@@ -19,9 +19,7 @@ const receiveErrors = errors => ({
 });
 
 export const fetchUser = userId => dispatch => (
-    UserAPI.fetchUser(userId).then(user => dispatch(receiveUser(user)),
-    err => dispatch(receiveErrors(err.responseJSON))
-    )
+    UserAPI.fetchUser(userId).then(user => dispatch(receiveUser(user)))
 );
 
 export const fetchUsers = () => dispatch => (
@@ -30,5 +28,7 @@ export const fetchUsers = () => dispatch => (
 
 
 export const signup = user => dispatch => (
-    UserAPI.createUser(user).then(user => dispatch(receiveUser(user)))
+    UserAPI.createUser(user).then(user => dispatch(receiveUser(user)),
+    err => ( dispatch(receiveErrors(err.responseJSON)))
+    )
 );

@@ -7,7 +7,7 @@ const Root = ({ store }) => {
     return (
         <Provider store={store} >
             <HashRouter>
-                <App />
+                <h1>CloudSound</h1>
             </HashRouter>
         </Provider>
     )

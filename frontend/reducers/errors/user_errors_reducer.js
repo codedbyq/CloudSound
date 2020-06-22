@@ -1,18 +1,17 @@
 import { RECEIVE_USER_ERRORS } from '../../actions/user_actions';
 
-const initialState = {
-    userForm = []
-}
-
-const UserErrorsReducer = (state = initialState, action) => {
+const UserErrorsReducer = (state = {}, action) => {
     Object.freeze(state);
+    const newState = Object.assign({}, state);
 
     switch (action.type) {
         case RECEIVE_USER_ERRORS:
-            return {...state, userForm: action.errors};
+        newState[userForm] = action.errors;    
+        return newState;
     
         default:
-            return state;
+            return {};
+    
     }
 };
 
