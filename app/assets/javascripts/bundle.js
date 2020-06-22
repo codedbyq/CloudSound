@@ -90,19 +90,21 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, login, logout */
+/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_SESSION_ERRORS, login, logout */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_USER", function() { return RECEIVE_CURRENT_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_CURRENT_USER", function() { return LOGOUT_CURRENT_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony import */ var _util_session_api_utl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/session_api_utl */ "./frontend/util/session_api_utl.js");
 
 var RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
+var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 var receiveCurrentUser = function receiveCurrentUser(user) {
   return {
@@ -117,10 +119,19 @@ var logoutCurrentUser = function logoutCurrentUser() {
   };
 };
 
+var receiveErrors = function receiveErrors(errors) {
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors: errors
+  };
+};
+
 var login = function login(user) {
   return function (dispatch) {
     return _util_session_api_utl__WEBPACK_IMPORTED_MODULE_0__["postSession"](user).then(function (user) {
       return dispatch(receiveCurrentUser(user));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
@@ -128,6 +139,8 @@ var logout = function logout() {
   return function (dispatch) {
     return _util_session_api_utl__WEBPACK_IMPORTED_MODULE_0__["deleteSession"]().then(function () {
       return dispatch(logoutCurrentUser());
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
@@ -141,7 +154,7 @@ var logout = function logout() {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/Marquis/Desktop/CloudSound/frontend/actions/user_actions.js: Identifier 'receiveUser' has already been declared (10:6)\n\n\u001b[0m \u001b[90m  8 | \u001b[39m    user\u001b[0m\n\u001b[0m \u001b[90m  9 | \u001b[39m})\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 | \u001b[39m\u001b[36mconst\u001b[39m receiveUser \u001b[33m=\u001b[39m users \u001b[33m=>\u001b[39m ({\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 11 | \u001b[39m    type\u001b[33m:\u001b[39m \u001b[33mRECEIVE_USERS\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 12 | \u001b[39m    users\u001b[0m\n\u001b[0m \u001b[90m 13 | \u001b[39m})\u001b[33m;\u001b[39m\u001b[0m\n    at Object._raise (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:746:17)\n    at Object.raiseWithData (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:739:17)\n    at Object.raise (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:733:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:4793:12)\n    at ScopeHandler.declareName (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:4759:12)\n    at Object.checkLVal (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9261:22)\n    at Object.parseVarId (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11837:10)\n    at Object.parseVar (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11812:12)\n    at Object.parseVarStatement (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11624:10)\n    at Object.parseStatementContent (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11223:21)\n    at Object.parseStatement (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11156:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11731:25)\n    at Object.parseBlockBody (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11717:10)\n    at Object.parseTopLevel (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11087:10)\n    at Object.parse (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:12768:10)\n    at parse (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:12821:38)\n    at parser (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/core/lib/parser/index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/core/lib/transformation/normalize-file.js:93:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/core/lib/transformation/index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/core/lib/transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (/Users/Marquis/Desktop/CloudSound/node_modules/gensync/index.js:254:32)\n    at gen.next (/Users/Marquis/Desktop/CloudSound/node_modules/gensync/index.js:266:13)\n    at async.call.value (/Users/Marquis/Desktop/CloudSound/node_modules/gensync/index.js:216:11)\n    at process._tickCallback (internal/process/next_tick.js:68:7)");
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/Marquis/Desktop/CloudSound/frontend/actions/user_actions.js: Identifier 'receiveUser' has already been declared (11:6)\n\n\u001b[0m \u001b[90m  9 | \u001b[39m    user\u001b[0m\n\u001b[0m \u001b[90m 10 | \u001b[39m})\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 | \u001b[39m\u001b[36mconst\u001b[39m receiveUser \u001b[33m=\u001b[39m users \u001b[33m=>\u001b[39m ({\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 12 | \u001b[39m    type\u001b[33m:\u001b[39m \u001b[33mRECEIVE_USERS\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 13 | \u001b[39m    users\u001b[0m\n\u001b[0m \u001b[90m 14 | \u001b[39m})\u001b[33m;\u001b[39m\u001b[0m\n    at Object._raise (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:746:17)\n    at Object.raiseWithData (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:739:17)\n    at Object.raise (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:733:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:4793:12)\n    at ScopeHandler.declareName (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:4759:12)\n    at Object.checkLVal (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9261:22)\n    at Object.parseVarId (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11837:10)\n    at Object.parseVar (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11812:12)\n    at Object.parseVarStatement (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11624:10)\n    at Object.parseStatementContent (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11223:21)\n    at Object.parseStatement (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11156:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11731:25)\n    at Object.parseBlockBody (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11717:10)\n    at Object.parseTopLevel (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:11087:10)\n    at Object.parse (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:12768:10)\n    at parse (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:12821:38)\n    at parser (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/core/lib/parser/index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/core/lib/transformation/normalize-file.js:93:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/core/lib/transformation/index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/core/lib/transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (/Users/Marquis/Desktop/CloudSound/node_modules/gensync/index.js:254:32)\n    at gen.next (/Users/Marquis/Desktop/CloudSound/node_modules/gensync/index.js:266:13)\n    at async.call.value (/Users/Marquis/Desktop/CloudSound/node_modules/gensync/index.js:216:11)\n    at process._tickCallback (internal/process/next_tick.js:68:7)");
 
 /***/ }),
 
@@ -231,23 +244,72 @@ var Root = function Root(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/reducers/entities_reducer.js":
-/*!***********************************************!*\
-  !*** ./frontend/reducers/entities_reducer.js ***!
-  \***********************************************/
+/***/ "./frontend/reducers/entities/entities_reducer.js":
+/*!********************************************************!*\
+  !*** ./frontend/reducers/entities/entities_reducer.js ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../users_reducer */ "./frontend/reducers/users_reducer.js");
 
 
 var EntitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (EntitiesReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/errors/session_errors_reducer.js":
+/*!************************************************************!*\
+  !*** ./frontend/reducers/errors/session_errors_reducer.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_actions_user_actions__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var initialState = {
+  session: []
+};
+
+var SessionErrorsReducer = function SessionErrorsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_user_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_USER_ERRORS"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        session: action.errors
+      });
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SESSION_ERRORS"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        session: action.errors
+      });
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SessionErrorsReducer);
 
 /***/ }),
 
@@ -261,29 +323,32 @@ var EntitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _entities_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./entities_reducer */ "./frontend/reducers/entities_reducer.js");
-/* harmony import */ var _session_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_reducer */ "./frontend/reducers/session_reducer.js");
+/* harmony import */ var _entities_entities_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./entities/entities_reducer */ "./frontend/reducers/entities/entities_reducer.js");
+/* harmony import */ var _session_session_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session/session_reducer */ "./frontend/reducers/session/session_reducer.js");
+/* harmony import */ var _errors_session_errors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./errors/session_errors_reducer */ "./frontend/reducers/errors/session_errors_reducer.js");
+
 
 
 
 var RootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  entities: _entities_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  session: _session_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  entities: _entities_entities_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  session: _session_session_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  errors: _errors_session_errors_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (RootReducer);
 
 /***/ }),
 
-/***/ "./frontend/reducers/session_reducer.js":
-/*!**********************************************!*\
-  !*** ./frontend/reducers/session_reducer.js ***!
-  \**********************************************/
+/***/ "./frontend/reducers/session/session_reducer.js":
+/*!******************************************************!*\
+  !*** ./frontend/reducers/session/session_reducer.js ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
 
 var _nullSession = {
   currentUser: null
@@ -317,34 +382,9 @@ var SessionReducer = function SessionReducer() {
   !*** ./frontend/reducers/users_reducer.js ***!
   \********************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
-/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_actions_user_actions__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var UsersReducer = function UsersReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(state);
-  var newState = Object.assign({}, state);
-
-  switch (action.type) {
-    case _actions_user_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_USER"]:
-      newState[action.user.id] = action.user;
-      return newState;
-
-    case _actions_user_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_USERS"]:
-      return Object.assign({}, newState, action.users);
-
-    default:
-      state;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (UsersReducer);
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/Marquis/Desktop/CloudSound/frontend/reducers/users_reducer.js'");
 
 /***/ }),
 
