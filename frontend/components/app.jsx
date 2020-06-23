@@ -3,16 +3,22 @@ import { Route, NavLink } from 'react-router-dom';
 import Landing from './landing/landing';
 import LoginContainer from './session_forms/login_container';
 import SigninContainer from './session_forms/signup_container';
+import NavBarContainer from './navbar/navbar_container';
+import Footer from './footer/footer';
 
 const App = () => (
     <div id='app'>
         <header className='nav-header'>
-            <h1><NavLink to='/'>CloudSound</NavLink></h1>
+            <NavBarContainer />
         </header>
 
         <Route exact path='/' component={Landing} />
         <Route exact path='/login' component={LoginContainer} />
         <Route exact path='/signup' component={SigninContainer} />
+
+        <footer>
+            <Footer />
+        </footer>
     </div>
 )
 

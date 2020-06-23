@@ -1,0 +1,80 @@
+.session-container {
+    display: flex;
+    justify-content: center;
+}
+
+#session-form {
+    height: 504px;
+    width: 398px;
+    padding: 30px;
+    border: 1px solid rgb(229,229,229);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#session-form a {
+    color: #3388DD;
+}
+
+#session-form p {
+    font-size: 12px;
+    color: rgb(153, 153, 153);
+}
+
+#help {
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+#email-div {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.provider-btn, .session-btn, .session-input{
+    display: flex;
+    height: 18px;
+    width: 366px;
+    padding: 15px 10px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#fb {
+    background-color: #3578E5;
+    color: white;
+}
+
+#apple {
+    background-color: black;
+    color: white;
+}
+
+#abc {
+    background-color: white;
+    border: 1px solid rgb(229,229,229);
+}
+
+.session-btn {
+    background-color: #FF5500;
+    color: white;
+}
+
+.session-input {
+    border: 1px solid rgb(229,229,229);
+    font-size: 18px;
+    line-height: 24px;
+    padding: 7px 8px;
+    font-weight: 50;
+}

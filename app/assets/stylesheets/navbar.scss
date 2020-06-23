@@ -1,0 +1,44 @@
+#navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 1240px;
+    height: 45px;
+    background-color: rgb(75, 75, 75);
+    color: white;
+    margin-top: 0;
+}
+
+#nav-left {
+    display: flex;
+    align-items: center;
+}
+
+#nav-left a:link, #nav-left a:visited {
+    width: 104px;
+    color: white;
+    padding: 13px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-right: 1px solid black;
+}
+
+#nav-left .home {
+    background-color: black;
+}
+
+#nav-logo {
+    background-color: #FF5500;
+    height: 45px;
+    width: 80px;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    display: inline-block;
+    background-image: url();
+    background-position: center;
+    background-size: cover;
+    border: none;
+    background-image: image();
+}
