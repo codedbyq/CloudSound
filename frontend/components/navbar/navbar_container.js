@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import NavBar from './navbar';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     const currentUserId = state.session.id;
     const user = currentUserId ? state.entities.users[currentUserId] : null;
 

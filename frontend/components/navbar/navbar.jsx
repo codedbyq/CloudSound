@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
+import NavDropdown from './nav_dropdown';
 
 const NavBar = props => {
 
@@ -29,7 +30,7 @@ const NavBar = props => {
             <div id='nav-right'>
                 {navRight}
                 <NavLink to='/login'>Upload</NavLink>
-                <button>&#x22EF;</button>
+                <NavDropdown />
             </div>
         </div>
     )

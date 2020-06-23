@@ -2,10 +2,10 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 1240px;
+    width: 100%;
     height: 45px;
-    background-color: rgb(75, 75, 75);
-    color: white;
+    background-color: #333;
+    color: rgb(153, 153, 153);
     margin-top: 0;
 }
 
@@ -16,16 +16,19 @@
 
 #nav-left a:link, #nav-left a:visited {
     width: 104px;
-    color: white;
-    padding: 13px 25px;
+    color: rgb(187, 187, 187);
+    padding: 12px 0;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     border-right: 1px solid black;
+    font-size:  14px;
+
 }
 
-#nav-left .home {
+#nav-left a:active {
     background-color: black;
+    color: white;
 }
 
 #nav-logo {
@@ -41,4 +44,41 @@
     background-size: cover;
     border: none;
     background-image: image();
+}
+
+#nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.droplink {
+    display: none;
+    list-style: none;
+}
+
+.droplink.show {
+    display: block;
+}
+
+.droplink a {
+    color: rgb(153, 153, 153);
+    text-decoration: none;
+}
+
+.dropdown-nav {
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-nav > ul {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: left;
+  background-color: rgb(141, 184, 154);
+  margin: 20px;
 }
