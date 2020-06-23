@@ -3,8 +3,12 @@ import React from 'react';
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.user;
+        this.state = { email: '', password: '' };
         this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    setEmail(e) {
+        e.preventDefault
     }
 
     handleInput(field) {
@@ -17,27 +21,35 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        let addEmail;
-        if (this.props.formType === 'Sign Up') {
-            addEmail = (
-                <>
+        const display = this.state.email ? (
+            <div>
+                <button>Sign in with Google</button>
+                <button>Sign in with Facebook</button>
+                <button>Sign in with Apple</button>
+                --- or ---
                 <label>Email:
-                        <input type="text" value={this.state.email} onChange={this.handleInput('email')} />
+                    <input type="text" value={this.state.email} onChange={this.handleInput('email')} />
                 </label>
+            </div>
+        ) : (
+            <div>
+                <button onClick={this.resetForm}>{ '   ◂   ' + this.state.email }</button>
                 <br/> <br/>
-                </>
-            )
-        }
+                <label>Password:
+                    <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
+                </label>
+                <br /> <br />
+            </div>
+        )
 
 
         return (
             <div>
                 <h1>{this.props.formType}</h1>
                 <form id='session-form'>
-                    {addEmail}
 
-                    <label>Username: 
-                        <input type="text" value={this.state.username} onChange={this.handleInput('username')}/>
+                    <label>Email:
+                        <input type="text" value={this.state.email} onChange={this.handleInput('email')} />
                     </label>
                     <br/> <br/>
 
@@ -48,6 +60,16 @@ class SessionForm extends React.Component {
 
                     <button onClick={this.handleSubmit}>{this.props.formType}</button>
                 </form>
+
+                <a href="" id='help'>Need Help?</a>
+
+                <p>
+                    We may use your email and devices for updates and tips on SoundCloud's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
+                </p>
+                <br/>
+                <p>
+                    We may use information you provide us in order to show you targeted ads as described in our <a href="">Privacy Policy</a>.
+                </p>
             </div>
         )
     }
