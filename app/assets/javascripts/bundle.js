@@ -644,17 +644,18 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     key: "hideEmailDiv",
     value: function hideEmailDiv(e) {
       e.preventDefault();
-      var emailDiv = document.getElementById('email-div');
-      var passDiv = document.getElementById('pass-div');
+      var emailDiv = document.querySelector('.email-div');
+      var passDiv = document.querySelector('.hidden');
       emailDiv.classList.add('hidden');
+      emailDiv.id.add;
       passDiv.classList.remove('hidden');
     }
   }, {
     key: "hidePassDiv",
     value: function hidePassDiv(e) {
       e.preventDefault();
-      var emailDiv = document.getElementById('email-div');
-      var passDiv = document.getElementById('pass-div');
+      var emailDiv = document.querySelector('.email-div');
+      var passDiv = document.querySelector('.pass-div');
       passDiv.classList.add('hidden');
       emailDiv.classList.remove('hidden');
     }
@@ -688,7 +689,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         id: "session-form",
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        classList: "email-div"
+        className: "email-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "abc",
         className: "provider-btn"
@@ -715,15 +716,14 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       }, "Need Help?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "We may use your email and devices for updates and tips on SoundCloud's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "We may use information you provide us in order to show you targeted ads as described in our ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: ""
       }, "Privacy Policy"), ".")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "pass-div",
-        className: "hidden"
+        className: "pass-div hidden"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "session-btn",
         id: "prefilled-email-btn",
         onClick: this.hidePassDiv
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "prefilled-email-arrow"
-      }, " \u25C2 "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, " \u25C0 "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "prefilled-email-text"
       }, this.state.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "session-input",

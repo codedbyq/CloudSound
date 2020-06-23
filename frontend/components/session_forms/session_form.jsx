@@ -10,17 +10,18 @@ class SessionForm extends React.Component {
 
     hideEmailDiv(e) {
         e.preventDefault();
-        const emailDiv = document.getElementById('email-div');
-        const passDiv = document.getElementById('pass-div');
+        const emailDiv = document.querySelector('.email-div');
+        const passDiv = document.querySelector('.hidden');
 
         emailDiv.classList.add('hidden');
+        emailDiv.id.add
         passDiv.classList.remove('hidden');
     }
 
     hidePassDiv(e) {
         e.preventDefault();
-        const emailDiv = document.getElementById('email-div');
-        const passDiv = document.getElementById('pass-div');
+        const emailDiv = document.querySelector('.email-div');
+        const passDiv = document.querySelector('.pass-div');
 
         passDiv.classList.add('hidden');
         emailDiv.classList.remove('hidden');
@@ -46,7 +47,7 @@ class SessionForm extends React.Component {
             <div className='session-container'>
                 <form id='session-form' onSubmit={this.handleSubmit}>
 
-                    <div classList='email-div'>
+                    <div className='email-div'>
                         <button id='abc' className='provider-btn'>Sign in with Google</button>
                         <button id='fb' className='provider-btn'>Sign in with Facebook</button>
                         <button id='apple' className='provider-btn'>Sign in with Apple</button>
@@ -71,9 +72,9 @@ class SessionForm extends React.Component {
                         </p>
                     </div>
 
-                    <div id='pass-div' className='hidden'>
+                    <div className='pass-div hidden'>
                         <button className='session-btn' id='prefilled-email-btn' onClick={this.hidePassDiv}>
-                            <span id='prefilled-email-arrow'> ◂ </span>
+                            <span id='prefilled-email-arrow'> &#9664; </span>
                             <span id='prefilled-email-text'>{this.state.email}</span>
                         </button>
 

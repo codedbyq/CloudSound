@@ -29,7 +29,7 @@
     
 }
 
-#email-div {
+.email-div {
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -41,7 +41,7 @@
 
 .provider-btn, .session-btn, .session-input{
     display: flex;
-    height: 18px;
+    height: 40px;
     width: 366px;
     padding: 15px 10px;
     justify-content: center;
@@ -49,6 +49,7 @@
     border: none;
     border-radius: 5px;
     margin-bottom: 10px;
+    font-size: 16px;
 }
 
 #fb {
@@ -77,4 +78,15 @@
     line-height: 24px;
     padding: 7px 8px;
     font-weight: 50;
+    height: 24px;
+    width: 348px;
+}
+
+#prefilled-email-btn {
+    border: 1px solid rgb(229,229,229);
+    font-size: 18px;
+    padding: 7px 8px;
+    font-weight: 50;
+    background-color: white;
+    color: black;
 }
