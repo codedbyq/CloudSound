@@ -5,6 +5,7 @@ import LoginContainer from './session_forms/login_container';
 import SigninContainer from './session_forms/signup_container';
 import NavBarContainer from './navbar/navbar_container';
 import Footer from './footer/footer';
+import { AuthRoute } from '../util/route_utils';
 
 const App = () => (
     <div id='app'>
@@ -12,10 +13,12 @@ const App = () => (
             <NavBarContainer />
         </header>
 
-        <Route exact path='/' component={Landing} />
-        <Route exact path='/login' component={LoginContainer} />
-        <Route exact path='/signup' component={SigninContainer} />
-
+        <Switch>
+            <AuthRoute exact path='/login' component={LoginContainer} />
+            <AuthRoute exact path='/signup' component={SigninContainer} />
+            <Route exact path='/' component={Landing} />
+        </Switch>
+        
         <footer>
             <Footer />
         </footer>
