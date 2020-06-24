@@ -5,6 +5,11 @@ body {
     font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
 }
 
+#root {
+    display: flexbox;
+    justify-content: center;
+}
+
 a {
     text-decoration: none;
 }
@@ -16,12 +21,9 @@ a:visited {
 #app {
     background-color: white;
     margin-top: 0;
-
+    height: 1000px;
+    width: 972px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#app-content {
-    display: flexbox;
-    height: 950px;
-    width: 900px;
-    border: 1px solid red;
-}

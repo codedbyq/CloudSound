@@ -412,16 +412,16 @@ var Landing = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(Landing);
 
-  function Landing() {
+  function Landing(props) {
     _classCallCheck(this, Landing);
 
-    return _super.apply(this, arguments);
+    return _super.call(this, props);
   }
 
   _createClass(Landing, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "This is the Landing");
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "This is the landing"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Current User: ", this.props.currentUser));
     }
   }]);
 
@@ -574,11 +574,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var currentUserId = state.session.id;
-  var user = currentUserId ? state.entities.users[currentUserId] : null;
+var mapStateToProps = function mapStateToProps(state) {
   return {
-    currentUser: user
+    currentUser: state.session.currentUser
   };
 };
 

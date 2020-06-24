@@ -1,9 +1,9 @@
 #navbar {
     position: fixed;
     display: inline-flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width: 972px;
     height: 45px;
     background-color: #333;
     color: rgb(153, 153, 153);
@@ -97,6 +97,7 @@
 }
 
 #drop-trigger:focus, .left-btn:focus {
+    outline: none;
     background-color: #111111;
     color: white;
     border: none;
@@ -145,4 +146,31 @@
     flex-direction: column;
     background-color: #111111;
     right: -5px;
+}
+
+#fake-header {
+    height: 45px;
+    width: 100vw;
+    margin-left: calc(-1 * ((100vw - 100%) / 2)); // tip from SW4 on stack overflow
+    background-color: #333;
+    position: fixed;
+}
+
+#search {
+    margin: 5px 10px;
+    width: 213px;
+    height: 27px;
+    font-size: 15px;
+    line-height: 18px;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 8px;
+    background-color: #e1e1e1;
+    color: rgb(153, 153, 153);
+}
+
+#search:focus {
+    outline: none;
+    background-color: white;
+    color: #333;
 }

@@ -2,14 +2,9 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import NavBar from './navbar';
 
-const mapStateToProps = (state, ownProps) => {
-    const currentUserId = state.session.id;
-    const user = currentUserId ? state.entities.users[currentUserId] : null;
-
-    return {
-        currentUser: user
-    }
-};
+const mapStateToProps = (state) => ({
+        currentUser: state.session.currentUser
+    });
 
 const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout())
