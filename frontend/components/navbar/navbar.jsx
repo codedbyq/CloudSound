@@ -1,36 +1,36 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import NavDropdown from './nav_dropdown';
 
 const NavBar = props => {
 
     const navRight = props.currentUser ? (
         <>
-            <NavLink>Try Pro</NavLink>
-            <NavLink>Profile</NavLink>
+            <NavLink id='right-btn'>Try Pro</NavLink>
+            <NavLink id='profile-drop'>Profile</NavLink>
         </>
     ) : (
         <>
-            <NavLink to='/login'>Sign In</NavLink>
-            <NavLink to='/signup'>Create Account</NavLink>
+            <NavLink className='nav-session' id='login' to='/login'>Sign in</NavLink>
+            <NavLink className='nav-session' id='signup' to='/signup'>Create account</NavLink>
         </>
     )
 
     return (
         <div id='navbar'>
             <div id='nav-left'>
-                <button id='nav-logo'></button>
-                <NavLink to='/' className='home'>Home</NavLink>
-                <NavLink to='/login'>Stream</NavLink>
-                <NavLink to='/login'>Library</NavLink>
+                <Link id='nav-logo' to='/'></Link>
+                <NavLink className='left-btn' to='/' className='home'>Home</NavLink>
+                <NavLink className='left-btn' to='/login'>Stream</NavLink>
+                <NavLink className='left-btn' to='/login'>Library</NavLink>
             </div>
 
             <input id='search' type="search"/>
 
             <div id='nav-right'>
                 {navRight}
-                <NavLink to='/login'>Upload</NavLink>
-                <NavDropdown />
+                <NavLink id='right-btn' to='/login'>Upload</NavLink>
+                <NavDropdown logout={props.logout} />
             </div>
         </div>
     )
