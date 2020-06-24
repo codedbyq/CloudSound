@@ -364,7 +364,7 @@ var Footer = function Footer() {
     href: ""
   }, "Charts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "",
-    className: "language-select"
+    id: "language-select"
   }, "Language: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "English (US)")));
 };
 

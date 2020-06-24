@@ -14,7 +14,7 @@ const Footer = () => {
                 <a href="">Imprint</a>
                 <a href="">Charts</a>
             </ul>
-            <a href="" className='language-select'>Language: <span>English (US)</span></a>
+            <a href="" id='language-select'>Language: <span>English (US)</span></a>
         </div>
     )
 };

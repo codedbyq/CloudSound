@@ -7,18 +7,21 @@
 #footer > ul {
     display: flex;
     list-style: none;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    padding: 0;
 }
 
 #footer-links a {
     text-decoration: none;
-    color: #F0F0F0;
+    color: #d7d7d7;
     font-size: 11px;
+    margin-right: 10px;
 }
 
-#footer > a {
+#language-select {
+    color: blue;
     text-decoration: none;
-    color: blue($color: #000000);
+    font-size: 12px;
 }
 
 a > span {
