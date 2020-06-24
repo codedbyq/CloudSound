@@ -18,7 +18,7 @@ const NavBar = props => {
 
     return (
         <div id='navbar'>
-            <div id='nav-left'>
+            <div className='nav-left'>
                 <Link id='nav-logo' to='/'></Link>
                 <NavLink className='left-btn' to='/' className='home'>Home</NavLink>
                 <NavLink className='left-btn' to='/login'>Stream</NavLink>
@@ -29,6 +29,7 @@ const NavBar = props => {
 
             <div id='nav-right'>
                 {navRight}
+                <button id='logout' onClick={props.logout}>Logout</button>
                 <NavLink id='right-btn' to='/login'>Upload</NavLink>
                 <NavDropdown logout={props.logout} />
             </div>

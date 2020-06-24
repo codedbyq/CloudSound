@@ -10,12 +10,12 @@
     margin-top: 0;
 }
 
-#nav-left {
+.nav-left {
     display: flex;
     align-items: center;
 }
 
-#nav-left a:link, #nav-left a:visited {
+.nav-left a:link, .nav-left a:visited {
     width: 104px;
     color: rgb(187, 187, 187);
     padding: 12px 0;
@@ -24,29 +24,25 @@
     display: inline-block;
     border-right: 1px solid black;
     font-size:  14px;
+    overflow: hidden;
 }
 
-#nav-left a:active, #nav-right a:active {
+.nav-left a:active, #nav-right a:active {
     background-color: black;
     color: white;
 }
-#nav-left a:hover, #nav-right a:hover {
+.nav-left a:hover, #nav-right a:hover {
     color: white;
 }
 
 #nav-logo {
     background-color: #FF5500;
+    padding: 0;
     height: 45px;
-    width: 80px;
+    width: 55px;
     color: white;
-    padding: 15px 25px;
-    text-align: center;
     display: inline-block;
-    background-image: url();
-    background-position: center;
-    background-size: cover;
     border: none;
-    background-image: url('../images/logo-circle.png');
 }
 
 #nav-right {
@@ -106,7 +102,7 @@
     border: none;
 }
 
-.dropdown-list, #logout {
+.droplink {
     display: none;
     list-style: none;
     width: 90px;
@@ -149,7 +145,4 @@
     flex-direction: column;
     background-color: #111111;
     right: -5px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 40px;
 }

@@ -3,7 +3,7 @@ import React from 'react';
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { email: '', password: '' };
+        this.state = { input: '', password: '' };
         this.handleSubmit = this.handleSubmit.bind(this)
         this.demoLogin = this.demoLogin.bind(this);
     }
@@ -51,11 +51,11 @@ class SessionForm extends React.Component {
                         <button id='abc' className='provider-btn'>Sign in with Google</button>
                         <button id='fb' className='provider-btn'>Sign in with Facebook</button>
                         <button id='apple' className='provider-btn'>Sign in with Apple</button>
-                        <button id='demo' className='provider-btn'>Demo Login</button>
+                        <button id='demo' className='provider-btn' onClick={this.demoLogin}>Demo Login</button>
                         <span>--- or ---</span>
 
                         <input className='session-input' type="text" 
-                        value={this.state.email} onChange={this.handleInput('email')} />
+                        value={this.state.input} onChange={this.handleInput('input')} />
                         
                         <button className='session-btn' onClick={this.hideEmailDiv}>Continue</button>
                         <a href="" id='help'>Need Help?</a>

@@ -1,4 +1,4 @@
-import * as SessionAPI from '../util/session_api_utl';
+import { postSession, deleteSession } from '../util/session_api_utl';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -19,13 +19,13 @@ const receiveErrors = errors => ({
 });
 
 export const login = user => dispatch => (
-    SessionAPI.postSession(user).then(user => dispatch(receiveCurrentUser(user)),
+    postSession(user).then(user => dispatch(receiveCurrentUser(user)),
     err => dispatch(receiveErrors(err.responseJSON))
     )
 );
 
 export const logout = () => dispatch => (
-    SessionAPI.deleteSession().then(() => dispatch(logoutCurrentUser()),
+    deleteSession().then(() => dispatch(logoutCurrentUser()),
     err => dispatch(receiveErrors(err.responseJSON))
     )
 );
