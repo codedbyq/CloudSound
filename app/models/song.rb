@@ -12,4 +12,7 @@
 class Song < ApplicationRecord
     validates :title, :artist_id, presence: true
     validates :artist_id, uniqueness: { scope: :title }
+
+    has_one_attached :song
+    has_one_attached :photo
 end
