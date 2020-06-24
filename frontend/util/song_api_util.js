@@ -1,14 +1,14 @@
 export const fetchSongs = () => (
     $.ajax({
         method: 'get',
-        url: 'api/songs'
+        url: 'api/songs',
     })
 );
 export const fetchSong = (songId) => (
     $.ajax({
         method: 'get',
         url: `api/songs/${songId}`,
-        data: { songId }
+        data: { songId },
     })
 );
 export const createSong = (song) => (

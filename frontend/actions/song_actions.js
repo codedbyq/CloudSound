@@ -7,17 +7,17 @@ export const REMOVE_SONG = 'REMOVE_SONG';
 
 const receiveSongs = songs => ({
     type: RECEIVE_SONGS, 
-    songs
+    songs,
 });
 
 const receiveSong = song => ({
     type: RECEIVE_SONG,
-    song
+    song,
 });
 
 const removeSong = songId => ({
     type: REMOVE_SONG, 
-    songId
+    songId,
 });
 
 export const fetchSongs = () => dispatch => (
