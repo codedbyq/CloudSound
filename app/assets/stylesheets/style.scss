@@ -18,3 +18,10 @@ a:visited {
     margin-top: 0;
 
 }
+
+#app-content {
+    display: flexbox;
+    height: 950px;
+    width: 900px;
+    border: 1px solid red;
+}

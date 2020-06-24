@@ -13,10 +13,12 @@ const App = () => (
             <NavBarContainer />
         </header>
 
-        <AuthRoute exact path='/login' component={LoginContainer} />
-        <AuthRoute exact path='/signup' component={SigninContainer} />
-        <Route exact path='/' component={Landing} />
-    
+        <content id='app-content'>
+            <AuthRoute exact path='/login' component={LoginContainer} />
+            <AuthRoute exact path='/signup' component={SigninContainer} />
+            <Route exact path='/' component={Landing} />
+        </content>
+
         <footer>
             <Footer />
         </footer>

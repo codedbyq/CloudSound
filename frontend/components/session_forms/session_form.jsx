@@ -75,7 +75,7 @@ class SessionForm extends React.Component {
                     <div className='pass-div hidden'>
                         <button className='session-btn' id='prefilled-email-btn' onClick={this.hidePassDiv}>
                             <span id='prefilled-email-arrow'> &#9664; </span>
-                            <span id='prefilled-email-text'>{this.state.email}</span>
+                            <span id='prefilled-email-text'>{this.state.input}</span>
                         </button>
 
                         <input className='session-input' type="password" 

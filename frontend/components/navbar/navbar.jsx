@@ -6,8 +6,8 @@ const NavBar = props => {
 
     const navRight = props.currentUser ? (
         <>
-            <NavLink id='right-btn'>Try Pro</NavLink>
-            <NavLink id='profile-drop'>Profile</NavLink>
+            <NavLink id='right-btn' to='/'>Try Pro</NavLink>
+            <NavLink id='profile-drop' to='/'>Profile</NavLink>
         </>
     ) : (
         <>
@@ -29,7 +29,6 @@ const NavBar = props => {
 
             <div id='nav-right'>
                 {navRight}
-                <button id='logout' onClick={props.logout}>Logout</button>
                 <NavLink id='right-btn' to='/login'>Upload</NavLink>
                 <NavDropdown logout={props.logout} />
             </div>
