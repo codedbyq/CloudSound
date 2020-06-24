@@ -54,7 +54,7 @@ class SessionForm extends React.Component {
                         <button id='demo' className='provider-btn' onClick={this.demoLogin}>Demo Login</button>
                         <span>--- or ---</span>
 
-                        <input className='session-input' type="text" 
+                        <input className='session-input' type="text" placeholder='Enter your email or profile url...'
                         value={this.state.input} onChange={this.handleInput('input')} />
                         
                         <button className='session-btn' onClick={this.hideEmailDiv}>Continue</button>

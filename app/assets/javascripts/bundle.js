@@ -543,7 +543,8 @@ var NavBar = function NavBar(props) {
     to: "/login"
   }, "Library")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     id: "search",
-    type: "search"
+    type: "search",
+    placeholder: "Search for artists, tracks..."
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "nav-right"
   }, navRight, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -786,6 +787,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       }, "Demo Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "--- or ---"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "session-input",
         type: "text",
+        placeholder: "Enter your email or profile url...",
         value: this.state.input,
         onChange: this.handleInput('input')
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {

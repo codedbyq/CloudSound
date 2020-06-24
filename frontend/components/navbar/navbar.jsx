@@ -25,7 +25,7 @@ const NavBar = props => {
                 <NavLink className='left-btn' to='/login'>Library</NavLink>
             </div>
 
-            <input id='search' type="search"/>
+            <input id='search' type="search" placeholder='Search for artists, tracks...' />
 
             <div id='nav-right'>
                 {navRight}
