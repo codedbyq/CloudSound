@@ -42,9 +42,10 @@ class SessionForm extends React.Component {
     }
 
     render() {
-      
+      debugger
         return (
             <div className='modal-screen'>
+                <button id='modal-close-btn' onClick={handleClose}>&times;</button>
                 <div className='modal-content'>
                     <form id='session-form' onSubmit={this.handleSubmit}>
 

@@ -13,7 +13,6 @@
 
 .modal-content {
     margin-top: 70px;
-
 }
 
 
@@ -91,13 +90,14 @@
 }
 
 .session-input {
-    border: 1px solid rgb(229,229,229);
+    border: 1px solid #e5e5e5;
     font-size: 18px;
     line-height: 24px;
     padding: 7px 8px;
     font-weight: 50;
     height: 24px;
     width: 348px;
+    outline: none;
 }
 
 #prefilled-email-btn {
@@ -107,4 +107,15 @@
     font-weight: 50;
     background-color: white;
     color: black;
+}
+
+#modal-close-btn {
+    position: absolute;
+    justify-self: flex-end;
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    height: 35px;
+    width: 35px;
+    font-size: 30px;
 }

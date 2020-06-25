@@ -1,27 +1,29 @@
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
-import Landing from './landing/landing';
 import LoginContainer from './session_forms/login_container';
 import SigninContainer from './session_forms/signup_container';
 import NavBarContainer from './navbar/navbar_container';
 import Footer from './footer/footer';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
+import LandingContainer from './landing/landing_container';
 
 const App = () => (
-    <div id='app'>
-        <header className='nav-header'>
-            <NavBarContainer />
-        </header>
+    <div className='app-container'>
+        <div id='app'>
+            <header className='nav-header'>
+                <NavBarContainer />
+            </header>
 
-        <content id='app-content'>
-            <AuthRoute exact path='/login' component={LoginContainer} />
-            <AuthRoute exact path='/signup' component={SigninContainer} />
-            <Route exact path='/' component={Landing} />
-        </content>
+            <content id='app-content'>
+                <AuthRoute exact path='/login' component={LoginContainer} />
+                <AuthRoute exact path='/signup' component={SigninContainer} />
+                <Route exact path='/' component={LandingContainer} />
+            </content>
 
-        <footer>
-            <Footer />
-        </footer>
+            <footer id='app-footer'>
+                <Footer />
+            </footer>
+        </div>
     </div>
 )
 
