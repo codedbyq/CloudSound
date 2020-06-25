@@ -7,15 +7,15 @@ class Landing extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsers();
-        // this.props.fetchSongs();
+        this.props.fetchSongs();
     }
     
     render() {
         const songs = this.props.songs.map(song => (
-            <li key={song.id}>song.title</li>
+            <li key={song.id}>{song.title}</li>
         ));
         const users = this.props.users.map(user => (
-            <li key={user.id}>user.username</li>
+            <li key={user.id}>{user.username}</li>
         ));
         return (
             <div className={'landing-div'}>

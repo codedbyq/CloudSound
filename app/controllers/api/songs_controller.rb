@@ -2,7 +2,7 @@ class Api::SongsController < ApplicationController
 
     before_action :require_login, only: [:create, :delete, :update]
 
-    def get
+    def index
         @songs = Song.all
         render 'api/songs/index'
     end

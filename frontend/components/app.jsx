@@ -6,6 +6,7 @@ import NavBarContainer from './navbar/navbar_container';
 import Footer from './footer/footer';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import LandingContainer from './landing/landing_container';
+import SongShowContainer from './song/show_container';
 
 const App = () => (
     <div className='app-container'>
@@ -17,6 +18,7 @@ const App = () => (
             <content id='app-content'>
                 <AuthRoute exact path='/login' component={LoginContainer} />
                 <AuthRoute exact path='/signup' component={SigninContainer} />
+                <Route path='/songs/:songId' component={SongShowContainer} />
                 <Route exact path='/' component={LandingContainer} />
             </content>
 

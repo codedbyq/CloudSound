@@ -5,6 +5,7 @@ class SessionForm extends React.Component {
         super(props);
         this.state = { input: '', password: '' };
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleClose = this.handleClose.bind(this)
         this.demoLogin = this.demoLogin.bind(this);
     }
 
@@ -41,11 +42,14 @@ class SessionForm extends React.Component {
         this.props.demoLogin();
     }
 
+    handleClose(e) {
+        this.props.history.goBack();
+    }
+
     render() {
-      debugger
         return (
             <div className='modal-screen'>
-                <button id='modal-close-btn' onClick={handleClose}>&times;</button>
+                <button id='modal-close-btn' onClick={this.handleClose}>&times;</button>
                 <div className='modal-content'>
                     <form id='session-form' onSubmit={this.handleSubmit}>
 
