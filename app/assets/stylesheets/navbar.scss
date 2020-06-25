@@ -120,8 +120,6 @@
 .droplink {
     display: none;
     list-style: none;
-    width: 90px;
-    height: 25px;
     font-size: 12px;
     text-align: left;
     background-color: #111111;
@@ -130,17 +128,31 @@
 
 .droplink #logout {
     color: rgb(153, 153, 153);
+    background-color: transparent;
+    border: none;
     text-decoration: none;
-
+    padding-left: 0px;
 }
 
 .droplink.show {
     display: block;
+    height: 32px;
+    width: 170px;
+    padding: 5px 7px 5px 12px;
 }
 
 .droplink a {
     color: rgb(153, 153, 153);
     text-decoration: none;
+}
+
+.droplink:hover {
+    color: white;
+}
+
+
+.droplink:first-of-type {
+    margin-top: 10px;
 }
 
 .dropdown-nav {
