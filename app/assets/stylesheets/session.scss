@@ -7,12 +7,15 @@
     z-index: 5;
     background: rgba(242, 242, 242, 0.8);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     // align-items: center;
 }
 
 .modal-content {
     margin-top: 70px;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -110,12 +113,19 @@
 }
 
 #modal-close-btn {
-    position: absolute;
-    justify-self: flex-end;
     margin-left: auto;
     border: none;
     background-color: transparent;
     height: 35px;
     width: 35px;
     font-size: 30px;
+}
+
+.modal-button {
+    position: sticky;
+    top: 0;
+    display: inline-flex;
+    width: auto;
+    height: 35px;
+    justify-content: right;
 }
