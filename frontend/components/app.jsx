@@ -7,6 +7,7 @@ import Footer from './footer/footer';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import LandingContainer from './landing/landing_container';
 import SongShowContainer from './song/show_container';
+import SongFormContainer from './song/song_form_container';
 
 const App = () => (
     <div>
@@ -17,6 +18,7 @@ const App = () => (
             <AuthRoute exact path='/login' component={LoginContainer} />
             <AuthRoute exact path='/signup' component={SigninContainer} />
             <Route path='/songs/:songId' component={SongShowContainer} />
+            <ProtectedRoute path='/upload' component={SongFormContainer} />
             <Route exact path='/' component={LandingContainer} />
 
             <Footer />

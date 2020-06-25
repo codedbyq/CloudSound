@@ -10,10 +10,9 @@ class SongShow extends React.Component {
     }
     
     render() {
-        debugger
         return (
             <div>
-               
+               Song show page
             </div>
         )
     }

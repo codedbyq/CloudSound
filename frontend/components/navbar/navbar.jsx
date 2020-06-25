@@ -29,7 +29,7 @@ const NavBar = props => {
 
             <div id='nav-right'>
                 {navRight}
-                <NavLink id='right-btn' to='/login'>Upload</NavLink>
+                <NavLink id='right-btn' to='/upload'>Upload</NavLink>
                 <NavDropdown logout={props.logout} />
             </div>
         </div>

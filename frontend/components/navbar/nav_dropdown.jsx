@@ -15,7 +15,8 @@ const NavDropdown = ({logout}) => {
     const handleLogout = (e) => {
         e.preventDefault()
         logout()
-    
+        const dropLinks = document.querySelectorAll('.droplink');
+        dropLinks.forEach(li => li.classList.toggle('show'));
     }
     
     return (
