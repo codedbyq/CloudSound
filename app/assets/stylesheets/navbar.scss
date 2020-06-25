@@ -1,5 +1,6 @@
 #navbar {
-    position: fixed;
+    position: sticky;
+    top: 0;
     display: inline-flex;
     justify-content: flex-start;
     align-items: center;
@@ -8,6 +9,15 @@
     background-color: #333;
     color: rgb(153, 153, 153);
     margin-top: 0;
+}
+
+#fake-header {
+    height: 45px;
+    width: 100vw;
+    margin-left: calc(-1 * ((100vw - 100%) / 2)); // tip from SW4 on stack overflow
+    background-color: #333;
+    position: sticky;
+    top: 0;
 }
 
 .nav-left {
@@ -36,14 +46,14 @@
 }
 
 #nav-logo {
-    background-color: #FF5500;
     padding: 0;
     height: 45px;
     width: 55px;
     color: white;
     display: inline-block;
     border: none;
-    background-image: image_url('logo-circle.png');
+    background-image: url('logo-circle.png');
+
 }
 
 #nav-right {
@@ -147,14 +157,6 @@
     flex-direction: column;
     background-color: #111111;
     right: -5px;
-}
-
-#fake-header {
-    height: 45px;
-    width: 100vw;
-    margin-left: calc(-1 * ((100vw - 100%) / 2)); // tip from SW4 on stack overflow
-    background-color: #333;
-    position: fixed;
 }
 
 #search {

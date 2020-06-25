@@ -9,24 +9,20 @@ import LandingContainer from './landing/landing_container';
 import SongShowContainer from './song/show_container';
 
 const App = () => (
-    <div className='app-container'>
-        <div id='app'>
-            <header className='nav-header'>
-                <NavBarContainer />
-            </header>
+    <div id='app'>
+        <div id='fake-header'></div>
+        <NavBarContainer />
 
-            <content id='app-content'>
-                <AuthRoute exact path='/login' component={LoginContainer} />
-                <AuthRoute exact path='/signup' component={SigninContainer} />
-                <Route path='/songs/:songId' component={SongShowContainer} />
-                <Route exact path='/' component={LandingContainer} />
-            </content>
+        {/* <content id='app-content'> */}
+            <AuthRoute exact path='/login' component={LoginContainer} />
+            <AuthRoute exact path='/signup' component={SigninContainer} />
+            <Route path='/songs/:songId' component={SongShowContainer} />
+            <Route exact path='/' component={LandingContainer} />
+        {/* </content> */}
 
-            <footer id='app-footer'>
-                <Footer />
-            </footer>
-        </div>
+        <Footer />
     </div>
+
 )
 
 export default App;
