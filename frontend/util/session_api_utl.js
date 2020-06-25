@@ -14,3 +14,11 @@ export const deleteSession = () => (
     url: '/api/session'
     })
 );
+
+export const createUser = user => (
+    $.ajax({
+        method: 'post',
+        url: '/api/users',
+        data: { user }
+    })
+);

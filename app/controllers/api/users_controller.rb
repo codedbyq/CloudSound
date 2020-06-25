@@ -6,7 +6,6 @@ class Api::UsersController < ApplicationController
     
     def create
         @user = User.new(user_params)
-        @user[:username] = 'User' + SecureRandom::alphanumeric(8)
         @user[:bio] = ''
 
         if @user.save
@@ -24,6 +23,6 @@ class Api::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:email, :password)
+        params.require(:user).permit(:email,:username, :password)
     end
 end

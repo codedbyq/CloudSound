@@ -3,7 +3,7 @@ import React from 'react';
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { input: '', password: '' };
+        this.state = this.props.user;
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClose = this.handleClose.bind(this)
         this.demoLogin = this.demoLogin.bind(this);
@@ -34,7 +34,8 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault;
-        this.props.action(this.state);
+        this.props.action(this.state)
+            .then(() => this.props.history.push('/'));
     }
 
     demoLogin(e) {
@@ -47,6 +48,11 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        const placeholderMsg = this.props.formType === 'Login' ? 'Enter your email or profile url...' : 'Enter your email...';
+        const usernameInput = this.props.formType === 'Sign Up' ? (<input className='session-input' type="text"
+            placeholder='Enter your username...' value={this.state.username} 
+            onChange={this.handleInput('username')} />) : null;
+
         return (
             <div className='modal-screen'>
                 <button id='modal-close-btn' onClick={this.handleClose}>&times;</button>
@@ -60,8 +66,8 @@ class SessionForm extends React.Component {
                             <button id='demo' className='provider-btn' onClick={this.demoLogin}>Demo Login</button>
                             <span>--- or ---</span>
                             <br/>
-                            <input className='session-input' type="text" placeholder='Enter your email or profile url...'
-                            value={this.state.input} onChange={this.handleInput('input')} />
+                            <input className='session-input' type="text" placeholder={placeholderMsg}
+                            value={this.state.email} onChange={this.handleInput('email')} />
                             
                             <button className='session-btn' onClick={this.hideEmailDiv}>Continue</button>
                             <span><a href="" id='help'>Need Help?</a></span>
@@ -83,10 +89,12 @@ class SessionForm extends React.Component {
                         <div className='pass-div hidden'>
                             <button className='session-btn' id='prefilled-email-btn' onClick={this.hidePassDiv}>
                                 <span id='prefilled-email-arrow'> &#9664; </span>
-                                <span id='prefilled-email-text'>{this.state.input}</span>
+                                <span id='prefilled-email-text'>{this.state.email}</span>
                             </button>
 
-                            <input className='session-input' type="password" 
+                            {usernameInput}
+
+                            <input className='session-input' type="password" placeholder='Enter your password...'
                             value={this.state.password} onChange={this.handleInput('password')} />
 
                             <input className='session-btn' type="submit" value={this.props.formType}/>

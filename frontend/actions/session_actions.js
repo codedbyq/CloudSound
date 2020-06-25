@@ -1,4 +1,4 @@
-import { postSession, deleteSession } from '../util/session_api_utl';
+import { postSession, deleteSession, createUser } from '../util/session_api_utl';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -29,3 +29,9 @@ export const logout = () => dispatch => (
     err => dispatch(receiveErrors(err.responseJSON))
     )
 );
+
+export const signup = user => dispatch => (
+    createUser(user).then(user => dispatch(receiveCurrentUser(user)),
+        err => (dispatch(receiveErrors(err.responseJSON)))
+    )
+)

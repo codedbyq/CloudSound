@@ -11,8 +11,7 @@ const UsersReducer = (state = {}, action) => {
             return newState;
         case RECEIVE_USERS:
             return Object.assign({}, newState, action.users);
-        case RECEIVE_CURRENT_USER:
-            return Object.assign({}, newState, action.users);
+
     
         default:
             return state;
