@@ -135,3 +135,30 @@
     list-style: none;
     color: red
 }
+
+.welcome-msg {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.welcome-logo {
+    height: 100px;
+    width: 220px;
+    background-image: url(asset_path('logo-no-text.png'));
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 70px;
+}
+
+.or-divider {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.divider {
+    border: 1px solid black;
+    width: 160px;
+    height: 0.1px;
+}

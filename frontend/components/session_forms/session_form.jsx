@@ -79,16 +79,20 @@ class SessionForm extends React.Component {
                 
                 <div className='modal-content'>
                     <form id='session-form' onSubmit={this.handleSubmit}>
-
+                        <h1 className='welcome-msg'>Welcome to Cloudsound</h1>
+                        <div className='welcome-logo'></div>
                         <div className='email-div' onSubmit={this.hideEmailDiv}>
                             
                             <button id='demo' type='button' className='provider-btn' onClick={this.demoLogin}>Demo Login</button>
-                            <span>--- or ---</span>
+                            <div className='or-divider'>
+                                <span className='divider'></span> or <span className='divider'></span>
+                            </div>
                             <br/>
                             <input className='session-input' type="text" placeholder={placeholderMsg}
                             value={this.state.email} onChange={this.handleInput('email')} />
                             
                             <input className='session-btn' type="submit" value='Continue' />
+                            {sessionLink}
                         </div>
 
                         <div className='pass-div hidden'>
