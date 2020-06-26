@@ -1095,9 +1095,15 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(SongShow);
 
   function SongShow(props) {
+    var _this;
+
     _classCallCheck(this, SongShow);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      song: _this.props.song
+    };
+    return _this;
   }
 
   _createClass(SongShow, [{
@@ -1108,7 +1114,9 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log(this.props.song);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.song.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "cover-art",
         src: this.props.song.coverURL
       }));
     }
@@ -1205,7 +1213,9 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       title: '',
-      description: ''
+      description: '',
+      coverFile: null,
+      audioFile: null
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -1221,13 +1231,29 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
+    key: "handleFile",
+    value: function handleFile(field) {
+      var _this3 = this;
+
+      return function (e) {
+        return _this3.setState(_defineProperty({}, field, e.currentTarget.files[0]));
+      };
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      this.props.createSong(this.state);
+      var formData = new FormData();
+      formData.append('post[title]', this.state.title);
+      formData.append('post[description]', this.state.description);
+      formData.append('post[coverFile]', this.state.coverFile);
+      formData.append('post[audioFile]', this.state.audioFile);
+      this.props.createSong(formData);
       this.setState({
         title: '',
-        description: ''
+        description: '',
+        coverFile: null,
+        audioFile: null
       });
     }
   }, {
@@ -1236,7 +1262,13 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "file"
+        name: "cover",
+        type: "file",
+        onChange: this.handleFile('coverFile')
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "audio",
+        type: "file",
+        onChange: this.handleFile('audioFile')
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Title:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "Enter a title",
