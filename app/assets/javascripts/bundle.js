@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", function () {
         users: _defineProperty({}, window.currentUser.id, window.currentUser)
       },
       session: {
-        id: window.currentUser.id
+        currentUser: window.currentUser.id
       }
     };
     delete window.currentUser;
