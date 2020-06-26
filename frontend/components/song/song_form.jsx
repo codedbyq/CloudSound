@@ -33,10 +33,10 @@ class SongForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id='song-form'>
                 <form onSubmit={this.handleSubmit}>
-                    <input name='cover' type="file" onChange={this.handleFile('coverFile')}/>
-                    <input name='audio' type="file" onChange={this.handleFile('audioFile')}/>
+                    <input type="file" value='Choose Cover Art' onChange={this.handleFile('coverFile')}/>
+                    <input type="file" value='Upload Song' onChange={this.handleFile('audioFile')}/>
 
                     <label>Title: 
                         <input type="text" placeholder='Enter a title'

@@ -3,20 +3,31 @@ import React, { useEffect } from 'react';
 class SongShow extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { song: this.props.song };
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentWillMount() {
         this.props.fetchSong(this.props.match.params.songId);
     }
 
+    handleDelete(e) {
+        e.preventDefault();
+        this.props.deleteSong(this.props.match.params.songId)
+            .then(() => this.props.history.push('/'));
+    }
+
     render() {
-        console.log(this.props.song);
+        const content = this.props.song ? (
+            <>
+                <h1>{this.props.song.title}</h1>
+                <img src={this.props.song.coverURL} />
+            </>
+        ) : null
 
         return (
             <div>
-               <h1>{this.props.song.title}</h1>
-               <img className='cover-art' src={this.props.song.coverURL} />
+               {content}
+               <button onClick={this.handleDelete}>Delete</button>
             </div>
         )
     }
