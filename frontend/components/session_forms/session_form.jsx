@@ -35,22 +35,22 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault;
-
+        
         if (this.state.password) {
             this.props.action(this.state)
-                .then(() => this.props.history.push('/discover'));
+            .then(() => this.props.history.push('/discover'));
         } else {
             this.hideEmailDiv(e);
         }
     }
-
+    
     demoLogin(e) {
         e.preventDefault();
         const user = { email: 'demo@login.com', password: '123456' };
         this.props.login(user)
-            .then(() => this.props.history.push('/discover'));
+        .then(() => this.props.history.push('/discover'));
     }
-
+    
     handleClose(e) {
         e.preventDefault()
         const form = document.getElementById('session-form');
@@ -72,21 +72,23 @@ class SessionForm extends React.Component {
         ));
 
         return (
-            <div className='modal-screen' onClick={this.handleClose}>
-                <div className='modal-button'><button id='modal-close-btn' onClick={this.handleClose}>&times;</button></div>
+            <div className='modal-screen' >
+                <div className='modal-button' onClick={this.handleClose}>
+                    <button id='modal-close-btn' onClick={this.handleClose}>&times;</button>
+                </div>
                 
                 <div className='modal-content'>
                     <form id='session-form' onSubmit={this.handleSubmit}>
 
-                        <div className='email-div'>
+                        <div className='email-div' onSubmit={this.hideEmailDiv}>
                             
-                            <button id='demo' className='provider-btn' onClick={this.demoLogin}>Demo Login</button>
+                            <button id='demo' type='button' className='provider-btn' onClick={this.demoLogin}>Demo Login</button>
                             <span>--- or ---</span>
                             <br/>
                             <input className='session-input' type="text" placeholder={placeholderMsg}
                             value={this.state.email} onChange={this.handleInput('email')} />
                             
-                            <button className='session-btn' onClick={this.hideEmailDiv}>Continue</button>
+                            <input className='session-btn' type="submit" value='Continue' />
                         </div>
 
                         <div className='pass-div hidden'>

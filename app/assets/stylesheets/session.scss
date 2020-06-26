@@ -1,4 +1,4 @@
-.modal-screen {
+.modal-screen, .modal-button {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -16,6 +16,15 @@
     margin-top: 70px;
     display: flex;
     justify-content: center;
+}
+
+#modal-close-btn {
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    height: 35px;
+    width: 35px;
+    font-size: 30px;
 }
 
 
@@ -120,23 +129,6 @@
     margin-left: 10px;
 }
 
-#modal-close-btn {
-    margin-left: auto;
-    border: none;
-    background-color: transparent;
-    height: 35px;
-    width: 35px;
-    font-size: 30px;
-}
-
-.modal-button {
-    position: sticky;
-    top: 0;
-    display: inline-flex;
-    width: auto;
-    height: 35px;
-    justify-content: right;
-}
 
 .session-errors {
     margin-top: 20px;
