@@ -17,12 +17,16 @@
     color: #d7d7d7;
     font-size: 11px;
     margin-right: 10px;
+    margin-bottom: 5px;
+
 }
+
 
 #language-select {
     color: blue;
     text-decoration: none;
     font-size: 12px;
+    cursor: not-allowed;
 }
 
 a > span {

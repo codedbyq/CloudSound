@@ -28,6 +28,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
+    flex-direction: column;
 }
 
 #session-form a {
@@ -110,6 +112,12 @@
     font-weight: 50;
     background-color: white;
     color: black;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#prefilled-email-text {
+    margin-left: 10px;
 }
 
 #modal-close-btn {
@@ -128,4 +136,10 @@
     width: auto;
     height: 35px;
     justify-content: right;
+}
+
+.session-errors {
+    margin-top: 20px;
+    list-style: none;
+    color: red
 }

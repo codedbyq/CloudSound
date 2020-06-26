@@ -4,15 +4,10 @@ const Footer = () => {
     return (
         <div id='footer'>
             <ul id='footer-links'>
-                <a href="">Popular searches</a>
-                <a href="">Directory</a>
-                <a href="">About us</a>
-                <a href="">Help</a>
-                <a href="">Legal</a>
-                <a href="">Privacy</a>
-                <a href="">Cookies</a>
-                <a href="">Imprint</a>
-                <a href="">Charts</a>
+                <a href="https://github.com/codedbyq">Github</a>
+                <a href="https://www.linkedin.com/in/marquisbentley/">LinkedIn</a>
+                <a href="https://github.com/codedbyq/CloudSound/wiki">About</a>
+                <a href="https://github.com/codedbyq/CloudSound/blob/master/README.md">Help</a>
             </ul>
             <a href="" id='language-select'>Language: <span>English (US)</span></a>
         </div>

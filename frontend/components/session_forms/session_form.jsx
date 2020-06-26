@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -34,19 +35,29 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault;
-        this.props.action(this.state)
-            .then(() => this.props.history.push('/'));
+
+        if (this.state.password) {
+            this.props.action(this.state)
+                .then(() => this.props.history.push('/discover'));
+        } else {
+            this.hideEmailDiv(e);
+        }
     }
 
     demoLogin(e) {
         e.preventDefault();
         const user = { email: 'demo@login.com', password: '123456' };
         this.props.login(user)
-            .then(() => this.props.history.push('/'));
+            .then(() => this.props.history.push('/discover'));
     }
 
     handleClose(e) {
-        this.props.history.goBack();
+        e.preventDefault()
+        const form = document.getElementById('session-form');
+
+        if (e.target !== form) {
+            this.props.history.goBack();
+        }
     }
 
     render() {
@@ -54,18 +65,21 @@ class SessionForm extends React.Component {
         const usernameInput = this.props.formType === 'Sign Up' ? (<input className='session-input' type="text"
             placeholder='Enter your username...' value={this.state.username} 
             onChange={this.handleInput('username')} />) : null;
+        const sessionLink = this.props.formType === 'Login' ? (<Link to='/signup'>Don't have an account?</Link>) : (
+            <Link to='/login'>Already have an account?</Link> );
+        const errors = this.props.errors.map(err => (
+            <li>{err}</li>
+        ));
 
         return (
-            <div className='modal-screen'>
+            <div className='modal-screen' onClick={this.handleClose}>
                 <div className='modal-button'><button id='modal-close-btn' onClick={this.handleClose}>&times;</button></div>
                 
                 <div className='modal-content'>
                     <form id='session-form' onSubmit={this.handleSubmit}>
 
                         <div className='email-div'>
-                            {/* <button id='abc' className='provider-btn'>Sign in with Google</button>
-                            <button id='fb' className='provider-btn'>Sign in with Facebook</button>
-                            <button id='apple' className='provider-btn'>Sign in with Apple</button> */}
+                            
                             <button id='demo' className='provider-btn' onClick={this.demoLogin}>Demo Login</button>
                             <span>--- or ---</span>
                             <br/>
@@ -73,20 +87,6 @@ class SessionForm extends React.Component {
                             value={this.state.email} onChange={this.handleInput('email')} />
                             
                             <button className='session-btn' onClick={this.hideEmailDiv}>Continue</button>
-                            <span><a href="" id='help'>Need Help?</a></span>
-                            <div className='session-paragraph'>
-                                <p>
-                                    We may use your email and devices for updates and tips 
-                                    on SoundCloud's products and services, and for activities 
-                                    notifications. You can unsubscribe for free at any time 
-                                    in your notification settings.
-                                </p>
-                                <br/>
-                                <p>
-                                    We may use information you provide us in order to show 
-                                    you targeted ads as described in our <a href="">Privacy Policy</a>.
-                                </p>
-                            </div>
                         </div>
 
                         <div className='pass-div hidden'>
@@ -101,9 +101,12 @@ class SessionForm extends React.Component {
                             value={this.state.password} onChange={this.handleInput('password')} />
 
                             <input className='session-btn' type="submit" value={this.props.formType}/>
-                            <a href="">Don't know your password?</a>
+                            {sessionLink}
                         </div>
 
+                        <div>
+                            <ul className='session-errors'>{errors}</ul>
+                        </div>
                     </form>
                 </div>
             </div>
