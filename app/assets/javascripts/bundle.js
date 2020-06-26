@@ -677,9 +677,10 @@ var NavBar = function NavBar(props) {
     id: "navbar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-left"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "nav-logo"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], _defineProperty({
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+    id: "nav-logo",
+    to: "/"
+  }, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], _defineProperty({
     className: "left-btn",
     to: "/"
   }, "className", "home"), "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -1246,18 +1247,6 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var formData = new FormData();
-      formData.append('post[title]', this.state.title);
-      formData.append('post[description]', this.state.description);
-      formData.append('post[coverFile]', this.state.coverFile);
-      formData.append('post[audioFile]', this.state.audioFile);
-      this.props.createSong(formData);
-      this.setState({
-        title: '',
-        description: '',
-        coverFile: null,
-        audioFile: null
-      });
     }
   }, {
     key: "render",

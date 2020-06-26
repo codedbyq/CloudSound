@@ -22,7 +22,7 @@ const NavBar = props => {
     return (
         <div id='navbar'>
             <div className='nav-left'>
-                <div id='nav-logo'  ></div>
+                <NavLink id='nav-logo' to='/'> </NavLink>
                 <NavLink className='left-btn' to='/' className='home'>Home</NavLink>
                 <NavLink className='left-btn' to='/login'>Stream</NavLink>
                 <NavLink className='left-btn' to='/login'>Library</NavLink>

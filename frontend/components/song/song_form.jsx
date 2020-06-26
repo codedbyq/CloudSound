@@ -19,16 +19,6 @@ class SongForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        const formData = new FormData();
-        formData.append('post[title]', this.state.title);
-        formData.append('post[description]', this.state.description);
-        formData.append('post[coverFile]', this.state.coverFile);
-        formData.append('post[audioFile]', this.state.audioFile);
-        this.props.createSong(formData);
-
-        this.setState({title: '', description: '',
-            coverFile: null, audioFile: null
-        });
     }
 
     render() {
