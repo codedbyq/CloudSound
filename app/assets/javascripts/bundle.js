@@ -789,7 +789,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     user: {
-      input: '',
+      email: '',
       password: ''
     },
     formType: 'Login',
@@ -912,7 +912,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
 
       e.preventDefault();
       var user = {
-        input: 'DemoUser',
+        email: 'demo@login.com',
         password: '123456'
       };
       this.props.login(user).then(function () {
