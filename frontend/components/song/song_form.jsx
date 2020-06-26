@@ -14,12 +14,14 @@ class SongForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createSong(this.state);
+        this.setState({ title: '', description: '' });
     }
 
     render() {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
+                    <input type="file"/>
                     <label>Title: 
                         <input type="text" placeholder='Enter a title'
                         value={this.state.title} onChange={this.handleInput('title')}/>

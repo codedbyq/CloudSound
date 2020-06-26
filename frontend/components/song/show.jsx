@@ -5,14 +5,15 @@ class SongShow extends React.Component {
         super(props)
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.fetchSong(this.props.match.params.songId)
     }
     
     render() {
         return (
             <div>
-               Song show page
+               <h1>{this.props.song.title}</h1>
+               <img src={this.props.song.coverURL} />
             </div>
         )
     }

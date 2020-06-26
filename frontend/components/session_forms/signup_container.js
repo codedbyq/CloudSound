@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
     action: user => dispatch(signup(user)),
-    demoLogin: () => dispatch(login({ input: 'DemoUser', password: '123456' }))
+    login: user => dispatch(login(user))
 
 });
 

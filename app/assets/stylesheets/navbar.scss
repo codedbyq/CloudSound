@@ -174,7 +174,7 @@
     right: -5px;
 }
 
-#search {
+#search, #search-long {
     margin: 5px 10px;
     width: 213px;
     height: 27px;
@@ -185,6 +185,10 @@
     padding: 7px 8px;
     background-color: #e1e1e1;
     color: rgb(153, 153, 153);
+}
+
+#search-long {
+    width: 342px;
 }
 
 #search:focus {

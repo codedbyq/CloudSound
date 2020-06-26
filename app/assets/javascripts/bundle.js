@@ -334,10 +334,6 @@ document.addEventListener("DOMContentLoaded", function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root); //! REMOVE BEFORE HEROKU PUSH - window methods and variables for testing 
-
-  window.state = store.getState;
-  window.dispatch = store.dispatch;
-  window.fetchUsers = _actions_user_actions__WEBPACK_IMPORTED_MODULE_4__["fetchUsers"];
 });
 
 /***/ }),
@@ -660,6 +656,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var NavBar = function NavBar(props) {
+  var placeholderMsg = props.currentUser ? 'Search for artists, bands, tracks, podcasts...' : 'Search for artists, tracks...';
+  var searchBar = props.currentUser ? 'search-long' : 'search';
   var navRight = props.currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     id: "right-btn",
     to: "/"
@@ -691,9 +689,9 @@ var NavBar = function NavBar(props) {
     className: "left-btn",
     to: "/login"
   }, "Library")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    id: "search",
+    id: searchBar,
     type: "search",
-    placeholder: "Search for artists, tracks..."
+    placeholder: placeholderMsg
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "nav-right"
   }, navRight, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -804,11 +802,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     action: function action(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(user));
     },
-    demoLogin: function demoLogin() {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])({
-        input: 'DemoUser',
-        password: '123456'
-      }));
+    login: function login(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(user));
     }
   };
 };
@@ -913,8 +908,16 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "demoLogin",
     value: function demoLogin(e) {
+      var _this4 = this;
+
       e.preventDefault();
-      this.props.demoLogin();
+      var user = {
+        input: 'DemoUser',
+        password: '123456'
+      };
+      this.props.login(user).then(function () {
+        return _this4.props.history.push('/');
+      });
     }
   }, {
     key: "handleClose",
@@ -1041,11 +1044,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     action: function action(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["signup"])(user));
     },
-    demoLogin: function demoLogin() {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["login"])({
-        input: 'DemoUser',
-        password: '123456'
-      }));
+    login: function login(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["login"])(user));
     }
   };
 };
@@ -1101,14 +1101,16 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(SongShow, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "componentWillMount",
+    value: function componentWillMount() {
       this.props.fetchSong(this.props.match.params.songId);
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Song show page");
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.song.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.props.song.coverURL
+      }));
     }
   }]);
 
@@ -1223,13 +1225,19 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       this.props.createSong(this.state);
+      this.setState({
+        title: '',
+        description: ''
+      });
     }
   }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Title:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Title:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "Enter a title",
         value: this.state.title,

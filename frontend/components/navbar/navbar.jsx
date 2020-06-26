@@ -4,6 +4,8 @@ import NavDropdown from './nav_dropdown';
 
 const NavBar = props => {
 
+    const placeholderMsg = props.currentUser ? 'Search for artists, bands, tracks, podcasts...' : 'Search for artists, tracks...';
+    const searchBar = props.currentUser ? 'search-long' : 'search';
     const navRight = props.currentUser ? (
         <>
             <NavLink id='right-btn' to='/'>Try Pro</NavLink>
@@ -16,6 +18,7 @@ const NavBar = props => {
         </>
     )
 
+
     return (
         <div id='navbar'>
             <div className='nav-left'>
@@ -25,7 +28,7 @@ const NavBar = props => {
                 <NavLink className='left-btn' to='/login'>Library</NavLink>
             </div>
 
-            <input id='search' type="search" placeholder='Search for artists, tracks...' />
+            <input id={searchBar} type="search" placeholder={placeholderMsg} />
 
             <div id='nav-right'>
                 {navRight}
