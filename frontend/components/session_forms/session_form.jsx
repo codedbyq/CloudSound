@@ -63,9 +63,9 @@ class SessionForm extends React.Component {
                     <form id='session-form' onSubmit={this.handleSubmit}>
 
                         <div className='email-div'>
-                            <button id='abc' className='provider-btn'>Sign in with Google</button>
+                            {/* <button id='abc' className='provider-btn'>Sign in with Google</button>
                             <button id='fb' className='provider-btn'>Sign in with Facebook</button>
-                            <button id='apple' className='provider-btn'>Sign in with Apple</button>
+                            <button id='apple' className='provider-btn'>Sign in with Apple</button> */}
                             <button id='demo' className='provider-btn' onClick={this.demoLogin}>Demo Login</button>
                             <span>--- or ---</span>
                             <br/>
