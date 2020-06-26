@@ -1,0 +1,13 @@
+.song-form {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 500px;
+    width: 500px;
+    margin-top: 50px;
+}
+
+#song-upload-div {
+    display: flex;
+    justify-content: center;
+}
