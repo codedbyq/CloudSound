@@ -1240,7 +1240,12 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
     value: function handleAudio(e) {
       this.setState({
         audioFile: e.currentTarget.files[0]
-      }); //use this function to hide the audio upload and show the form content div
+      });
+      var audioDiv = document.querySelector('.audio-upload');
+      var contentDiv = document.querySelector('.song-basic-info');
+      audioDiv.classList.add('hidden');
+      audioDiv.id.add;
+      contentDiv.classList.remove('hidden');
     }
   }, {
     key: "handleInput",
@@ -1250,6 +1255,15 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value[0]));
       };
+    }
+  }, {
+    key: "hideContentDiv",
+    value: function hideContentDiv(e) {
+      e.preventDefault();
+      var audioDiv = document.querySelector('.hidden');
+      var contentDiv = document.querySelector('.song-basic-info');
+      contentDiv.classList.add('hidden');
+      audioDiv.classList.remove('hidden');
     }
   }, {
     key: "handleSubmit",
@@ -1276,11 +1290,11 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "audio-upload"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Drag and drop your track here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Drag & drop your track here", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         onChange: this.handleAudio
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "song-basic-info hide"
+        className: "song-basic-info hidden"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cover-art"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1360,7 +1374,8 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "form-buttons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "form-cancel"
+        id: "form-cancel",
+        onClick: this.hideContentDiv
       }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "form-save",
         type: "submit",

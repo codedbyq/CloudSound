@@ -18,11 +18,25 @@ class SongForm extends React.Component {
 
     handleAudio(e) {
         this.setState({ audioFile: e.currentTarget.files[0] })
-        //use this function to hide the audio upload and show the form content div
+        const audioDiv = document.querySelector('.audio-upload');
+        const contentDiv = document.querySelector('.song-basic-info');
+
+        audioDiv.classList.add('hidden');
+        audioDiv.id.add
+        contentDiv.classList.remove('hidden');
     }
 
     handleInput(field) {
         return e => this.setState({ [field]: e.currentTarget.value[0]})
+    }
+
+    hideContentDiv(e) {
+        e.preventDefault();
+        const audioDiv = document.querySelector('.hidden');
+        const contentDiv = document.querySelector('.song-basic-info');
+
+        contentDiv.classList.add('hidden');
+        audioDiv.classList.remove('hidden');
     }
 
     handleSubmit(e) {
@@ -43,11 +57,11 @@ class SongForm extends React.Component {
                 <form className='song-form' onSubmit={this.handleSubmit}>
 
                     <div className='audio-upload'>
-                        <h1>Drag and drop your track here</h1>
+                        Drag &amp; drop your track here
                         <input type="file" onChange={this.handleAudio}/>
                     </div>
 
-                    <div className='song-basic-info hide'>
+                    <div className='song-basic-info hidden'>
                         <div className='cover-art'>
                             <input type="file" onChange={this.handleCover}/>
                         </div>
@@ -92,7 +106,7 @@ class SongForm extends React.Component {
                                 onChange={this.handleInput('title')}></textarea>
                         </div>
                     <div id='form-buttons'>
-                        <button id='form-cancel'>Cancel</button>
+                        <button id='form-cancel' onClick={this.hideContentDiv}>Cancel</button>
                         <input id='form-save' type="submit" value='Save' onClick={this.handleSubmit}/>
                     </div>
                     </div>
