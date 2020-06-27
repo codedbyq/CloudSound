@@ -1,13 +1,39 @@
-.song-form {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    height: 500px;
-    width: 500px;
-    margin-top: 50px;
-}
+@import 'variables';
 
-#song-upload-div {
+#song-form-div {
     display: flex;
     justify-content: center;
+    height: 600px;
+    border: 1px solid red;
+    align-items: center;
+}
+
+.song-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 420px;
+    width: 720px;
+    padding: 20px 25px;
+    border: 1px solid $lighter-grey;
+    border-radius: 3px;
+}
+
+.song-basic-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.cover-art {
+    height: 200px;
+    width: 200px;
+    border: 1px solid green;
+    margin-right: 20px;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
 }

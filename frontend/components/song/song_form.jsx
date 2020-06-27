@@ -39,27 +39,26 @@ class SongForm extends React.Component {
 
     render() {
         return (
-            <div id='song-upload-div'>
+            <div id='song-form-div'>
                 <form className='song-form' onSubmit={this.handleSubmit}>
 
-                    <div>
+                    <div className='audio-upload'>
                         <h1>Drag and drop your track here</h1>
                         <input type="file" onChange={this.handleAudio}/>
                     </div>
 
-
-                    <div className='song-form-content'>
+                    <div className='song-basic-info hide'>
                         <div className='cover-art'>
                             <input type="file" onChange={this.handleCover}/>
                         </div>
-                        <label className='song-form-label'>
-                            Title<p id='required'>*</p> 
-                            <input className='song-form-input' type="text" placeholder='Enter a title'
+
+                        <div className='form-content'>
+                            <label className='song-form-label'>Title<p id='required'>*</p></label>
+                            <input className='song-form-input' type="text" placeholder='Give your song a title'
                             value={this.state.title} onChange={this.handleInput('title')}/>
-                        </label>
-                        
-                        <label>Genre
-                            <select id='genre-list' name="genres">
+                            
+                            <label>Genre</label>
+                            <select name="genres">
                                 <option value="None">None</option>
                                 <option value="Alternative">Alternative</option>
                                 <option value="Ambient">Ambient</option>
@@ -85,15 +84,18 @@ class SongForm extends React.Component {
                                 <option value="Soundtrack">Soundtrack</option>
                                 <option value="Techno">Techno</option>
                             </select>
-                        </label>
+                            
 
-                        <label className='song-form-label'>Description
-                            <input className='song-form-input' type="text" placeholder='Enter a description'
-                            value={this.state.description} onChange={this.handleInput('description')}/>
-                        </label>
+                            <label className='song-form-label'>Description</label>
+                            <textarea className='song-form-input'  cols="30" rows="10" 
+                                placeholder='Describe your track' value={this.state.description}
+                                onChange={this.handleInput('title')}></textarea>
+                        </div>
+                    <div id='form-buttons'>
+                        <button id='form-cancel'>Cancel</button>
+                        <input id='form-save' type="submit" value='Save' onClick={this.handleSubmit}/>
                     </div>
-                    <button id='form-cancel'>Cancel</button>
-                    <input id='form-save' type="submit" value='Save' onClick={this.handleSubmit}/>
+                    </div>
                 </form>
             </div>
         )
