@@ -1247,7 +1247,17 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this4 = this;
+
       e.preventDefault();
+      var formData = new FormData();
+      formData.append('song[title]', this.state.title);
+      formData.append('song[description]', this.state.description);
+      formData.append('song[coverFile]', this.state.coverFile);
+      formData.append('song[audioFile]', this.state.audioFile);
+      this.props.createSong(formData).then(function (song) {
+        return _this4.props.history.push("/songs/".concat(song.id));
+      });
     }
   }, {
     key: "render",
@@ -1275,7 +1285,8 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.handleInput('description')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
-        value: "create"
+        value: "create",
+        onClick: this.handleSubmit
       })));
     }
   }]);
@@ -1700,9 +1711,9 @@ var createSong = function createSong(song) {
   return $.ajax({
     method: 'post',
     url: 'api/songs',
-    data: {
-      song: song
-    }
+    data: song,
+    contentType: false,
+    processData: false
   });
 };
 var updateSong = function updateSong(song) {

@@ -1,2 +1,3 @@
 json.extract! song, :id, :title, :description, :artist_id
-json.coverURL url_for(song.cover) if song.cover.attached?
+json.coverURL url_for(song.coverFile) if song.coverFile.attached?
+json.audioURL url_for(song.audioFile) if song.audioFile.attached?

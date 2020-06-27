@@ -18,7 +18,14 @@ class SongForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('song[title]', this.state.title);
+        formData.append('song[description]', this.state.description);
+        formData.append('song[coverFile]', this.state.coverFile);
+        formData.append('song[audioFile]', this.state.audioFile);
 
+        this.props.createSong(formData)
+            .then((song) => this.props.history.push(`/songs/${song.id}`));
     }
 
     render() {
@@ -45,7 +52,7 @@ class SongForm extends React.Component {
                     </label>
                     <br/>
 
-                    <input type="submit" value='create'/>
+                    <input type="submit" value='create' onClick={this.handleSubmit}/>
                 </form>
             </div>
         )
