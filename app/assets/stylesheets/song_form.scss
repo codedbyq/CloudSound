@@ -27,7 +27,6 @@
 }
 
 .cover-div {
-    border: 1px solid green;
     margin-right: 40px;
     display: flex;
     justify-content: baseline;
@@ -46,6 +45,12 @@
     font-size: 12px;
 }
 
+.song-form-input:focus, .description:focus, .genre-option {
+    color: black;
+    border: 1px solid black;
+    outline: none;
+}
+
 .song-form-input, .description {
     margin-bottom: 15px;
     padding: 8px 7px;
@@ -54,6 +59,7 @@
     font-family: $font-stack;
     border-radius: $border-rad;
     border: 1px solid $lighter-grey;
+    color: grey;
 }
 
 .song-form-input {
@@ -67,6 +73,7 @@
     border-radius: $border-rad;
     font-size: 17px;
     border: 1px solid $lighter-grey;
+    color: grey;
 }
 
 .audio-div {
@@ -103,13 +110,15 @@ input[type="file"] {
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 20px;
+    background-color: $lighter-grey;
 }
 
 .cover-msg {
-    background-color: $lighter-grey;
-    border: 1px solid $mid-grey;
+    background-color: $sc-orange;
+    color: white;
     border-radius: 4px;
-    padding: 4px;
+    padding: 4px 6px;
+    font-size: 13px;
 }
 
 .song-form-label {
@@ -129,4 +138,22 @@ input[type="file"] {
     justify-content: space-between;
     margin: 20px 0px;
     font-size: 12px;
+}
+
+#form-save, #form-cancel {
+    height: 30px;
+    width: 55px;
+    margin-left: 10px;
+    border: none;
+    border-radius: $border-rad;
+    text-align: center;
+}
+
+#form-cancel {
+    background-color: transparent;
+}
+
+#form-save {
+    background-color: $sc-orange;
+    color: white;
 }
