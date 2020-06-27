@@ -3,7 +3,7 @@ import React from 'react';
 class SongForm extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { title: '', description: '', 
+        this.state = { title: '', description: '', coverUrl: null,
         coverFile: null, audioFile: null }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleAudio = this.handleAudio.bind(this);
@@ -11,9 +11,17 @@ class SongForm extends React.Component {
     }
 
     handleCover(e) {
-        this.setState({ coverFile: e.currentTarget.files[0] })
-
         //user state.cover to inline set background image property
+        const reader = new FileReader();
+        const file = e.currentTarget.files[0];
+        reader.onloadend = () => this.setState({ 
+            coverUrl: reader.result, coverFile: file });
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            this.setState({ imageUrl: "", imageFile: null });
+        }
     }
 
     handleAudio(e) {
@@ -52,6 +60,13 @@ class SongForm extends React.Component {
     }
 
     render() {
+        const cover = {
+            backgroundImage: `url(${this.state.coverUrl})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+        }
+
         return (
             <div id='song-form-div'>
                 <form className='song-form' onSubmit={this.handleSubmit}>
@@ -66,7 +81,7 @@ class SongForm extends React.Component {
 
                     <div className='second-slide hidden'>
                         <div className='song-basic-info'>
-                            <label className='cover-div'>
+                            <label className='cover-div' style={cover}>
                                 <span className='cover-msg'>Choose a cover</span>
                                 <input type="file" onChange={this.handleCover}/>
                             </label>

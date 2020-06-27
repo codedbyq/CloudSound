@@ -1219,6 +1219,7 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       title: '',
       description: '',
+      coverUrl: null,
       coverFile: null,
       audioFile: null
     };
@@ -1231,9 +1232,27 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
   _createClass(SongForm, [{
     key: "handleCover",
     value: function handleCover(e) {
-      this.setState({
-        coverFile: e.currentTarget.files[0]
-      }); //user state.cover to inline set background image property
+      var _this2 = this;
+
+      //user state.cover to inline set background image property
+      var reader = new FileReader();
+      var file = e.currentTarget.files[0];
+
+      reader.onloadend = function () {
+        return _this2.setState({
+          coverUrl: reader.result,
+          coverFile: file
+        });
+      };
+
+      if (file) {
+        reader.readAsDataURL(file);
+      } else {
+        this.setState({
+          imageUrl: "",
+          imageFile: null
+        });
+      }
     }
   }, {
     key: "handleAudio",
@@ -1250,10 +1269,10 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleInput",
     value: function handleInput(field) {
-      var _this2 = this;
+      var _this3 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
@@ -1268,7 +1287,7 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this3 = this;
+      var _this4 = this;
 
       e.preventDefault();
       var formData = new FormData();
@@ -1277,12 +1296,18 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       formData.append('song[coverFile]', this.state.coverFile);
       formData.append('song[audioFile]', this.state.audioFile);
       this.props.createSong(formData).then(function (song) {
-        return _this3.props.history.push("/songs/".concat(song.id));
+        return _this4.props.history.push("/songs/".concat(song.id));
       });
     }
   }, {
     key: "render",
     value: function render() {
+      var cover = {
+        backgroundImage: "url(".concat(this.state.coverUrl, ")"),
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      };
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "song-form-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1301,7 +1326,8 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "song-basic-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "cover-div"
+        className: "cover-div",
+        style: cover
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "cover-msg"
       }, "Choose a cover"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
