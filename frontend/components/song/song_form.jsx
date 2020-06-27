@@ -27,7 +27,7 @@ class SongForm extends React.Component {
     }
 
     handleInput(field) {
-        return e => this.setState({ [field]: e.currentTarget.value[0]})
+        return e => this.setState({ [field]: e.currentTarget.value})
     }
 
     hideContentDiv(e) {

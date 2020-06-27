@@ -18,6 +18,8 @@
 .song-basic-info {
     @extend %flex-center;
     flex-direction: row;
+    padding: 30px 0px;
+    border-bottom: 1px solid $lighter-grey;
 }
 
 .hidden, .audio-div.hidden {
@@ -44,23 +46,27 @@
     font-size: 12px;
 }
 
-.song-form-input {
+.song-form-input, .description {
     margin-bottom: 15px;
-    height: 27px;
     padding: 8px 7px;
     line-height: 18px;
-    font-size: 20px;
+    font-size: 17px;
+    font-family: $font-stack;
+    border-radius: $border-rad;
+    border: 1px solid $lighter-grey;
+}
+
+.song-form-input {
+    height: 25px;
 }
 
 .genre-option {
     margin-bottom: 15px;
     padding: 8px 7px;
-    height: 35px;
-}
-
-.description {
-    margin-bottom: 15px;
-    font-size: 20px;
+    height: 45px;
+    border-radius: $border-rad;
+    font-size: 17px;
+    border: 1px solid $lighter-grey;
 }
 
 .audio-div {
@@ -121,6 +127,6 @@ input[type="file"] {
 .form-footer {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin: 20px 0px;
     font-size: 12px;
 }

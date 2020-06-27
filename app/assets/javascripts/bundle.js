@@ -1253,7 +1253,7 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value[0]));
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
