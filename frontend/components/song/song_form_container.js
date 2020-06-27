@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createSong } from '../../actions/song_actions';
 import SongForm from './song_form';
 
-const mapDispatchToState = dispatch => ({
+const mapDispatchToState = (dispatch, ownProps) => ({
     createSong: song => dispatch(createSong(song))
 });
 

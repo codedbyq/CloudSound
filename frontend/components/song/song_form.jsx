@@ -6,14 +6,23 @@ class SongForm extends React.Component {
         this.state = { title: '', description: '', 
         coverFile: null, audioFile: null }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleAudio = this.handleAudio.bind(this);
+        this.handleCover = this.handleCover.bind(this);
+    }
+
+    handleCover(e) {
+        this.setState({ coverFile: e.currentTarget.files[0] })
+
+        //user state.cover to inline set background image property
+    }
+
+    handleAudio(e) {
+        this.setState({ audioFile: e.currentTarget.files[0] })
+        //use this function to hide the audio upload and show the form content div
     }
 
     handleInput(field) {
-        return e => this.setState({ [field]: e.currentTarget.value })
-    }
-
-    handleFile(field) {
-        return e => this.setState({ [field]: e.currentTarget.files[0]})
+        return e => this.setState({ [field]: e.currentTarget.value[0]})
     }
 
     handleSubmit(e) {
@@ -32,27 +41,59 @@ class SongForm extends React.Component {
         return (
             <div id='song-upload-div'>
                 <form className='song-form' onSubmit={this.handleSubmit}>
-                    <label>Choose your cover art:
-                        <input type="file" onChange={this.handleFile('coverFile')}/>
-                    </label>
 
-                    <label>Upload your song:
-                    <input type="file" onChange={this.handleFile('audioFile')}/>
-                    </label>
+                    <div>
+                        <h1>Drag and drop your track here</h1>
+                        <input type="file" onChange={this.handleAudio}/>
+                    </div>
 
-                    <label>Title: 
-                        <input type="text" placeholder='Enter a title'
-                        value={this.state.title} onChange={this.handleInput('title')}/>
-                    </label>
-                    <br/>
 
-                    <label>Description: 
-                        <input type="text" placeholder='Enter a description'
-                        value={this.state.description} onChange={this.handleInput('description')}/>
-                    </label>
-                    <br/>
+                    <div className='song-form-content'>
+                        <div className='cover-art'>
+                            <input type="file" onChange={this.handleCover}/>
+                        </div>
+                        <label className='song-form-label'>
+                            Title<p id='required'>*</p> 
+                            <input className='song-form-input' type="text" placeholder='Enter a title'
+                            value={this.state.title} onChange={this.handleInput('title')}/>
+                        </label>
+                        
+                        <label>Genre
+                            <select id='genre-list' name="genres">
+                                <option value="None">None</option>
+                                <option value="Alternative">Alternative</option>
+                                <option value="Ambient">Ambient</option>
+                                <option value="Classical">Alternative</option>
+                                <option value="Country">Country</option>
+                                <option value="Dance &amp; EDM">Dance &amp; EDM</option>
+                                <option value="Dancehall">Dancehall</option>
+                                <option value="Drum and Bass">Drum &amp; Bass</option>
+                                <option value="Dubstep">Dubstep</option>
+                                <option value="Electronic">Electronic</option>
+                                <option value="Folk">Folk</option>
+                                <option value="Hip-Hop">Hip-Hop</option>
+                                <option value="House">House</option>
+                                <option value="Indie">Indie</option>
+                                <option value="Jazz &amp; Blues">Jazz &amp; Blues</option>
+                                <option value="Latin">Latin</option>
+                                <option value="Metal">Metal</option>
+                                <option value="Piano">Piano</option>
+                                <option value="R&amp;B &amp; Soul">R&amp;B &amp; Soul</option>
+                                <option value="Reggae">Reggae</option>
+                                <option value="Reggaeton">Reggaeton</option>
+                                <option value="Rock">Rock</option>
+                                <option value="Soundtrack">Soundtrack</option>
+                                <option value="Techno">Techno</option>
+                            </select>
+                        </label>
 
-                    <input type="submit" value='create' onClick={this.handleSubmit}/>
+                        <label className='song-form-label'>Description
+                            <input className='song-form-input' type="text" placeholder='Enter a description'
+                            value={this.state.description} onChange={this.handleInput('description')}/>
+                        </label>
+                    </div>
+                    <button id='form-cancel'>Cancel</button>
+                    <input id='form-save' type="submit" value='Save' onClick={this.handleSubmit}/>
                 </form>
             </div>
         )

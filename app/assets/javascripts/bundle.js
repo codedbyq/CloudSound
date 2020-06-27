@@ -1223,31 +1223,38 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       audioFile: null
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleAudio = _this.handleAudio.bind(_assertThisInitialized(_this));
+    _this.handleCover = _this.handleCover.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(SongForm, [{
+    key: "handleCover",
+    value: function handleCover(e) {
+      this.setState({
+        coverFile: e.currentTarget.files[0]
+      }); //user state.cover to inline set background image property
+    }
+  }, {
+    key: "handleAudio",
+    value: function handleAudio(e) {
+      this.setState({
+        audioFile: e.currentTarget.files[0]
+      }); //use this function to hide the audio upload and show the form content div
+    }
+  }, {
     key: "handleInput",
     value: function handleInput(field) {
       var _this2 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
-      };
-    }
-  }, {
-    key: "handleFile",
-    value: function handleFile(field) {
-      var _this3 = this;
-
-      return function (e) {
-        return _this3.setState(_defineProperty({}, field, e.currentTarget.files[0]));
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value[0]));
       };
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this4 = this;
+      var _this3 = this;
 
       e.preventDefault();
       var formData = new FormData();
@@ -1256,7 +1263,7 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       formData.append('song[coverFile]', this.state.coverFile);
       formData.append('song[audioFile]', this.state.audioFile);
       this.props.createSong(formData).then(function (song) {
-        return _this4.props.history.push("/songs/".concat(song.id));
+        return _this3.props.history.push("/songs/".concat(song.id));
       });
     }
   }, {
@@ -1267,25 +1274,91 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "song-form",
         onSubmit: this.handleSubmit
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Choose your cover art:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Drag and drop your track here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
-        onChange: this.handleFile('coverFile')
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Upload your song:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.handleAudio
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "song-form-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "cover-art"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
-        onChange: this.handleFile('audioFile')
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Title:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.handleCover
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "song-form-label"
+      }, "Title", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        id: "required"
+      }, "*"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "song-form-input",
         type: "text",
         placeholder: "Enter a title",
         value: this.state.title,
         onChange: this.handleInput('title')
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Genre", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "genre-list",
+        name: "genres"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "None"
+      }, "None"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Alternative"
+      }, "Alternative"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Ambient"
+      }, "Ambient"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Classical"
+      }, "Alternative"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Country"
+      }, "Country"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Dance & EDM"
+      }, "Dance & EDM"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Dancehall"
+      }, "Dancehall"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Drum and Bass"
+      }, "Drum & Bass"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Dubstep"
+      }, "Dubstep"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Electronic"
+      }, "Electronic"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Folk"
+      }, "Folk"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Hip-Hop"
+      }, "Hip-Hop"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "House"
+      }, "House"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Indie"
+      }, "Indie"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Jazz & Blues"
+      }, "Jazz & Blues"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Latin"
+      }, "Latin"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Metal"
+      }, "Metal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Piano"
+      }, "Piano"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "R&B & Soul"
+      }, "R&B & Soul"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Reggae"
+      }, "Reggae"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Reggaeton"
+      }, "Reggaeton"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Rock"
+      }, "Rock"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Soundtrack"
+      }, "Soundtrack"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Techno"
+      }, "Techno"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "song-form-label"
+      }, "Description", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "song-form-input",
         type: "text",
         placeholder: "Enter a description",
         value: this.state.description,
         onChange: this.handleInput('description')
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "form-cancel"
+      }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "form-save",
         type: "submit",
-        value: "create",
+        value: "Save",
         onClick: this.handleSubmit
       })));
     }
@@ -1314,7 +1387,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapDispatchToState = function mapDispatchToState(dispatch) {
+var mapDispatchToState = function mapDispatchToState(dispatch, ownProps) {
   return {
     createSong: function createSong(song) {
       return dispatch(Object(_actions_song_actions__WEBPACK_IMPORTED_MODULE_1__["createSong"])(song));
