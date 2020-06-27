@@ -8,3 +8,10 @@ $almost-blk: #111111;
 $mid-grey: rgb(187, 187, 187);
 $light-grey: rgb(153, 153, 153);
 $lighter-grey: #dedede;
+
+//extends
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
