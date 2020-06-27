@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import whiteLogo from '/assets/white-logo.png';
 
 class SongForm extends React.Component {
     constructor(props, _railsContext) {
         super(props)
-        this.state = { title: '', description: '', coverUrl: whiteLogo,
+        this.state = { title: '', description: '', coverUrl: null,
         coverFile: null, audioFile: null }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleAudio = this.handleAudio.bind(this);

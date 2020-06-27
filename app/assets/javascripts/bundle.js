@@ -1179,7 +1179,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module '/assets/white-logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1206,7 +1205,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var SongForm = /*#__PURE__*/function (_React$Component) {
   _inherits(SongForm, _React$Component);
 
@@ -1221,7 +1219,7 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       title: '',
       description: '',
-      coverUrl: !(function webpackMissingModule() { var e = new Error("Cannot find module '/assets/white-logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+      coverUrl: null,
       coverFile: null,
       audioFile: null
     };
