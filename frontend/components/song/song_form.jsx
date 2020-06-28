@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Dropzone from 'react-dropzone'
 
 class SongForm extends React.Component {
     constructor(props, _railsContext) {
@@ -71,7 +72,8 @@ class SongForm extends React.Component {
             <div id='song-form-div'>
                 <form className='song-form' onSubmit={this.handleSubmit}>
 
-                    <div className='audio-div'>
+                    <div className='audio-div' 
+                    onDrop={this.handleAudio}>
                         Drag &amp; drop your track here
                         <label className="audio-upload">...or choose a file to upload 
                             <input className='input-file'
