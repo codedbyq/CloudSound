@@ -16,6 +16,12 @@ class User < ApplicationRecord
     validates :username, :email, :session_token, uniqueness: true
     validates :password, length: { minimum: 6, allow_nil: true }
 
+    has_many :songs,
+        foreign_key: :artist_id,
+        class_name: :Song
+
+    has_one_attached :photo
+
     attr_reader :password
     after_initialize :ensure_session_token
 

@@ -14,6 +14,10 @@ class Song < ApplicationRecord
     validates :title, :artist_id, presence: true
     validates :artist_id, uniqueness: { scope: :title }
 
+    belongs_to :artist,
+        foreign_key: :artist_id,
+        class_name: :User
+
     has_one_attached :audioFile
     has_one_attached :coverFile
 end
