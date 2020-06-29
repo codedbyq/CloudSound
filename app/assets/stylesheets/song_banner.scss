@@ -1,20 +1,58 @@
+@import 'variables';
+
 .song-banner {
-    background-color: rgb(123, 123, 123);
+    background-color: rgb(174, 174, 174);
     background-blend-mode: multiply;
     
 }
 
-.song-banner-content {
+.song-banner-backdrop {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    height: 350px;
+    justify-content: space-between;
     align-items: center;
     backdrop-filter: blur(10px);
+    padding: 25px 25px;
 }
 
 .banner-cover {
-    height: 300px;
-    width: 300px;
+    height: 340px;
+    width: 340px;
+}
 
+.banner-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 340px;
+}
+
+.banner-top {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.play-button {
+    height: 60px;
+    width: 60px;
+    border-radius: 100px;
+    background-color: $sc-orange;
+}
+
+#banner-title, #banner-artist {
+    background-color: black;
+    padding: 4px 7px;
+
+}
+
+#banner-artist {
+    color: $mid-grey;
+    font-size: 15;
+    margin-bottom: 5px;
+}
+
+#banner-title {
+    color: white;
+    font-size: 24px;
 }

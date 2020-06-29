@@ -1,5 +1,5 @@
 import React from 'react';
-import WaveSurfer from 'wavesurfer.js';
+import Waveform from './waveform';
 
 const SongBanner = ({ cover, audio, title, artist }) => {
 
@@ -12,11 +12,19 @@ const SongBanner = ({ cover, audio, title, artist }) => {
     
     return (
         <div className='song-banner' style={background}>
-            <div className='song-banner-content'>
-                <audio className='banner-audio-player' src={audio} controls></audio>
-                <div className='banner-basic-info'>
-                    <h1 id='banner-title'>{title}</h1>
-                    <h3>{artist}</h3>
+            <div className='song-banner-backdrop'>
+                <div className='banner-content'>
+                    <div className='banner-top'>
+                        <div className='play-button'></div>
+                        <div className='title-container'>
+                            <h3 id='banner-artist'>Artist</h3>
+                            <h1 id='banner-title'>{title}</h1>
+                        </div>
+                    </div>
+
+                    {/* <Waveform audio={audio} /> */}
+                    <audio className='banner-audio-player' src={audio} 
+                    preload='auto' autoPlay controls></audio>
                 </div>
                 <img className='banner-cover' src={cover} />
             </div>
