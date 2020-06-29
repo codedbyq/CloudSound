@@ -10,4 +10,4 @@ const mapDispatchToState = (dispatch, ownProps) => ({
     createSong: song => dispatch(createSong(song))
 });
 
-export default connect(null, mapDispatchToState)(SongForm);
+export default connect(mapStateToProps, mapDispatchToState)(SongForm);

@@ -36,7 +36,6 @@ class SongForm extends React.Component {
     }
 
     handleInput(field) {
-        debugger
         return e => this.setState({ [field]: e.currentTarget.value})
     }
 
@@ -57,7 +56,7 @@ class SongForm extends React.Component {
         formData.append('song[description]', this.state.description);
         formData.append('song[coverFile]', this.state.coverFile);
         formData.append('song[audioFile]', this.state.audioFile);
-
+        debugger
         this.props.createSong(formData)
             .then((song) => this.props.history.push(`/songs/${song.id}`));
     }
@@ -100,7 +99,7 @@ class SongForm extends React.Component {
                                 <label className='song-form-label'>Genre</label>
                                 <select onChange={this.handleInput('genre')} 
                                 className='genre-option' value={this.state.genre}>
-                                    <option value="None">None</option>
+                                    <option value="">None</option>
                                     <option value="Alternative">Alternative</option>
                                     <option value="Ambient">Ambient</option>
                                     <option value="Classical">Alternative</option>

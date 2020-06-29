@@ -1301,7 +1301,6 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
     value: function handleInput(field) {
       var _this3 = this;
 
-      debugger;
       return function (e) {
         return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
       };
@@ -1327,6 +1326,7 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       formData.append('song[description]', this.state.description);
       formData.append('song[coverFile]', this.state.coverFile);
       formData.append('song[audioFile]', this.state.audioFile);
+      debugger;
       this.props.createSong(formData).then(function (song) {
         return _this4.props.history.push("/songs/".concat(song.id));
       });
@@ -1387,7 +1387,7 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
         className: "genre-option",
         value: this.state.genre
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "None"
+        value: ""
       }, "None"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Alternative"
       }, "Alternative"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1494,7 +1494,7 @@ var mapDispatchToState = function mapDispatchToState(dispatch, ownProps) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, mapDispatchToState)(_song_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToState)(_song_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 

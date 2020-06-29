@@ -11,33 +11,8 @@
 #
 class Song < ApplicationRecord
 
-    @@GENRES = [
-        "None",
-        "Alternative",
-        "Ambient",
-        "Classical",
-        "Country",
-        "Dance &amp; EDM",
-        "Dancehall",
-        "Dubstep",
-        "Electronic",
-        "Hip-Hop",
-        "Indie",
-        "Jazz &amp; Blues",
-        "Latin",
-        "Metal",
-        "Piano",
-        "Pop",
-        "R&amp;B &amp; Soul",
-        "Reggae",
-        "Reggaeton",
-        "Rock",
-        "Soundtrack",
-    ]
-
     validates :title, :artist_id, presence: true
     validates :artist_id, uniqueness: { scope: :title }
-    validates :genre, inclusion: { in: @@GENRES }
 
     has_one_attached :audioFile
     has_one_attached :coverFile
