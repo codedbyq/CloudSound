@@ -1,5 +1,6 @@
 import React from 'react';
 import WaveSurfer from 'wavesurfer.js';
+// import ReactWaveSurfer from 'react-wavesurfer';
 
 class Waveform extends React.Component {
     constructor(props) {
@@ -8,35 +9,36 @@ class Waveform extends React.Component {
     }
 
     componentDidMount() {
-        const audio = document.getElementById('audio');
+        // const audio = document.getElementById('audio');
+        const container = document.getElementById('waveform');
 
         this.waveform = WaveSurfer.create({
-            container: '#waveform',
+            container: container,
+            progressColor: '#FF5500',
+            waveColor: '#999999',
             // barWidth: 3,
             // cursorWidth: 1,
             // height: 80,
-            // progressColor: '#FF5500',
             // responsive: true,
-            // waveColor: '#999999',
-            scrollParent: true
+            // scrollParent: true
         });
-
-        this.waveform.load(audio);
+        debugger
+        this.waveform.load(this.props.audio);
     }
 
-    handlePlay() {
-        this.setState({ playing: !this.state.playing });
-        this.waveform.playPause();
-    }
+    // handlePlay() {
+    //     this.setState({ playing: !this.state.playing });
+    //     this.waveform.playPause();
+    // }
 
     render() {
-        const audioURL = this.props.audio ? this.props.audio : null;
+        const audioURL = this.props.audio ? this.props.audio : '';
         const playPause = this.state.playing ? 'Pause' : 'Play'
         return (
             <div>
                 <div id='waveform'></div>
-                <button>{playPause}</button>
-                <audio id='audio' src={audioURL}></audio>
+                {/* <button>{playPause}</button> */}
+                {/* <audio id='audio' src={audioURL}></audio> */}
             </div>
         )
     }

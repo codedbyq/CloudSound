@@ -7,8 +7,7 @@
 }
 
 .song-banner-backdrop {
-    display: flex;
-    flex-direction: row;
+    @extend %flex-row;
     justify-content: space-between;
     align-items: center;
     backdrop-filter: blur(10px);
@@ -21,38 +20,60 @@
 }
 
 .banner-content {
-    display: flex;
-    flex-direction: column;
+    @extend %flex-col;
     justify-content: space-between;
     height: 340px;
 }
 
 .banner-top {
-    display: flex;
-    flex-direction: row;
+    @extend %flex-row;
     align-items: flex-start;
+    width: 560px;
 }
 
 .play-button {
     height: 60px;
     width: 60px;
+    margin-right: 10px;
     border-radius: 100px;
     background-color: $sc-orange;
+}
+
+.title-container, .basic-info {
+    @extend %flex-col;
+    color: white;
+}
+
+.basic-info {
+    margin-left: auto;
 }
 
 #banner-title, #banner-artist {
     background-color: black;
     padding: 4px 7px;
-
 }
 
 #banner-artist {
     color: $mid-grey;
     font-size: 15;
-    margin-bottom: 5px;
 }
 
 #banner-title {
     color: white;
     font-size: 24px;
+    margin-top: 10px;
+}
+
+.genre-btn {
+    background-color: $mid-grey;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    margin-top: 10px;
+    padding: 3px 0px;
+    font-size: 16px;
+}
+
+.genre-btn:hover {
+    background-color: $sc-orange;
 }
