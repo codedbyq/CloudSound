@@ -9,7 +9,6 @@ class SongShow extends React.Component {
     }
 
    componentDidMount() {
-       debugger
        this.props.fetchSong(this.props.match.params.songId);
     }
     
@@ -22,7 +21,7 @@ class SongShow extends React.Component {
     render() {
         //conditional attributes
         const song = this.props.song;
-        const artist = this.props.artist ? this.props.artist : null
+        const artist = song ? song.artist.username : null
         const cover = song ? song.coverURL : null;
         const audio = song ? song.audioURL : null;
         const title = song ? song.title : null;

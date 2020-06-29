@@ -17,7 +17,7 @@ const SongBanner = ({ cover, audio, title, genre, artist }) => {
                     <div className='banner-top'>
                         <div className='play-button'></div>
                         <div className='title-container'>
-                            <span><a href="" id='banner-artist'>Artist</a></span>
+                            <span><a href="" id='banner-artist'>{artist}</a></span>
                             <span id='banner-title'>{title}</span>
                         </div>
                         <div className='basic-info'>

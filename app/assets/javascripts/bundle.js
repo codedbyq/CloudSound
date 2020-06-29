@@ -1250,7 +1250,6 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
   _createClass(SongShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
       this.props.fetchSong(this.props.match.params.songId);
     }
   }, {
@@ -1268,7 +1267,7 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       //conditional attributes
       var song = this.props.song;
-      var artist = this.props.artist ? this.props.artist : null;
+      var artist = song ? song.artist.username : null;
       var cover = song ? song.coverURL : null;
       var audio = song ? song.audioURL : null;
       var title = song ? song.title : null;
@@ -1677,7 +1676,7 @@ var SongBanner = function SongBanner(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "",
     id: "banner-artist"
-  }, "Artist")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, artist)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "banner-title"
   }, title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "basic-info"
