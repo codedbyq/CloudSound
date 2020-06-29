@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import { fetchSong, deleteSong } from '../../actions/song_actions';
+import { fetchUser, fetchSong, deleteSong } from '../../actions/song_actions';
 import SongShow from './show';
 
 const mapStateToProps = (state, ownProps) => ({
-    song: state.entities.songs[ownProps.match.params.songId]
-    });
+        song: state.entities.songs[ownProps.match.params.songId],
+    })
 
 const mapDispatchToProps = dispatch => ({
     fetchSong: songId => dispatch(fetchSong(songId)),
+    fetchUser: userId => dispatch(fetchUser(userId)),
     deleteSong: songId => dispatch(deleteSong(songId))
 });
 

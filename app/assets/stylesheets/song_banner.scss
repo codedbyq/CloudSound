@@ -1,0 +1,20 @@
+.song-banner {
+    background-color: rgb(123, 123, 123);
+    background-blend-mode: multiply;
+    
+}
+
+.song-banner-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 350px;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.banner-cover {
+    height: 300px;
+    width: 300px;
+
+}
