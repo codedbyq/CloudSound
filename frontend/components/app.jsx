@@ -8,6 +8,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import LandingContainer from './landing/landing_container';
 import SongShowContainer from './song/show_container';
 import SongFormContainer from './song/song_form_container';
+import DiscoverContainer from './discover/discover_container';
 
 const App = () => (
     <div>
@@ -19,6 +20,7 @@ const App = () => (
             <AuthRoute exact path='/signup' component={SigninContainer} />
             <Route path='/songs/:songId' component={SongShowContainer} />
             <ProtectedRoute path='/upload' component={SongFormContainer} />
+            <ProtectedRoute path='/discover' component={DiscoverContainer} />
             <Route exact path='/' component={LandingContainer} />
 
             <Footer />

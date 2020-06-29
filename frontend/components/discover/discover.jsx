@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'react-router-dom';
 
 class Discover extends React.Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class Discover extends React.Component {
 
     render() {
         const songs = this.props.songs.map(song => (
+            // <Link key={song.id} to={`/songs/${song.id}`}>{song.title}</Link>
             <li key={song.id}>{song.title}</li>
         ));
         const users = this.props.users.map(user => (
@@ -19,17 +21,14 @@ class Discover extends React.Component {
         ));
         return (
             <div className={'discover-div'}>
-                <div>
-                    <ul>
-                        {songs}
-                    </ul>
-                </div>
-
-                <div>
-                    <ul>
-                        {users}
-                    </ul>
-                </div>
+                <ul className='songs'>
+                    {songs}
+                </ul>
+                <ul className='users'>
+                    {users}
+                </ul>
+            
+              
             </div>
         )
     }
