@@ -9,6 +9,7 @@ class SongShow extends React.Component {
     }
 
    componentDidMount() {
+       debugger
        this.props.fetchSong(this.props.match.params.songId);
     }
     
@@ -25,11 +26,12 @@ class SongShow extends React.Component {
         const cover = song ? song.coverURL : null;
         const audio = song ? song.audioURL : null;
         const title = song ? song.title : null;
+        const genre = song ? song.genre : null;
         const description = song ? song.description : null;
        
         return (
             <SongBanner cover={cover} audio={audio} title={title} 
-            artist={artist} description={description} />    
+            artist={artist} genre={genre}  />    
         )
     }
 }

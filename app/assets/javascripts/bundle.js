@@ -1116,6 +1116,7 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
   _createClass(SongShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      debugger;
       this.props.fetchSong(this.props.match.params.songId);
     }
   }, {
@@ -1137,13 +1138,14 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
       var cover = song ? song.coverURL : null;
       var audio = song ? song.audioURL : null;
       var title = song ? song.title : null;
+      var genre = song ? song.genre : null;
       var description = song ? song.description : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_song_show_banner__WEBPACK_IMPORTED_MODULE_2__["default"], {
         cover: cover,
         audio: audio,
         title: title,
         artist: artist,
-        description: description
+        genre: genre
       });
     }
   }]);
@@ -1517,6 +1519,7 @@ var SongBanner = function SongBanner(_ref) {
   var cover = _ref.cover,
       audio = _ref.audio,
       title = _ref.title,
+      genre = _ref.genre,
       artist = _ref.artist;
   var background = {
     backgroundImage: "url(".concat(cover, ")"),
@@ -1546,7 +1549,7 @@ var SongBanner = function SongBanner(_ref) {
     className: "basic-info"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " 2 weeks ago"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "genre-btn"
-  }, "# Genre"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
+  }, "# ", genre))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
     className: "banner-audio-player",
     src: audio,
     preload: "auto",
