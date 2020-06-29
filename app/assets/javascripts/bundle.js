@@ -203,6 +203,13 @@ var removeSong = function removeSong(songId) {
   };
 };
 
+var receiveSongErrors = function receiveSongErrors(errors) {
+  return {
+    type: RECEIVE_SONG_ERRORS,
+    errors: errors
+  };
+};
+
 var fetchSongs = function fetchSongs() {
   return function (dispatch) {
     return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchSongs"]().then(function (songs) {
@@ -221,6 +228,8 @@ var createSong = function createSong(song) {
   return function (dispatch) {
     return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["createSong"](song).then(function (song) {
       return dispatch(receiveSong(song));
+    }, function (err) {
+      return dispatch(receiveSongErrors(err.responseJSON));
     });
   };
 };
@@ -228,6 +237,8 @@ var updateSong = function updateSong(song) {
   return function (dispatch) {
     return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["updateSong"](song).then(function (song) {
       return dispatch(receiveSong(song));
+    }, function (err) {
+      return dispatch(receiveSongErrors(err.responseJSON));
     });
   };
 };
@@ -1237,6 +1248,7 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       title: '',
       description: '',
+      genre: '',
       coverUrl: null,
       coverFile: null,
       audioFile: null
@@ -1289,6 +1301,7 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
     value: function handleInput(field) {
       var _this3 = this;
 
+      debugger;
       return function (e) {
         return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
       };
@@ -1310,6 +1323,7 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var formData = new FormData();
       formData.append('song[title]', this.state.title);
+      formData.append('song[genre]', this.state.genre);
       formData.append('song[description]', this.state.description);
       formData.append('song[coverFile]', this.state.coverFile);
       formData.append('song[audioFile]', this.state.audioFile);
@@ -1326,6 +1340,7 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       };
+      var errors = this.props.errors ? this.props.errors : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "song-form-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1368,8 +1383,9 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "song-form-label"
       }, "Genre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: this.handleInput('genre'),
         className: "genre-option",
-        name: "genres"
+        value: this.state.genre
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "None"
       }, "None"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1385,18 +1401,12 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       }, "Dance & EDM"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Dancehall"
       }, "Dancehall"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Drum and Bass"
-      }, "Drum & Bass"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Dubstep"
       }, "Dubstep"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Electronic"
       }, "Electronic"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Folk"
-      }, "Folk"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Hip-Hop"
       }, "Hip-Hop"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "House"
-      }, "House"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Indie"
       }, "Indie"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Jazz & Blues"
@@ -1407,6 +1417,8 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
       }, "Metal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Piano"
       }, "Piano"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Pop"
+      }, "Pop"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "R&B & Soul"
       }, "R&B & Soul"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Reggae"
@@ -1416,9 +1428,7 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
         value: "Rock"
       }, "Rock"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Soundtrack"
-      }, "Soundtrack"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Techno"
-      }, "Techno")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }, "Soundtrack")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "song-form-label"
       }, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         cols: "30",
@@ -1427,7 +1437,9 @@ var SongForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "Describe your track",
         value: this.state.description,
         onChange: this.handleInput('description')
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "song-errors"
+      }, errors))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "required"
@@ -1467,6 +1479,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    errors: state.errors.song.song
+  };
+};
 
 var mapDispatchToState = function mapDispatchToState(dispatch, ownProps) {
   return {
@@ -1729,6 +1747,10 @@ var UsersReducer = function UsersReducer() {
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_USERS"]:
       return Object.assign({}, newState, action.users);
 
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
+      newState[action.user.id] = action.user;
+      return newState;
+
     default:
       return state;
   }
@@ -1749,10 +1771,13 @@ var UsersReducer = function UsersReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/errors/session_errors_reducer.js");
+/* harmony import */ var _song_errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./song_errors_reducer */ "./frontend/reducers/errors/song_errors_reducer.js");
+
 
 
 var ErrorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  song: _song_errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (ErrorsReducer);
 
@@ -1793,6 +1818,44 @@ var SessionErrorsReducer = function SessionErrorsReducer() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SessionErrorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/errors/song_errors_reducer.js":
+/*!*********************************************************!*\
+  !*** ./frontend/reducers/errors/song_errors_reducer.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_song_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/song_actions */ "./frontend/actions/song_actions.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var SongErrorsReducer = function SongErrorsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_song_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SONG_ERRORS"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        song: action.errors
+      });
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SongErrorsReducer);
 
 /***/ }),
 
