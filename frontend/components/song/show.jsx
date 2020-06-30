@@ -28,9 +28,13 @@ class SongShow extends React.Component {
         const genre = song ? song.genre : null;
         const description = song ? song.description : null;
        
+            
         return (
-            <SongBanner cover={cover} audio={audio} title={title} 
-            artist={artist} genre={genre}  />    
+            <div className='song-show'>
+                <SongBanner cover={cover} audio={audio} title={title} 
+                artist={artist} genre={genre}  />    
+                <button onClick={this.handleDelete}>&#x1F5D1;</button>
+            </div>
         )
     }
 }

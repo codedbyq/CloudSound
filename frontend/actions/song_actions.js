@@ -34,7 +34,10 @@ export const fetchSong = (songId) => dispatch => (
 );
 
 export const createSong = (song) => dispatch => (
-    SongAPI.createSong(song).then(song => dispatch(receiveSong(song)),
+    SongAPI.createSong(song).then(song => { 
+        dispatch(receiveSong(song)) 
+        return song
+    },
         err => dispatch(receiveSongErrors(err.responseJSON))
     )
 );

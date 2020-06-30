@@ -4,6 +4,7 @@ import SongShow from './show';
 
 const mapStateToProps = (state, ownProps) => ({
         song: state.entities.songs[ownProps.match.params.songId],
+        currentUser: state.session.currentUser
     })
 
 const mapDispatchToProps = dispatch => ({
