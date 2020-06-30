@@ -20,6 +20,10 @@ class User < ApplicationRecord
         foreign_key: :artist_id,
         class_name: :Song
 
+    has_many :comments,
+        foreign_key: :user_id,
+        class_name: :Comment
+
     has_one_attached :photo
 
     attr_reader :password
