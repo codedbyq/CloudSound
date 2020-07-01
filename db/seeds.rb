@@ -19,6 +19,16 @@ jbalvin = User.create!(username: 'jbalvin', email: 'jbalvin@email.com', password
 badbunny = User.create!(username: 'badbunny', email: 'badbunny@email.com', password: '123456')
 tyler = User.create!(username: 'tyler', email: 'tyler@email.com', password: '123456')
 thundercat = User.create!(username: 'thundercat', email: 'thundercat@email.com', password: '123456')
+xo = User.create!(username: 'xo', email: 'xo@email.com', password: '123456')
+leon = User.create!(username: 'leon', email: 'leon@email.com', password: '123456')
+andersonpaak = User.create!(username: 'andersonpaak', email: 'andersonpaak@email.com', password: '123456')
+beyonce = User.create!(username: 'beyonce', email: 'beyonce@email.com', password: '123456')
+usher = User.create!(username: 'usher', email: 'usher@email.com', password: '123456')
+joey = User.create!(username: 'joey99', email: 'joey@email.com', password: '123456')
+black = User.create!(username: 'bLAck pARty', email: 'black@email.com', password: '123456')
+amalou = User.create!(username: 'amalou', email: 'amalou@email.com', password: '123456')
+her = User.create!(username: 'H.E.R.', email: 'her@email.com', password: '123456')
+shake = User.create!(username: '070shake', email: '070shake@email.com', password: '123456')
 
 
 Song.destroy_all
@@ -91,8 +101,43 @@ moon = Song.create!(title: 'Why iii Love the Moon.', genre: 'Neo Soul', descript
 moon.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/phonyppl-somehow.jpg'), filename: 'phonyppl-somehow.jpg')
 moon.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/Why+iii+Love+The+Moon+(Official+Video).mp3'), filename: 'Why iii Love The Moon (Official Video).mp3')
 
+gc = Song.create!(title: 'Guilty Conscience', genre: 'Alternative', description: 'Modus Vivendi out now!', artist_id: shake.id)
+gc.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/loose/070-Shake-Modus-Vivendi.jpg'), filename: '070-Shake-Modus-Vivendi.jpg')
+gc.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/loose/070+Shake+-+Guilty+Conscience.mp3'), filename: '070 Shake - Guilty Conscience.mp3')
 
+nth = Song.create!(title: 'NORTHSIDE', genre: 'R&B & Soul', description: 'Ama, who?', artist_id: amalou.id)
+nth.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/loose/ama.jpg'), filename: 'ama.jpg')
+nth.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/loose/Ama+Lou+-+NORTHSIDE+(Official+Music+Video).mp3'), filename: 'Ama Lou - NORTHSIDE (Official Music Video).mp3')
 
+dan = Song.create!(title: 'Dancing', genre: 'R&B & Soul', description: 'Endless Summer', artist_id: black.id)
+dan.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/loose/blackparty.jpg'), filename: 'blackparty.jpg')
+dan.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/loose/bLAck+pARty+-+Dancing+(Audio).mp3'), filename: 'bLAck pARty - Dancing (Audio).mp3')
 
-htc.coverFile.attach(io: open(''), filename: '')
-htc.audioFile.attach(io: open(''), filename: '')
+bl = Song.create!(title: 'Blinding Lights', genre: 'Pop', description: 'After Hours out now', artist_id: xo.id)
+bl.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/loose/blinding.jpg'), filename: 'blinding.jpg')
+bl.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/loose/The+Weeknd+-+Blinding+Lights+(Lyrics).mp3'), filename: 'The Weeknd - Blinding Lights (Lyrics).mp3')
+
+lock = Song.create!(title: 'Lockdown', genre: 'Hip-Hop', description: 'You shoulda been downtown...', artist_id: andersonpaak.id)
+lock.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/blm/anderson-paak-lockdown-video.jpg'), filename: 'anderson-paak-lockdown-video.jpg')
+lock.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/blm/Anderson+.Paak+-+Lockdown.mp3'), filename: 'Anderson .Paak - Lockdown.mp3')
+
+bp = Song.create!(title: 'BLACK PARADE', genre: 'R&B & Soul', description: 'Happy Juneteenth', artist_id: beyonce.id)
+bp.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/blm/Black-Parade.jpg'), filename: 'Black-Parade.jpg')
+bp.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/blm/Beyonc%C3%A9+BLACK+PARADE+(Official+Audio).mp3'), filename: 'Beyoncé BLACK PARADE (Official Audio).mp3')
+
+cb = Song.create!(title: "I Can't Breathe", genre: 'R&B & Soul', description: 'RIP George Floyd', artist_id: her.id)
+cb.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/blm/her-i-cant-breathe.jpg'), filename: 'her-i-cant-breathe.jpg')
+cb.audioFile.attach(io: open("https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/blm/H.E.R.+-+I+Can't+Breathe+(Audio).mp3"), filename: "H.E.R. - I Can't Breathe (Audio).mp3")
+
+land = Song.create!(title: 'Land of the Free', genre: 'Hip-Hop', description: 'Pro Era', artist_id: joey.id)
+land.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/blm/joey.png'), filename: 'joey.png')
+land.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/blm/Joey+Bada%24%24+-+Land+of+the+Free+(Official+Music+Video).mp3'), filename: 'Joey Bada$$ - Land of the Free (Official Music Video).mp3')
+
+cry = Song.create!(title: 'I Cry', genre: 'R&B & Soul', description: 'Inspired by my children', artist_id: usher.id)
+cry.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/blm/usher.jpg'), filename: 'usher.jpg')
+cry.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/blm/Usher+-+I+Cry+(Official+Audio).mp3'), filename: 'Usher - I Cry (Official Audio).mp3')
+
+sw = Song.create!(title: 'Sweeter (feat. Terrace Martin)', genre: 'R&B & Soul', description: 'Hoping for a life more sweeter', artist_id: leon.id)
+sw.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/blm/leon.png'), filename: 'leon.png')
+sw.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/blm/Leon+Bridges+-+Sweeter+(Official+Video)+ft.+Terrace+Martin.mp3'), filename: 'Leon Bridges - Sweeter (Official Video) ft. Terrace Martin.mp3')
+
