@@ -11,11 +11,11 @@ const AudioPlayerReducer = (state = defaultState, action) => {
 
     switch (action.type) {
         case RECEIVE_CURRENT_SONG:
-            newState[currentSong] = action.songId;
-            newState[playing] = true;
+            newState.currentSong = action.songId;
+            newState.playing = true;
             return newState;
         case TOGGLE_PLAY:
-            newState[playing] = !state.playing;
+            newState.playing = !state.playing;
             return newState;
     
         default:

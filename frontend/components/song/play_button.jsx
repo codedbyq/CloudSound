@@ -1,23 +1,31 @@
 import React from 'react';
 
-const PlayButton = ({ }) => {
+class PlayButton extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
 
-    handleClick = (e) => {
+    handleClick(e) {
         e.preventDefault();
         const player = document.getElementById('audio');
 
-
-        if (playing && currentSong.id === this.props.match.params.songId) {
+        if (this.props.playing) {
             togglePlay();
             player.pause();
         } else {
-            receiveCurrentSong()
+            this.props.receiveCurrentSong(this.props.songId);
+            player.play();
         }
     }
 
-    return (
-        <div>
-
-        </div>
-    )
+    render() {
+        return (
+            <button className='banner-play' onClick={this.handleClick}>
+                Play
+            </button>
+        )
+    }
 }
+
+export default PlayButton;

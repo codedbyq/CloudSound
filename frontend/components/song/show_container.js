@@ -3,10 +3,16 @@ import { fetchSong, deleteSong } from '../../actions/song_actions';
 import { fetchUser, } from '../../actions/user_actions';
 import SongShow from './show';
 
-const mapStateToProps = (state, ownProps) => ({
-        song: state.entities.songs[ownProps.match.params.songId],
+const mapStateToProps = (state, ownProps) => {
+    const song = state.entities.songs[ownProps.match.params.songId];
+    const artist = song ? state.entities.users[song.artistId] : null;
+    
+    return ({
+        song: song,
+        artist: artist,
         currentUser: state.session.currentUser,
     });
+}
 
 const mapDispatchToProps = dispatch => ({
     fetchSong: songId => dispatch(fetchSong(songId)),

@@ -1,7 +1,8 @@
 import React from 'react';
 import Waveform from './waveform';
+import PlayButtonContainer from './play_button_container';
 
-const SongBanner = ({ cover, audio, title, genre, artist, audioPlayer }) => {
+const SongBanner = ({ cover, audio, title, genre, artist, songId }) => {
 
     const background = {
         backgroundImage: `url(${cover})`,
@@ -16,7 +17,7 @@ const SongBanner = ({ cover, audio, title, genre, artist, audioPlayer }) => {
                 <div className='banner-content'>
                     <div className='banner-top'>
                         <div className='play-button'>
-                            //! ADD PLAY BUTTON HERE
+                            <PlayButtonContainer songId={songId} />
                         </div>
                         <div className='title-container'>
                             <span><a href="" id='banner-artist'>{artist}</a></span>

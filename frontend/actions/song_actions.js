@@ -30,7 +30,10 @@ export const fetchSongs = () => dispatch => (
 );
 
 export const fetchSong = (songId) => dispatch => (
-    SongAPI.fetchSong(songId).then(song => dispatch(receiveSong(song)))
+    SongAPI.fetchSong(songId).then(song => {
+        dispatch(receiveSong(song))
+        return song
+    })
 );
 
 export const createSong = (song) => dispatch => (

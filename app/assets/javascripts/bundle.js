@@ -249,7 +249,8 @@ var fetchSongs = function fetchSongs() {
 var fetchSong = function fetchSong(songId) {
   return function (dispatch) {
     return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchSong"](songId).then(function (song) {
-      return dispatch(receiveSong(song));
+      dispatch(receiveSong(song));
+      return song;
     });
   };
 };
@@ -1438,6 +1439,125 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/song/play_button.jsx":
+/*!**************************************************!*\
+  !*** ./frontend/components/song/play_button.jsx ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var PlayButton = /*#__PURE__*/function (_React$Component) {
+  _inherits(PlayButton, _React$Component);
+
+  var _super = _createSuper(PlayButton);
+
+  function PlayButton(props) {
+    var _this;
+
+    _classCallCheck(this, PlayButton);
+
+    _this = _super.call(this, props);
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(PlayButton, [{
+    key: "handleClick",
+    value: function handleClick(e) {
+      e.preventDefault();
+      var player = document.getElementById('audio');
+
+      if (this.props.playing) {
+        togglePlay();
+        player.pause();
+      } else {
+        this.props.receiveCurrentSong(this.props.songId);
+        player.play();
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "banner-play",
+        onClick: this.handleClick
+      }, "Play");
+    }
+  }]);
+
+  return PlayButton;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (PlayButton);
+
+/***/ }),
+
+/***/ "./frontend/components/song/play_button_container.js":
+/*!***********************************************************!*\
+  !*** ./frontend/components/song/play_button_container.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_audio_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/audio_actions */ "./frontend/actions/audio_actions.js");
+/* harmony import */ var _play_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./play_button */ "./frontend/components/song/play_button.jsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    playing: state.ui.audioPlayer.playing,
+    currentSong: state.entities.songs[state.ui.audioPlayer.currentSong]
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    receiveCurrentSong: function receiveCurrentSong(songId) {
+      return dispatch(Object(_actions_audio_actions__WEBPACK_IMPORTED_MODULE_0__["receiveCurrentSong"])(songId));
+    },
+    togglePlay: function togglePlay() {
+      return dispatch(Object(_actions_audio_actions__WEBPACK_IMPORTED_MODULE_0__["togglePlay"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_play_button__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/song/show.jsx":
 /*!*******************************************!*\
   !*** ./frontend/components/song/show.jsx ***!
@@ -1496,16 +1616,20 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
   _createClass(SongShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchSong(this.props.match.params.songId);
+      var _this2 = this;
+
+      this.props.fetchSong(this.props.match.params.songId).then(function (song) {
+        return _this2.props.fetchUser(song.artistId);
+      });
     }
   }, {
     key: "handleDelete",
     value: function handleDelete(e) {
-      var _this2 = this;
+      var _this3 = this;
 
       e.preventDefault();
       this.props.deleteSong(this.props.match.params.songId).then(function () {
-        return _this2.props.history.push('/');
+        return _this3.props.history.push('/');
       });
     }
   }, {
@@ -1513,11 +1637,13 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       //conditional attributes
       var song = this.props.song;
-      var artist = song ? song.artist.username : null;
+      var artist = this.props.artist;
+      var username = artist ? artist.username : null;
       var cover = song ? song.coverURL : null;
       var audio = song ? song.audioURL : null;
       var title = song ? song.title : null;
       var genre = song ? song.genre : null;
+      var songId = song ? song.id : null;
       var description = song ? song.description : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "song-show"
@@ -1525,8 +1651,9 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
         cover: cover,
         audio: audio,
         title: title,
-        artist: artist,
-        genre: genre
+        artist: username,
+        genre: genre,
+        songId: songId
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleDelete
       }, "\uD83D\uDDD1"));
@@ -1559,8 +1686,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var song = state.entities.songs[ownProps.match.params.songId];
+  var artist = song ? state.entities.users[song.artistId] : null;
   return {
-    song: state.entities.songs[ownProps.match.params.songId],
+    song: song,
+    artist: artist,
     currentUser: state.session.currentUser
   };
 };
@@ -1898,6 +2028,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _waveform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./waveform */ "./frontend/components/song/waveform.jsx");
+/* harmony import */ var _play_button_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./play_button_container */ "./frontend/components/song/play_button_container.js");
+
 
 
 
@@ -1907,7 +2039,7 @@ var SongBanner = function SongBanner(_ref) {
       title = _ref.title,
       genre = _ref.genre,
       artist = _ref.artist,
-      audioPlayer = _ref.audioPlayer;
+      songId = _ref.songId;
   var background = {
     backgroundImage: "url(".concat(cover, ")"),
     backgroundPosition: 'center',
@@ -1925,7 +2057,9 @@ var SongBanner = function SongBanner(_ref) {
     className: "banner-top"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "play-button"
-  }, "//! ADD PLAY BUTTON HERE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_play_button_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    songId: songId
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "title-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "",
@@ -2340,12 +2474,12 @@ var AudioPlayerReducer = function AudioPlayerReducer() {
 
   switch (action.type) {
     case _actions_audio_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_SONG"]:
-      newState[currentSong] = action.songId;
-      newState[playing] = true;
+      newState.currentSong = action.songId;
+      newState.playing = true;
       return newState;
 
     case _actions_audio_actions__WEBPACK_IMPORTED_MODULE_0__["TOGGLE_PLAY"]:
-      newState[playing] = !state.playing;
+      newState.playing = !state.playing;
       return newState;
 
     default:
