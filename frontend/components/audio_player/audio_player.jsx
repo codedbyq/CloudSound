@@ -85,7 +85,7 @@ class AudioPlayer extends React.Component {
         ) : null;
         
         return (
-            <div className={`${currentSong ? 'audio-popup' : 'audio-popup'}`}>
+            <div className={`${currentSong ? 'audio-popup' : 'hidden'}`}>
                 <audio id='audio' src={audio} preload='auto' controls 
                     onPlaying={this.handleTimeElapsed} onLoadedMetadata={this.setMetadata}/>
                 {playerControls}

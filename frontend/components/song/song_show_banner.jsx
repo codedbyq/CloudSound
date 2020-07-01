@@ -30,8 +30,8 @@ const SongBanner = ({ cover, audio, title, genre, artist, songId }) => {
                     </div>
 
                     {/* <Waveform audio={audio} /> */}
-                    <audio className='banner-audio-player' src={audio} 
-                    preload='auto' autoPlay controls></audio>
+                    {/* <audio className='banner-audio-player' src={audio} 
+                    preload='auto' autoPlay controls></audio> */}
                 </div>
                 <img className='banner-cover' src={cover} />
             </div>

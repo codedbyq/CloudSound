@@ -611,7 +611,7 @@ var AudioPlayer = /*#__PURE__*/function (_React$Component) {
         id: "duration"
       }, this.formatTime(this.state.duration))) : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "".concat(currentSong ? 'audio-popup' : 'audio-popup')
+        className: "".concat(currentSong ? 'audio-popup' : 'hidden')
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
         id: "audio",
         src: audio,
@@ -2079,13 +2079,7 @@ var SongBanner = function SongBanner(_ref) {
     className: "basic-info"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " 2 weeks ago"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "genre-btn"
-  }, "# ", genre))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
-    className: "banner-audio-player",
-    src: audio,
-    preload: "auto",
-    autoPlay: true,
-    controls: true
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, "# ", genre)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "banner-cover",
     src: cover
   })));
