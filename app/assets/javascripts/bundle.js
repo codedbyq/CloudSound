@@ -1627,7 +1627,7 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       this.props.fetchSong(this.props.match.params.songId).then(function (song) {
-        return _this2.props.fetchUser(song.artistId);
+        return _this2.props.fetchUser(song.artist_id);
       });
     }
   }, {

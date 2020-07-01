@@ -10,7 +10,7 @@ class SongShow extends React.Component {
 
    componentDidMount() {
        this.props.fetchSong(this.props.match.params.songId)
-       .then(song => this.props.fetchUser(song.artistId));
+       .then(song => this.props.fetchUser(song.artist_id));
     }
     
     handleDelete(e) {
