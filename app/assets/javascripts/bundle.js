@@ -510,6 +510,10 @@ var AudioPlayer = /*#__PURE__*/function (_React$Component) {
       duration: 0,
       timeElapsed: 0
     };
+    _this.togglePlay = _this.togglePlay.bind(_assertThisInitialized(_this));
+    _this.handleTimeElapsed = _this.handleTimeElapsed.bind(_assertThisInitialized(_this));
+    _this.handleProgressBar = _this.handleProgressBar.bind(_assertThisInitialized(_this));
+    _this.setMetadata = _this.setMetadata.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -649,7 +653,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state) {
   var songId = state.ui.audioPlayer.currentSong;
   var currentSong = state.entities.songs[songId] ? state.entities.songs[songId] : null;
-  var artist = currentSong ? state.entities.users[currentSong.artistId] : null;
+  var artist = currentSong ? state.entities.users[currentSong.artist_id] : null;
   return {
     playing: state.ui.audioPlayer.playing,
     currentSong: currentSong,
@@ -1450,6 +1454,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_audio_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/audio_actions */ "./frontend/actions/audio_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1471,6 +1476,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -1496,10 +1502,12 @@ var PlayButton = /*#__PURE__*/function (_React$Component) {
       var player = document.getElementById('audio');
 
       if (this.props.playing) {
-        togglePlay();
+        this.props.togglePlay();
         player.pause();
       } else {
         this.props.receiveCurrentSong(this.props.songId);
+        this.props.togglePlay();
+        player.setAttribute("autoPlay", "");
         player.play();
       }
     }
@@ -1687,7 +1695,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var song = state.entities.songs[ownProps.match.params.songId];
-  var artist = song ? state.entities.users[song.artistId] : null;
+  var artist = song ? state.entities.users[song.artist_id] : null;
   return {
     song: song,
     artist: artist,
@@ -2475,7 +2483,6 @@ var AudioPlayerReducer = function AudioPlayerReducer() {
   switch (action.type) {
     case _actions_audio_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_SONG"]:
       newState.currentSong = action.songId;
-      newState.playing = true;
       return newState;
 
     case _actions_audio_actions__WEBPACK_IMPORTED_MODULE_0__["TOGGLE_PLAY"]:

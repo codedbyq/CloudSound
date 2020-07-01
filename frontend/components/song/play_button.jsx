@@ -1,4 +1,5 @@
 import React from 'react';
+import { togglePlay } from '../../actions/audio_actions';
 
 class PlayButton extends React.Component {
     constructor(props) {
@@ -11,10 +12,12 @@ class PlayButton extends React.Component {
         const player = document.getElementById('audio');
 
         if (this.props.playing) {
-            togglePlay();
+            this.props.togglePlay();
             player.pause();
         } else {
             this.props.receiveCurrentSong(this.props.songId);
+            this.props.togglePlay();
+            player.setAttribute("autoPlay", "");
             player.play();
         }
     }

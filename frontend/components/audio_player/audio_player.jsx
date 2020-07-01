@@ -5,6 +5,10 @@ class AudioPlayer extends React.Component {
     constructor(props) {
         super(props)
         this.state = { duration: 0, timeElapsed: 0 }
+        this.togglePlay = this.togglePlay.bind(this);
+        this.handleTimeElapsed = this.handleTimeElapsed.bind(this);
+        this.handleProgressBar = this.handleProgressBar.bind(this);
+        this.setMetadata = this.setMetadata.bind(this);
     }
 
     componentDidMount() {

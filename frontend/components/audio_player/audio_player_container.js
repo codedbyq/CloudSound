@@ -5,7 +5,7 @@ import { togglePlay, receiveCurrentSong } from '../../actions/audio_actions';
 const mapStateToProps = (state) => {
     const songId = state.ui.audioPlayer.currentSong;
     const currentSong = state.entities.songs[songId] ? state.entities.songs[songId] : null;
-    const artist = currentSong ? state.entities.users[currentSong.artistId] : null;
+    const artist = currentSong ? state.entities.users[currentSong.artist_id] : null;
 
     return ({
         playing: state.ui.audioPlayer.playing,
