@@ -29,7 +29,7 @@ class AudioPlayer extends React.Component {
         const audio = document.getElementById('audio');
         const progressBar = document.getElementById('progress-bar');
         
-        if (!audio.pause) {
+        if (!audio.paused) {
             this.playInterval = setInterval(() => {
                 progressBar.value = audio.currentTime;
                 this.setState({ timeElapsed: audio.currentTime });
@@ -67,7 +67,7 @@ class AudioPlayer extends React.Component {
                 <Link to={`/songs/${currentSong.id}`}>{currentSong.title}</Link>
             </div>
         ) : null;
-        const playButton = playing ? '#5111B' : '#5107B'
+        const playButton = playing ? 'Pause' : 'Play'
         const playerControls = currentSong ? (
             <div className='player-controls'>
                 <button className='play-btn' onClick={this.togglePlay}>

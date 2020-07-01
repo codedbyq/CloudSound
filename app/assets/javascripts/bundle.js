@@ -538,7 +538,7 @@ var AudioPlayer = /*#__PURE__*/function (_React$Component) {
       var audio = document.getElementById('audio');
       var progressBar = document.getElementById('progress-bar');
 
-      if (!audio.pause) {
+      if (!audio.paused) {
         this.playInterval = setInterval(function () {
           progressBar.value = audio.currentTime;
 
@@ -589,7 +589,7 @@ var AudioPlayer = /*#__PURE__*/function (_React$Component) {
       }, artist.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/songs/".concat(currentSong.id)
       }, currentSong.title)) : null;
-      var playButton = playing ? '#5111B' : '#5107B';
+      var playButton = playing ? 'Pause' : 'Play';
       var playerControls = currentSong ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "player-controls"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
