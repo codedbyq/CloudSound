@@ -582,11 +582,13 @@ var AudioPlayer = /*#__PURE__*/function (_React$Component) {
       var audio = currentSong ? currentSong.audioURL : null;
       var cover = currentSong ? currentSong.coverURL : null;
       var artist = currentSong ? this.props.artist : null;
-      var songDetails = currentSong ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      var songInfo = currentSong ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "player-basic-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        id: "player-artist",
         to: "/"
       }, artist.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        id: "player-title",
         to: "/songs/".concat(currentSong.id)
       }, currentSong.title)) : null;
       var playButton = playing ? 'Pause' : 'Play';
@@ -624,7 +626,7 @@ var AudioPlayer = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: cover,
         className: "audio-player-cover"
-      }), songDetails));
+      }), songInfo));
     }
   }]);
 

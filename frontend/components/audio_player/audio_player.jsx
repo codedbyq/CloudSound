@@ -61,10 +61,10 @@ class AudioPlayer extends React.Component {
         const audio = currentSong ? currentSong.audioURL : null;
         const cover = currentSong ? currentSong.coverURL : null;
         const artist = currentSong ? this.props.artist : null;
-        const songDetails = currentSong ? (
+        const songInfo = currentSong ? (
             <div className='player-basic-info'>
-                <Link to='/'>{artist.username}</Link>
-                <Link to={`/songs/${currentSong.id}`}>{currentSong.title}</Link>
+                <Link id='player-artist' to='/'>{artist.username}</Link>
+                <Link id='player-title' to={`/songs/${currentSong.id}`}>{currentSong.title}</Link>
             </div>
         ) : null;
         const playButton = playing ? 'Pause' : 'Play'
@@ -92,7 +92,7 @@ class AudioPlayer extends React.Component {
                 {playerProgress}
                 <div className='song-details'>
                     <img src={cover} className='audio-player-cover'/>
-                    {songDetails}
+                    {songInfo}
                 </div>
             </div>
         )
