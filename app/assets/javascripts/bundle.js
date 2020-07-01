@@ -576,11 +576,12 @@ var AudioPlayer = /*#__PURE__*/function (_React$Component) {
           currentSong = _this$props.currentSong;
       var audio = currentSong ? currentSong.audioURL : null;
       var cover = currentSong ? currentSong.coverURL : null;
+      var artist = currentSong ? this.props.artist : null;
       var songDetails = currentSong ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "player-basic-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
-      }, currentSong.artist.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, artist.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/songs/".concat(currentSong.id)
       }, currentSong.title)) : null;
       var playButton = playing ? '#5111B' : '#5107B';
@@ -645,16 +646,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
+  var songId = state.ui.audioPlayer.currentSong;
+  var currentSong = state.entities.songs[songId] ? state.entities.songs[songId] : null;
+  var artist = currentSong ? state.entities.users[currentSong.artistId] : null;
   return {
     playing: state.ui.audioPlayer.playing,
-    currentSong: state.ui.audioPlayer.currentSong
+    currentSong: currentSong,
+    artist: artist
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    receiveCurrentSong: function receiveCurrentSong(song) {
-      return dispatch(Object(_actions_audio_actions__WEBPACK_IMPORTED_MODULE_2__["receiveCurrentSong"])(song));
+    receiveCurrentSong: function receiveCurrentSong(songId) {
+      return dispatch(Object(_actions_audio_actions__WEBPACK_IMPORTED_MODULE_2__["receiveCurrentSong"])(songId));
     },
     togglePlay: function togglePlay() {
       return dispatch(Object(_actions_audio_actions__WEBPACK_IMPORTED_MODULE_2__["togglePlay"])());
