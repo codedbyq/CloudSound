@@ -47,29 +47,49 @@ jbv = Song.create!(title: 'Amarillo', genre: 'Latin', description: 'Off my new a
 jbv.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/loose/Colores_J+Balvin.jpg'), filename: 'Colores_J Balvin.jpg')
 jbv.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/loose/jbalvin.mp3'), filename: 'jbalvin.mp3')
 
-war = Song.create!(title: 'Breathe Deeper', genre: 'Hip-Hop', description: 'this song is deep', artist_id: rexx.id)
-htc.coverFile.attach(io: open(''), filename: '')
-htc.audioFile.attach(io: open(''), filename: '')
+bd = Song.create!(title: 'Breathe Deeper', genre: 'Alternative', description: 'Off of our new album, The Slow Rush', artist_id: tameimpala.id)
+bd.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/loose/Tame_Impala.jpg'), filename: 'Tame_Impala.jpg')
+bd.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/loose/breathe_deeper.mp3'), filename: 'breathe_deeper.mp3')
 
-war = Song.create!(title: 'War', genre: 'Hip-Hop', description: 'this song is deep', artist_id: rexx.id)
-htc.coverFile.attach(io: open(''), filename: '')
-htc.audioFile.attach(io: open(''), filename: '')
+dol = Song.create!(title: 'Dolerme', genre: 'Latin', description: 'New single out now', artist_id: rosalia.id)
+dol.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/rosalia/dolerme.jpg'), filename: 'dolerme.jpg')
+dol.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/rosalia/ROSAL%C3%8DA+-+Dolerme.mp3'), filename: 'ROSALÍA - Dolerme.mp3')
 
-war = Song.create!(title: 'War', genre: 'Hip-Hop', description: 'this song is deep', artist_id: rexx.id)
-htc.coverFile.attach(io: open(''), filename: '')
-htc.audioFile.attach(io: open(''), filename: '')
+tkn = Song.create!(title: 'TKN', genre: 'Latin', description: 'I taught Travis Scott spanish!', artist_id: rosalia.id)
+tkn.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/rosalia/tkn.jpg'), filename: 'tkn.jpg')
+tkn.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/rosalia/ROSAL%C3%8DA+%26+Travis+Scott+-+TKN+(Official+Video).mp3'), filename: 'ROSALÍA & Travis Scott - TKN (Official Video).mp3')
 
-war = Song.create!(title: 'War', genre: 'Hip-Hop', description: 'this song is deep', artist_id: rexx.id)
-htc.coverFile.attach(io: open(''), filename: '')
-htc.audioFile.attach(io: open(''), filename: '')
+vete = Song.create!(title: 'Vete', genre: 'Latin', description: 'From my new album YHLQMDLG', artist_id: badbunny.id)
+vete.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/badbunny/YHLQMDLG_Bad+Bunny.jpg'), filename: 'YHLQMDLG_Bad Bunny.jpg')
+vete.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/badbunny/VETE+-+Bad+Bunny+(Audio+Official).mp3'), filename: 'VETE - Bad Bunny (Audio Official).mp3')
 
-war = Song.create!(title: 'War', genre: 'Hip-Hop', description: 'this song is deep', artist_id: rexx.id)
-htc.coverFile.attach(io: open(''), filename: '')
-htc.audioFile.attach(io: open(''), filename: '')
+yps = Song.create!(title: 'Yo Perreo Sola', genre: 'Latin', description: 'From my new album YHLQMDLG', artist_id: badbunny.id)
+yps.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/badbunny/YHLQMDLG_Bad+Bunny.jpg'), filename: 'YHLQMDLG_Bad Bunny.jpg')
+yps.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/badbunny/Yo+Perreo+Sola+-+Bad+Bunny+(+Video+Oficial+).mp3'), filename: 'Yo Perreo Sola - Bad Bunny ( Video Oficial ).mp3')
 
-war = Song.create!(title: 'War', genre: 'Hip-Hop', description: 'this song is deep', artist_id: rexx.id)
-htc.coverFile.attach(io: open(''), filename: '')
-htc.audioFile.attach(io: open(''), filename: '')
+rmw = Song.create!(title: 'You Rock My World', genre: 'Neo Soul', description: 'An old cover we did of Michael Jacksons"s "You Rock My World" ', artist_id: phonyppl.id)
+rmw.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/rockmyworld.jpg'), filename: 'rockmyworld.jpg')
+rmw.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/Phony+Ppl+-+You+Rock+My+World..mp3'), filename: 'Phony Ppl - You Rock My World..mp3')
+
+wtf = Song.create!(title: 'Way Too Far.', genre: 'Neo Soul', description: "Off of our album mō'zā-ik", artist_id: phonyppl.id)
+wtf.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/phony-mozaik.jpg'), filename: 'phony-mozaik.jpg')
+wtf.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/Way+Too+Far.mp3'), filename: 'Way Too Far.mp3')
+
+bf = Song.create!(title: 'Before You Get a Boyfriend.', genre: 'Neo Soul', description: "Off of our album mō'zā-ik", artist_id: phonyppl.id)
+bf.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/phony-mozaik.jpg'), filename: 'phony-mozaik.jpg')
+bf.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/Before+You+Get+A+Boyfriend.mp3'), filename: 'Before You Get A Boyfriend.mp3')
+
+some = Song.create!(title: 'somethinG about your love.', genre: 'Neo Soul', description: 'this song is deep', artist_id: phonyppl.id)
+some.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/phony-mozaik.jpg'), filename: 'phony-mozaik.jpg')
+some.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/Somethin+About+Your+Love.mp3'), filename: 'Somethin About Your Love.mp3')
+
+shw = Song.create!(title: 'Somehow.', genre: 'Neo Soul', description: 'Off of our album Yesterday"s Tomorrow', artist_id: phonyppl.id)
+shw.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/phonyppl-somehow.jpg'), filename: 'phonyppl-somehow.jpg')
+shw.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/Somehow..mp3'), filename: 'Somehow..mp3')
+
+moon = Song.create!(title: 'Why iii Love the Moon.', genre: 'Neo Soul', description: 'Off of our album Yesterday"s Tomorrow', artist_id: phonyppl.id)
+moon.coverFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/phonyppl-somehow.jpg'), filename: 'phonyppl-somehow.jpg')
+moon.audioFile.attach(io: open('https://cloud-sound-dev.s3-us-west-1.amazonaws.com/seeds/phony/Why+iii+Love+The+Moon+(Official+Video).mp3'), filename: 'Why iii Love The Moon (Official Video).mp3')
 
 
 
