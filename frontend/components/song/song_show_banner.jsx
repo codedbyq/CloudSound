@@ -1,7 +1,7 @@
 import React from 'react';
 import Waveform from './waveform';
 
-const SongBanner = ({ cover, audio, title, genre, artist }) => {
+const SongBanner = ({ cover, audio, title, genre, artist, audioPlayer }) => {
 
     const background = {
         backgroundImage: `url(${cover})`,
@@ -9,13 +9,15 @@ const SongBanner = ({ cover, audio, title, genre, artist }) => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
     }
-    
+
     return (
         <div className='song-banner' style={background}>
             <div className='song-banner-backdrop'>
                 <div className='banner-content'>
                     <div className='banner-top'>
-                        <div className='play-button'></div>
+                        <div className='play-button'>
+                            //! ADD PLAY BUTTON HERE
+                        </div>
                         <div className='title-container'>
                             <span><a href="" id='banner-artist'>{artist}</a></span>
                             <span id='banner-title'>{title}</span>

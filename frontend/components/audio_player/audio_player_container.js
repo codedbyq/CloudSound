@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import audioPlayer from './audio_player';
+import AudioPlayer from './audio_player';
 import { togglePlay, receiveCurrentSong } from '../../actions/audio_actions';
 
 const mapStateToProps = (state) => ({
     playing: state.ui.audioPlayer.playing,
-    currentSong: state.ui.musicPlayer.currentSong
+    currentSong: state.ui.audioPlayer.currentSong
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
     togglePlay: () => dispatch(togglePlay())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(audioPlayer);
+export default connect(mapStateToProps, mapDispatchToProps)(AudioPlayer);

@@ -9,6 +9,7 @@ import LandingContainer from './landing/landing_container';
 import SongShowContainer from './song/show_container';
 import SongFormContainer from './song/song_form_container';
 import DiscoverContainer from './discover/discover_container';
+import AudioPlayerContainer from './audio_player/audio_player_container';
 
 const App = () => (
     <div>
@@ -23,6 +24,7 @@ const App = () => (
             <ProtectedRoute path='/discover' component={DiscoverContainer} />
             <Route exact path='/' component={LandingContainer} />
 
+            <AudioPlayerContainer />
             <Footer />
         </div>
     </div>

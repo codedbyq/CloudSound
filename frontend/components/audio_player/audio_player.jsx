@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class AudioPlayer extends React.Component {
     constructor(props) {
@@ -80,7 +80,7 @@ class AudioPlayer extends React.Component {
         ) : null;
         
         return (
-            <div className={`audio-popup ${currentSong ? 'show' : 'hidden'}`}>
+            <div className={`${currentSong ? 'audio-popup' : 'audio-popup'}`}>
                 <audio id='audio' src={audio} preload='auto' controls 
                     onLoadedMetadata={this.setMetadata}/>
                 {playerControls}

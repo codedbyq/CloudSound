@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import audioPlayerReducer from './audio_reducer';
+import AudioPlayerReducer from './audio_reducer';
 
-const uiReducer = combineReducers({
-    nowPlaying: audioPlayerReducer
+const UIReducer = combineReducers({
+    audioPlayer: AudioPlayerReducer
 });
 
-export default uiReducer
+export default UIReducer;
