@@ -78,7 +78,7 @@ class AudioPlayer extends React.Component {
         const playerProgress = currentSong ? (
             <div className='player-progress'>
                 <span id='time-elapsed'>{this.formatTime(this.state.timeElapsed)}</span>
-                <input className='progress-bar' type="range" min='0' defaultValue='0' 
+                <input id='progress-bar' type="range" min='0' defaultValue='0' 
                     max={this.state.duration} onInput={this.handleProgressBar} />
                 <span id='duration'>{this.formatTime(this.state.duration)}</span>
             </div>
@@ -87,7 +87,7 @@ class AudioPlayer extends React.Component {
         return (
             <div className={`${currentSong ? 'audio-popup' : 'audio-popup'}`}>
                 <audio id='audio' src={audio} preload='auto' controls 
-                    onLoadedMetadata={this.setMetadata}/>
+                    onPlaying={this.handleTimeElapsed} onLoadedMetadata={this.setMetadata}/>
                 {playerControls}
                 {playerProgress}
                 <div className='song-details'>

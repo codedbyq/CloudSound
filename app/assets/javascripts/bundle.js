@@ -601,7 +601,7 @@ var AudioPlayer = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "time-elapsed"
       }, this.formatTime(this.state.timeElapsed)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "progress-bar",
+        id: "progress-bar",
         type: "range",
         min: "0",
         defaultValue: "0",
@@ -617,6 +617,7 @@ var AudioPlayer = /*#__PURE__*/function (_React$Component) {
         src: audio,
         preload: "auto",
         controls: true,
+        onPlaying: this.handleTimeElapsed,
         onLoadedMetadata: this.setMetadata
       }), playerControls, playerProgress, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "song-details"
