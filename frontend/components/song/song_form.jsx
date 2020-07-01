@@ -102,7 +102,7 @@ class SongForm extends React.Component {
                                     <option value="">None</option>
                                     <option value="Alternative">Alternative</option>
                                     <option value="Ambient">Ambient</option>
-                                    <option value="Classical">Alternative</option>
+                                    <option value="Classical">Classical</option>
                                     <option value="Country">Country</option>
                                     <option value="Dance &amp; EDM">Dance &amp; EDM</option>
                                     <option value="Dancehall">Dancehall</option>
