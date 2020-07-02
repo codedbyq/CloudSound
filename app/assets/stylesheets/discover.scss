@@ -1,3 +1,36 @@
+@import 'variables';
+
 .discover-div {
     padding: 40px;
+}
+
+.scroll-div {
+    margin-bottom: 50px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.scroll-menu-item {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 280px;
+    width: 200px;
+    margin-right: 20px;
+}
+
+
+.scroll-menu {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.scroll-title {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.scroll-desc {
+    color: $grey;
+    margin-bottom: 20px;
 }
