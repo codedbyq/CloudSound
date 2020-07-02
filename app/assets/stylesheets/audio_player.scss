@@ -24,6 +24,28 @@
     padding: 7px 15px;
 }
 
+.play-btn, .pause-btn {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.play-btn {
+    background-image: url(asset_path('grey-play-16.png'));
+}
+
+.pause-btn {
+    background-image: url(asset_path('grey-pause-16.png'));
+}
+
 .audio-player-cover {
     height: 30px;
     width: 30px;

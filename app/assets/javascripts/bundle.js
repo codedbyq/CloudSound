@@ -591,13 +591,13 @@ var AudioPlayer = /*#__PURE__*/function (_React$Component) {
         id: "player-title",
         to: "/songs/".concat(currentSong.id)
       }, currentSong.title)) : null;
-      var playButton = playing ? 'Pause' : 'Play';
+      var symbol = playing ? 'pause' : 'play';
       var playerControls = currentSong ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "player-controls"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "play-btn",
+        className: "".concat(symbol, "-btn"),
         onClick: this.togglePlay
-      }, playButton)) : null;
+      })) : null;
       var playerProgress = currentSong ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "player-progress"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {

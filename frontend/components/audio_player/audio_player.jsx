@@ -67,11 +67,10 @@ class AudioPlayer extends React.Component {
                 <Link id='player-title' to={`/songs/${currentSong.id}`}>{currentSong.title}</Link>
             </div>
         ) : null;
-        const playButton = playing ? 'Pause' : 'Play'
+        const symbol = playing ? 'pause' : 'play'
         const playerControls = currentSong ? (
             <div className='player-controls'>
-                <button className='play-btn' onClick={this.togglePlay}>
-                    {playButton}
+                <button className={`${symbol}-btn`} onClick={this.togglePlay}>
                 </button>
             </div>
         ) : null;
