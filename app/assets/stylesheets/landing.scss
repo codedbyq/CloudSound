@@ -1,5 +1,82 @@
-.landing-div {
+@import 'variables';
+
+.landing-banner {
+    height: 450px;
+    width: 100%;
+    background-image: url(asset_path('landingbanner.jpg'));
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-banner-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 350px;
+    width: 700px;
+    color: $lighter-grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-banner-content h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: white;
+}
+.landing-banner-content p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.banner-link-blk {
+    height: 30px;
+    border-radius: $border-rad;
+    padding: 10px 15px;
+    margin: 15px 10px;
+    color: $lighter-grey;
+    background-color: black;
+    border: 1px solid $lighter-grey;
+}
+
+.landing-btn-orn {
+    background-color: $sc-orange;
+    border: none;
+    line-height: 20px;
+    font-size: 18px;
+    border-radius: $border-rad;
+    padding: 10px 15px;
+    margin: 15px 10px;
+    color: $lighter-grey;
+    background-color: $sc-orange;
+}
+
+.landing-trending {
+    margin: 30px;
+    @extend %flex-col;
+    align-items: center;
+}
+
+.landing-trending h1 {
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.landing-covers {
+    display: inline-block;
+    margin-left: auto;
+    padding-left: 10px;
+}
+
+.landing-cover {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+
+}
+
+.landing-cover img {
+    height: 200px;
+    width: 200px;
 }
