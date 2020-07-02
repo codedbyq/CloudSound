@@ -1,6 +1,6 @@
 class Api::SongsController < ApplicationController
 
-    before_action :require_login, only: [:create, :delete, :update]
+    # before_action :require_login, only: [:create, :delete, :update]
 
     def index
         @songs = Song.all
