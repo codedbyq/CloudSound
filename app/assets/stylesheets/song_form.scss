@@ -129,7 +129,7 @@ input[type="file"] {
     display: inline-flex;
 }
 
-#required {
+#required, .song-errors {
     color: red;
 }
 
@@ -158,6 +158,3 @@ input[type="file"] {
     color: white;
 }
 
-.song-errors {
-    color: red;
-}

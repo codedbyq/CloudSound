@@ -32,11 +32,32 @@
 }
 
 .play-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 60px;
     width: 60px;
     margin-right: 10px;
     border-radius: 100px;
     background-color: $sc-orange;
+}
+
+.banner-play, .banner-pause {
+    background-position: center;
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.banner-play {
+    background-image: url(asset_path('play-64.png'));
+}
+
+.banner-pause {
+    background-image: url(asset_path('pause-64.png'));
 }
 
 .title-container, .basic-info {

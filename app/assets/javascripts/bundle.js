@@ -1732,10 +1732,11 @@ var PlayButton = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var symbol = this.props.playing ? 'pause' : 'play';
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "banner-play",
+        className: "banner-".concat(symbol),
         onClick: this.handleClick
-      }, "Play");
+      });
     }
   }]);
 

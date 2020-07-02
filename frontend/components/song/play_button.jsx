@@ -23,9 +23,10 @@ class PlayButton extends React.Component {
     }
 
     render() {
+        const symbol = this.props.playing ? 'pause' : 'play'
+
         return (
-            <button className='banner-play' onClick={this.handleClick}>
-                Play
+            <button className={`banner-${symbol}`} onClick={this.handleClick}>
             </button>
         )
     }
