@@ -58,7 +58,15 @@ class Landing extends React.Component {
                     {covers}
                 </div>
                 <div className='landing-mobile-app'></div>
-                <div className='landing-closing'></div>
+                <div className='landing-closing'>
+                    <h1>Thanks for listening. Now join in.</h1>
+                    <p>Upload your music or listen to others. All for free.</p>
+                    <button className='landing-btn-orn' onClick={this.handleClick}>Create account</button>
+                    <span className='landing-signin'>
+                        <p id='already-account'>Already have an account?</p> 
+                        <button className='landing-btn-wht' onClick={this.handleClick}>Sign in</button>
+                    </span>
+                </div>
             </div>
         )
     }
