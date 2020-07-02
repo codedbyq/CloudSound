@@ -1,5 +1,4 @@
 import React from 'react';
-import Waveform from './waveform';
 import PlayButtonContainer from './play_button_container';
 
 const SongBanner = ({ cover, audio, title, genre, artist, songId }) => {
@@ -15,23 +14,23 @@ const SongBanner = ({ cover, audio, title, genre, artist, songId }) => {
         <div className='song-banner' style={background}>
             <div className='song-banner-backdrop'>
                 <div className='banner-content'>
+
                     <div className='banner-top'>
                         <div className='play-button'>
                             <PlayButtonContainer songId={songId} />
                         </div>
+
                         <div className='title-container'>
                             <span><a href="" id='banner-artist'>{artist}</a></span>
                             <span id='banner-title'>{title}</span>
                         </div>
+
                         <div className='basic-info'>
                             <span> 2 weeks ago</span> 
                             <button className='genre-btn'># {genre}</button> 
                         </div>
-                    </div>
 
-                    {/* <Waveform audio={audio} /> */}
-                    {/* <audio className='banner-audio-player' src={audio} 
-                    preload='auto' autoPlay controls></audio> */}
+                    </div>
                 </div>
                 <img className='banner-cover' src={cover} />
             </div>

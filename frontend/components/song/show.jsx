@@ -20,7 +20,6 @@ class SongShow extends React.Component {
     }
     
     render() {
-        //conditional attributes
         const song = this.props.song;
         const artist = this.props.artist;
 
