@@ -78,11 +78,13 @@
     border-radius: 3px;
     text-align: center;
     align-items: center;
+    justify-content: center;
 }
 
-#login {
-    border: 1px solid #bbbbbb;
+#login.nav-session {
+    border: 1px solid $mid-grey;
     background-color: $light-grey;
+    padding-top: 2px;
 }
 
 #signup {

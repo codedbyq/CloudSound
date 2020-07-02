@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import NavDropdown from './nav_dropdown';
 
 const NavBar = props => {
@@ -8,24 +8,15 @@ const NavBar = props => {
     const searchBar = props.currentUser ? 'search-long' : 'search';
     const navRight = props.currentUser ? (
         <>
-            <NavLink id='right-btn' to='/'>Try Pro</NavLink>
-            <NavLink id='profile-drop' to='/'>Profile</NavLink>
+            <NavLink id='right-btn' to='/discover'>Try Pro</NavLink>
+            <NavLink id='profile-drop' to='/discover'>Profile</NavLink>
         </>
     ) : (
         <>
-            <button onClick={handleLogin} className='nav-session' id='login'>Sign in</button>
-            <button onClick={handleSignin} className='nav-session' id='signup' >Create account</button>
+            <NavLink className='nav-session' id='login' to='/login'>Sign in</NavLink>
+            <NavLink className='nav-session' id='signup' to='/signup'>Create account</NavLink>
         </>
     )
-
-    const handleLogin = (e) => {
-        const form = document.getElementById('login-form');
-        form.classList.remove('hide-modal');
-    }
-    const handleSignin = (e) => {
-        const form = document.getElementById('signin-form');
-        form.classList.remove('hide-modal');
-    }
 
 
     return (

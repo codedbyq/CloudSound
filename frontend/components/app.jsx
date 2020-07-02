@@ -16,7 +16,7 @@ const App = () => (
         <div id='fake-header'></div>
         <div id='app-container'>
             <NavBarContainer />
-
+            
             <AuthRoute exact path='/login' component={LoginContainer} />
             <AuthRoute exact path='/signup' component={SigninContainer} />
             <Route path='/songs/:songId' component={SongShowContainer} />
