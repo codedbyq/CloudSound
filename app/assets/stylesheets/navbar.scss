@@ -81,10 +81,11 @@
     justify-content: center;
 }
 
-#login.nav-session {
+#login {
     border: 1px solid $mid-grey;
     background-color: $light-grey;
     padding-top: 2px;
+    color: white;
 }
 
 #signup {
