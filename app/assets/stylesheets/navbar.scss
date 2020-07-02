@@ -1,3 +1,5 @@
+@import 'variables';
+
 #navbar {
     position: sticky;
     top: 0;
@@ -68,7 +70,7 @@
 #nav-right .nav-session {
     margin: 0;
     line-height: 20px;
-    height: 20px;
+    height: 25px;
     padding: 2px 11px 2px 10px;
     color: white;
     font-size: 13px;
@@ -79,11 +81,14 @@
 }
 
 #login {
-    border: 1px solid rgb(187, 187, 187);
+    border: 1px solid #bbbbbb;
+    background-color: $light-grey;
 }
 
 #signup {
     background-color: #FF5500;
+    color: white;
+    border: none;
 }
 #nav-right a:link, a:visited {
     color: rgb(187, 187, 187);

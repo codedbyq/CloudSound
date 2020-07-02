@@ -1252,15 +1252,26 @@ var NavBar = function NavBar(props) {
   }, "Try Pro"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     id: "profile-drop",
     to: "/"
-  }, "Profile")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+  }, "Profile")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: handleLogin,
     className: "nav-session",
-    id: "login",
-    to: "/login"
-  }, "Sign in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+    id: "login"
+  }, "Sign in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: handleSignin,
     className: "nav-session",
-    id: "signup",
-    to: "/signup"
+    id: "signup"
   }, "Create account"));
+
+  var handleLogin = function handleLogin(e) {
+    var form = document.getElementById('login-form');
+    form.classList.remove('hide-modal');
+  };
+
+  var handleSignin = function handleSignin(e) {
+    var form = document.getElementById('signin-form');
+    form.classList.remove('hide-modal');
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "navbar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1271,13 +1282,13 @@ var NavBar = function NavBar(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], _defineProperty({
     className: "left-btn",
     to: "/discover"
-  }, "className", "home"), "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+  }, "className", "home"), "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "left-btn",
-    to: "/login"
-  }, "Stream"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+    href: "https://github.com/codedbyq/CloudSound"
+  }, "Github"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "left-btn",
-    to: "/login"
-  }, "Library")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    href: "https://www.linkedin.com/in/marquisbentley/"
+  }, "LinkedIn")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     id: searchBar,
     type: "search",
     placeholder: placeholderMsg

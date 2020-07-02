@@ -13,10 +13,19 @@ const NavBar = props => {
         </>
     ) : (
         <>
-            <NavLink className='nav-session' id='login' to='/login'>Sign in</NavLink>
-            <NavLink className='nav-session' id='signup' to='/signup'>Create account</NavLink>
+            <button onClick={handleLogin} className='nav-session' id='login'>Sign in</button>
+            <button onClick={handleSignin} className='nav-session' id='signup' >Create account</button>
         </>
     )
+
+    const handleLogin = (e) => {
+        const form = document.getElementById('login-form');
+        form.classList.remove('hide-modal');
+    }
+    const handleSignin = (e) => {
+        const form = document.getElementById('signin-form');
+        form.classList.remove('hide-modal');
+    }
 
 
     return (
@@ -24,8 +33,8 @@ const NavBar = props => {
             <div className='nav-left'>
                 <NavLink id='nav-logo' to='/'></NavLink>
                 <NavLink className='left-btn' to='/discover' className='home'>Home</NavLink>
-                <NavLink className='left-btn' to='/login'>Stream</NavLink>
-                <NavLink className='left-btn' to='/login'>Library</NavLink>
+                <a className='left-btn' href="https://github.com/codedbyq/CloudSound">Github</a>
+                <a className='left-btn' href="https://www.linkedin.com/in/marquisbentley/">LinkedIn</a>
             </div>
 
             <input id={searchBar} type="search" placeholder={placeholderMsg} />
