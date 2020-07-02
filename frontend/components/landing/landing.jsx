@@ -9,6 +9,7 @@ class Landing extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
+        this.props.history.push('/signup');
     }
 
     render() {

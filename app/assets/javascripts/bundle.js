@@ -1034,6 +1034,7 @@ var Landing = /*#__PURE__*/function (_React$Component) {
     key: "handleClick",
     value: function handleClick(e) {
       e.preventDefault();
+      this.props.history.push('/signup');
     }
   }, {
     key: "render",
@@ -1139,7 +1140,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     currentUser: state.session.currentUser,
     users: Object.values(state.entities.users),
