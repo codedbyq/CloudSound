@@ -684,86 +684,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   !*** ./frontend/components/discover/discover.jsx ***!
   \***************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-var Discover = /*#__PURE__*/function (_React$Component) {
-  _inherits(Discover, _React$Component);
-
-  var _super = _createSuper(Discover);
-
-  function Discover(props) {
-    _classCallCheck(this, Discover);
-
-    return _super.call(this, props);
-  }
-
-  _createClass(Discover, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchUsers();
-      this.props.fetchSongs();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var songs = this.props.songs.map(function (song) {
-        return (
-          /*#__PURE__*/
-          // <Link key={song.id} to={`/songs/${song.id}`}>{song.title}</Link>
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-            key: song.id
-          }, song.title)
-        );
-      });
-      var users = this.props.users.map(function (user) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: user.id
-        }, user.username);
-      });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: 'discover-div'
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "songs"
-      }, songs), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "users"
-      }, users));
-    }
-  }]);
-
-  return Discover;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (Discover);
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/Marquis/Desktop/CloudSound/frontend/components/discover/discover.jsx: Unexpected token (20:12)\n\n\u001b[0m \u001b[90m 18 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 19 | \u001b[39m        \u001b[36mconst\u001b[39m blm \u001b[33m=\u001b[39m songs\u001b[33m.\u001b[39mmap(song \u001b[33m=>\u001b[39m (\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 | \u001b[39m            \u001b[36mif\u001b[39m (song\u001b[33m.\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 | \u001b[39m        ))\u001b[0m\n\u001b[0m \u001b[90m 22 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 23 | \u001b[39m\u001b[0m\n    at Object._raise (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:746:17)\n    at Object.raiseWithData (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:739:17)\n    at Object.raise (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:733:17)\n    at Object.unexpected (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:8807:16)\n    at Object.parseExprAtom (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:10130:20)\n    at Object.parseExprAtom (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:4638:20)\n    at Object.parseExprSubscripts (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9656:23)\n    at Object.parseMaybeUnary (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9636:21)\n    at Object.parseExprOps (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9506:23)\n    at Object.parseMaybeConditional (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9479:23)\n    at Object.parseMaybeAssign (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9434:21)\n    at Object.parseParenAndDistinguishExpression (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:10267:28)\n    at Object.parseExprAtom (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:10007:21)\n    at Object.parseExprAtom (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:4638:20)\n    at Object.parseExprSubscripts (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9656:23)\n    at Object.parseMaybeUnary (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9636:21)\n    at Object.parseExprOps (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9506:23)\n    at Object.parseMaybeConditional (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9479:23)\n    at Object.parseMaybeAssign (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9434:21)\n    at Object.parseFunctionBody (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:10701:24)\n    at Object.parseArrowExpression (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:10677:10)\n    at Object.parseExprAtom (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9960:18)\n    at Object.parseExprAtom (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:4638:20)\n    at Object.parseExprSubscripts (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9656:23)\n    at Object.parseMaybeUnary (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9636:21)\n    at Object.parseExprOps (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9506:23)\n    at Object.parseMaybeConditional (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9479:23)\n    at Object.parseMaybeAssign (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9434:21)\n    at Object.parseExprListItem (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:10792:18)\n    at Object.parseCallExpressionArguments (/Users/Marquis/Desktop/CloudSound/node_modules/@babel/parser/lib/index.js:9850:22)");
 
 /***/ }),
 
@@ -788,7 +711,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state) {
   return {
     currentUser: state.session.currentUser,
-    users: Object.values(state.entities.users),
+    users: state.entities.users,
     songs: Object.values(state.entities.songs)
   };
 };

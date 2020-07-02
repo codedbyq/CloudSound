@@ -5,7 +5,7 @@ import { fetchSongs } from '../../actions/song_actions';
 
 const mapStateToProps = state => ({
     currentUser: state.session.currentUser,
-    users: Object.values(state.entities.users),
+    users: state.entities.users,
     songs: Object.values(state.entities.songs)
 });
 
