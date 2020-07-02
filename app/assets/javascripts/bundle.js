@@ -878,7 +878,7 @@ var Discover = /*#__PURE__*/function (_React$Component) {
         className: "scroll-menu"
       }, phony)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "scroll-title"
-      }, "Latinx Songs of the Week"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "Latin Songs of the Week"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "scroll-desc"
       }, "The hottest music in the Latin World"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "scroll-div"

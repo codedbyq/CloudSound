@@ -28,5 +28,8 @@ CloudSound is a clone of [Soundcloud.com][soundcloud], an online community where
 The landing page's purpose is to welcome users that are not signed in and provide them with information about the website and provides links to login or sign up.
 
 
+![alt text][landing]
+
 [soundcloud]: soundcloud.com
 [demolink]: https://cloud-sound.herokuapp.com/#/
+[landing]: https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/landing.gif "Landing Page"

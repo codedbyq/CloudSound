@@ -126,7 +126,7 @@ class Discover extends React.Component {
                     <div className='scroll-menu'>{phony}</div>
                </div>
 
-                <h1 className='scroll-title'>Latinx Songs of the Week</h1>
+                <h1 className='scroll-title'>Latin Songs of the Week</h1>
                 <p className='scroll-desc'>The hottest music in the Latin World</p>
                 <div className='scroll-div'>
                     <div className='scroll-menu'>{latin}</div>
