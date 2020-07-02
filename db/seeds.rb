@@ -38,8 +38,8 @@ htc.coverFile.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws
 htc.audioFile.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/loose/Kehlani.mp3'), filename: 'Kehlani.mp3')
 
 war = Song.create!(title: 'War', genre: 'Hip-Hop', description: 'this song is deep #bubbling #blm', artist_id: rexx.id)
-htc.coverFile.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/loose/rexx.jpg'), filename: 'rexx.jpg')
-htc.audioFile.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/loose/War.mp3'), filename: 'War.mp3')
+war.coverFile.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/loose/rexx.jpg'), filename: 'rexx.jpg')
+war.audioFile.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/loose/War.mp3'), filename: 'War.mp3')
 
 nmw = Song.create!(title: 'New Magic Wand', genre: 'Hip-Hop', description: 'this is my favorite song off my new album #trending', artist_id: tyler.id)
 nmw.coverFile.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/loose/tyler-the-creator-igor-cover.png'), filename: 'tyler-the-creator-igor-cover.png')
