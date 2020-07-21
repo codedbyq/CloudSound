@@ -29,6 +29,10 @@ class User < ApplicationRecord
     attr_reader :password
     after_initialize :ensure_session_token
 
+    def self.search(input) 
+        users = User.where("lower(username) LIKE ?", "#{search.downcase}")
+    end
+
     def self.find_by_credentials(input, password)
         user = User.find_by(username: input) || User.find_by(email: input)
         user && user.is_password?(password) ? user : nil
