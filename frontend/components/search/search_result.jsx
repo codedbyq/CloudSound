@@ -6,7 +6,7 @@ export default class SearchResult extends Component {
     }
 
     componentDidMount() {
-        this.props.search(this.props.match.params.search);
+        // this.props.search(this.props.match.params.search);
     }
 
     render() {

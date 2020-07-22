@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
+import { search } from '../../actions/search_actions';
 import NavBar from './navbar';
 
 const mapStateToProps = (state) => ({
@@ -7,7 +9,8 @@ const mapStateToProps = (state) => ({
     });
 
 const mapDispatchToProps = dispatch => ({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    search: input => dispatch(search(input))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));
