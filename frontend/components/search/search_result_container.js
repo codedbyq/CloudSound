@@ -3,8 +3,8 @@ import { search } from 'react-redux';
 import SearchResult from './search_result';
 
 const mapStateToProps = (state, ownProps) => {
-    const users = state.entities.search.users;
-    const songs = state.entities.search.songs;
+    const users = state.entities.search.results.users;
+    const songs = state.entities.search.results.songs;
 
     const usersArr = users ? Object.values(users) : null;
     const songsArr = songs ? Object.values(songs) : null;
