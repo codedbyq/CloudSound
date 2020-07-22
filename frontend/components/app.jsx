@@ -10,6 +10,7 @@ import SongShowContainer from './song/show_container';
 import SongFormContainer from './song/song_form_container';
 import DiscoverContainer from './discover/discover_container';
 import AudioPlayerContainer from './audio_player/audio_player_container';
+import SearchResultContainer from './search/search_result_container';
 
 const App = () => (
     <div>
@@ -20,6 +21,7 @@ const App = () => (
             <AuthRoute exact path='/login' component={LoginContainer} />
             <AuthRoute exact path='/signup' component={SigninContainer} />
             <Route path='/songs/:songId' component={SongShowContainer} />
+            <ProtectedRoute path='/search/:search' component={SearchResultContainer} />
             <ProtectedRoute path='/upload' component={SongFormContainer} />
             <ProtectedRoute path='/discover' component={DiscoverContainer} />
             <Route exact path='/' component={LandingContainer} />

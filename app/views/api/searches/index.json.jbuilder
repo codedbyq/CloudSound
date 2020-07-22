@@ -1,4 +1,4 @@
-json.search do
+json.results do
     json.songs do 
         @songs.each do |song| 
             json.set! song.id do
