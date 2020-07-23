@@ -1951,6 +1951,13 @@ var PlayButton = /*#__PURE__*/function (_React$Component) {
       if (this.props.playing && this.props.currentSong === parseInt(this.props.match.params.songId)) {
         this.props.togglePlay();
         player.pause();
+      } else if (this.props.playing && this.props.currentSong !== parseInt(this.props.match.params.songId)) {
+        this.props.togglePlay();
+        player.pause();
+        this.props.receiveCurrentSong(this.props.songId);
+        this.props.togglePlay();
+        player.setAttribute("autoPlay", "");
+        player.play();
       } else {
         this.props.receiveCurrentSong(this.props.songId);
         this.props.togglePlay();
