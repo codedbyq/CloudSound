@@ -1,10 +1,11 @@
 import { receiveCurrentSong, togglePlay } from '../../actions/audio_actions';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PlayButton from './play_button';
-import { connect } from 'react-redux'
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
     playing: state.ui.audioPlayer.playing,
-    currentSong: state.entities.songs[state.ui.audioPlayer.currentSong],
+    currentSong: state.ui.audioPlayer.currentSong,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -12,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
     togglePlay: () => dispatch(togglePlay())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlayButton);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PlayButton));

@@ -1903,7 +1903,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actions_audio_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/audio_actions */ "./frontend/actions/audio_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1928,7 +1927,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var PlayButton = /*#__PURE__*/function (_React$Component) {
   _inherits(PlayButton, _React$Component);
 
@@ -1950,7 +1948,7 @@ var PlayButton = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var player = document.getElementById('audio');
 
-      if (this.props.playing) {
+      if (this.props.playing && this.props.currentSong === parseInt(this.props.match.params.songId)) {
         this.props.togglePlay();
         player.pause();
       } else {
@@ -1963,7 +1961,14 @@ var PlayButton = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var symbol = this.props.playing ? 'pause' : 'play';
+      var symbol;
+
+      if (this.props.playing && this.props.currentSong === parseInt(this.props.match.params.songId)) {
+        symbol = 'pause';
+      } else {
+        symbol = 'play';
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "banner-".concat(symbol),
         onClick: this.handleClick
@@ -1988,16 +1993,18 @@ var PlayButton = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_audio_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/audio_actions */ "./frontend/actions/audio_actions.js");
-/* harmony import */ var _play_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./play_button */ "./frontend/components/song/play_button.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _play_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./play_button */ "./frontend/components/song/play_button.jsx");
 
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     playing: state.ui.audioPlayer.playing,
-    currentSong: state.entities.songs[state.ui.audioPlayer.currentSong]
+    currentSong: state.ui.audioPlayer.currentSong
   };
 };
 
@@ -2012,7 +2019,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_play_button__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_play_button__WEBPACK_IMPORTED_MODULE_3__["default"])));
 
 /***/ }),
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { togglePlay } from '../../actions/audio_actions';
 
 class PlayButton extends React.Component {
     constructor(props) {
@@ -11,7 +10,7 @@ class PlayButton extends React.Component {
         e.preventDefault();
         const player = document.getElementById('audio');
 
-        if (this.props.playing) {
+        if (this.props.playing && this.props.currentSong === parseInt(this.props.match.params.songId)) {
             this.props.togglePlay();
             player.pause();
         } else {
@@ -23,7 +22,12 @@ class PlayButton extends React.Component {
     }
 
     render() {
-        const symbol = this.props.playing ? 'pause' : 'play'
+        let symbol;
+        if (this.props.playing && this.props.currentSong === parseInt(this.props.match.params.songId)) {
+            symbol = 'pause';
+        } else {
+            symbol = 'play';
+        }
 
         return (
             <button className={`banner-${symbol}`} onClick={this.handleClick}>

@@ -69,13 +69,14 @@
 
 #nav-right .nav-session {
     margin: 0;
-    line-height: 20px;
+    line-height: 15px;
     height: 25px;
-    padding: 2px 11px 2px 10px;
+    padding: 2px 10px 2px 10px;
     color: white;
     font-size: 13px;
     margin-left: 15px;
     border-radius: 3px;
+    display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -84,7 +85,6 @@
 #login {
     border: 1px solid $mid-grey;
     background-color: $light-grey;
-    padding-top: 2px;
     color: white;
 }
 
@@ -93,6 +93,11 @@
     color: white;
     border: none;
 }
+
+#login:visited, #signup:visited {
+    color: white;
+}
+
 #nav-right a:link, a:visited {
     color: rgb(187, 187, 187);
 
