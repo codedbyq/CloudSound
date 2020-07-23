@@ -1,9 +1,10 @@
 class Api::CommentsController < ApplicationController
 
-    before_action :require_login, only: [:create, :delete, :update]
+    # before_action :require_login, only: [:create, :delete, :update]
 
     def index
         @comments = Comment.all
+        render :index
     end
 
     def create
@@ -13,7 +14,7 @@ class Api::CommentsController < ApplicationController
 
         if @comment.save
             @song = @comment.song
-            render 'api/songs/show'
+            render :index
         else
             render json: @comment.errors.full_messages, status: 400
         end
@@ -23,7 +24,7 @@ class Api::CommentsController < ApplicationController
         @comment = Comment.find_by(user_id: current_user.id, song_id: params[:id])
         @comment.destroy
         @song = @comment.song 
-        render 'api/songs/show'
+        render :index
     end
 
     private
