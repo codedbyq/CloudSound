@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { search } from './util/search_api';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,5 +24,4 @@ document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<Root store={store}/>, root);
 
     //! REMOVE BEFORE HEROKU PUSH - window methods and variables for testing 
-    window.search = search;
 });

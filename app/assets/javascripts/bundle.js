@@ -379,9 +379,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _util_search_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/search_api */ "./frontend/util/search_api.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -408,8 +406,6 @@ document.addEventListener("DOMContentLoaded", function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root); //! REMOVE BEFORE HEROKU PUSH - window methods and variables for testing 
-
-  window.search = _util_search_api__WEBPACK_IMPORTED_MODULE_4__["search"];
 });
 
 /***/ }),
@@ -436,7 +432,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _song_song_form_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./song/song_form_container */ "./frontend/components/song/song_form_container.js");
 /* harmony import */ var _discover_discover_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./discover/discover_container */ "./frontend/components/discover/discover_container.js");
 /* harmony import */ var _audio_player_audio_player_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./audio_player/audio_player_container */ "./frontend/components/audio_player/audio_player_container.js");
-/* harmony import */ var _search_search_result_container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./search/search_result_container */ "./frontend/components/search/search_result_container.js");
+/* harmony import */ var _search_search_result_container__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./search/search_result_container */ "./frontend/components/search/search_result_container.js");
 
 
 
@@ -469,7 +465,7 @@ var App = function App() {
     component: _song_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_utils__WEBPACK_IMPORTED_MODULE_6__["ProtectedRoute"], {
     path: "/search/:search",
-    component: _search_search_result_container__WEBPACK_IMPORTED_MODULE_13__["default"]
+    component: _search_search_result_container__WEBPACK_IMPORTED_MODULE_12__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_utils__WEBPACK_IMPORTED_MODULE_6__["ProtectedRoute"], {
     path: "/upload",
     component: _song_song_form_container__WEBPACK_IMPORTED_MODULE_9__["default"]
@@ -1565,7 +1561,8 @@ var SearchResult = /*#__PURE__*/function (_Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _search_result__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search_result */ "./frontend/components/search/search_result.jsx");
+/* harmony import */ var _actions_search_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/search_actions */ "./frontend/actions/search_actions.js");
+/* harmony import */ var _search_result__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search_result */ "./frontend/components/search/search_result.jsx");
 
 
 
@@ -1584,12 +1581,12 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     search: function search(input) {
-      return dispatch(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["search"])(input));
+      return dispatch(Object(_actions_search_actions__WEBPACK_IMPORTED_MODULE_1__["search"])(input));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_search_result__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_search_result__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
