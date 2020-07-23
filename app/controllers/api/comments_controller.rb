@@ -12,8 +12,8 @@ class Api::CommentsController < ApplicationController
         @comment.user_id = current_user.id 
 
         if @comment.save
-            @song = @comment.song
-            render :index
+            @song = @comment.song_id
+            render :show
         else
             render json: @comment.errors.full_messages, status: 400
         end
@@ -23,7 +23,7 @@ class Api::CommentsController < ApplicationController
         @comment = Comment.find_by(user_id: current_user.id, song_id: params[:id])
         @comment.destroy
         @song = @comment.song 
-        render :index
+        render :show
     end
 
     private
