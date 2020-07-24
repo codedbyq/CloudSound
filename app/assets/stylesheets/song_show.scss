@@ -30,6 +30,7 @@
 
 .show-content {
     display: inline-flex;
+    justify-content: space-between;
     width: 100%;
     border: 1px solid red;
 
@@ -37,13 +38,45 @@
 
 .side-section {
     display: flex;
-    width: 30%;
+    width: 28%;
     border: 1px solid blue;
 }
 
 .main-section {
     display: flex;
+    flex-direction: column;
     width: 70%;
     border: 1px solid green;
 }
 
+.song-description {
+    margin-bottom: 20px;
+}
+
+.comment-index {
+    display: flex;
+}
+
+.comment-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.comment-header, .comment-index-header {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    color: $light-grey;
+}
+
+.comment-header {
+    font-size: 13px;
+}
+
+.comment-index-header {
+    font-size: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $lighter-grey;
+}

@@ -48,6 +48,7 @@ class SongShow extends React.Component {
                         </section>
 
                         <section className='main-section'>
+                            <span className='song-description'>{description}</span>
                             <CommentsIndexContainer /> 
                         </section>
                     </div>
