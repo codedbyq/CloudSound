@@ -32,21 +32,20 @@
     display: inline-flex;
     justify-content: space-between;
     width: 100%;
-    border: 1px solid red;
 
 }
 
 .side-section {
     display: flex;
     width: 28%;
-    border: 1px solid blue;
 }
 
 .main-section {
     display: flex;
     flex-direction: column;
     width: 70%;
-    border: 1px solid green;
+    padding-left: 2%;
+    border-left: 1px solid $lighter-grey;
 }
 
 .song-description {
@@ -67,16 +66,23 @@
 .comment-header, .comment-index-header {
     display: inline-flex;
     width: 100%;
-    justify-content: space-between;
     color: $light-grey;
+    align-items: center;
 }
 
 .comment-header {
     font-size: 13px;
+    justify-content: space-between;
 }
 
 .comment-index-header {
     font-size: 14px;
     padding-bottom: 8px;
     border-bottom: 1px solid $lighter-grey;
+}
+
+.comment-index-header > img {
+    height: 22px;
+    width: 22px;
+    margin-right: 5px;
 }

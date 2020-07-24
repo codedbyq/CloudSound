@@ -978,7 +978,9 @@ var CommentsIndex = /*#__PURE__*/function (_Component) {
         className: "comments-index"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "comment-index-header"
-      }, "".concat(comments.length, " comments")), comments);
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/icons8-comments-30.png"
+      }), "".concat(comments.length, " comments")), comments);
     }
   }]);
 

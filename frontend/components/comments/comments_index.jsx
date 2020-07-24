@@ -21,7 +21,10 @@ export default class CommentsIndex extends Component {
         )) : 'No Comments'
         return (
             <div className='comments-index'>
-                <span className='comment-index-header'>{`${comments.length} comments`}</span>
+                <span className='comment-index-header'>
+                    <img src="https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/icons8-comments-30.png" />
+                    {`${comments.length} comments`}
+                </span>
                 {comments}
             </div>
         )
