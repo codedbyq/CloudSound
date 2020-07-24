@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
 import SongBanner from './song_show_banner';
+import CommentsIndexContainer from '../comments/comments_index_container';
+import CommentFormContainer from '../comments/comment_form_container';
 
 class SongShow extends React.Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class SongShow extends React.Component {
         this.props.deleteSong(this.props.match.params.songId)
         .then(() => this.props.history.push('/'));
     }
+
     
     render() {
         const song = this.props.song;
@@ -35,8 +37,21 @@ class SongShow extends React.Component {
         return (
             <div className='song-show'>
                 <SongBanner cover={cover} audio={audio} title={title} 
-                artist={username} genre={genre} songId={songId} />    
-                <button onClick={this.handleDelete}>&#x1F5D1;</button>
+                artist={username} genre={genre} songId={songId} />   
+                <div className='show-body'>
+                    <div className='comment-form-div'>
+                        <CommentFormContainer />
+                    </div>
+                    <div className='show-content'>
+                        <section className='side-section'>
+                            <button onClick={this.handleDelete}>&#x1F5D1;</button>
+                        </section>
+
+                        <section className='main-section'>
+                            <CommentsIndexContainer /> 
+                        </section>
+                    </div>
+                </div> 
             </div>
         )
     }

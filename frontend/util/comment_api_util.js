@@ -1,5 +1,5 @@
 // get all comments for a single song
-export const getComments = songId => (
+export const getComments = song_id => (
     $.ajax({
         method: 'get',
         url: `/api/songs/${song_id}/comments`,

@@ -1,0 +1,48 @@
+@import 'variables';
+
+.show-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.comment-form-div {
+    display: flex;
+    width: 100%;
+    background-color: #F0F0F0;
+    border: 1px solid $lighter-grey;
+    margin-bottom: 20px;
+}
+
+.comment-form {
+    display: flex;
+    width: 100%;
+    padding: 8px;
+}
+
+.comment-form > input {
+    line-height: 20px;
+    padding: 3px 6px;
+    width: 100%;
+}
+
+.show-content {
+    display: inline-flex;
+    width: 100%;
+    border: 1px solid red;
+
+}
+
+.side-section {
+    display: flex;
+    width: 30%;
+    border: 1px solid blue;
+}
+
+.main-section {
+    display: flex;
+    width: 70%;
+    border: 1px solid green;
+}
+
