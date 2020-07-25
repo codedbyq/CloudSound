@@ -37,13 +37,14 @@
 
 .side-section {
     display: flex;
-    width: 28%;
+    width: 24%;
+    padding-right: 2%;
 }
 
 .main-section {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 72%;
     padding-left: 2%;
     border-left: 1px solid $lighter-grey;
 }
@@ -85,4 +86,28 @@
     height: 22px;
     width: 22px;
     margin-right: 5px;
+}
+
+.side-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.artist-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.artist-profile-pic {
+    height: 150px;
+    width: 150px;
+    border-radius: 100px;
+    border: 1px solid red;
+    margin-bottom: 15px;
+}
+
+.artist-info-name {
+    font-weight: bold;
 }

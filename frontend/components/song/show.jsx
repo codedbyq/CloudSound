@@ -2,6 +2,7 @@ import React from 'react';
 import SongBanner from './song_show_banner';
 import CommentsIndexContainer from '../comments/comments_index_container';
 import CommentFormContainer from '../comments/comment_form_container';
+import ArtistInfo from './artist_info';
 
 class SongShow extends React.Component {
     constructor(props) {
@@ -44,6 +45,7 @@ class SongShow extends React.Component {
                     </div>
                     <div className='show-content'>
                         <section className='side-section'>
+                            <ArtistInfo artist={artist} />
                             <button onClick={this.handleDelete}>&#x1F5D1;</button>
                         </section>
 
