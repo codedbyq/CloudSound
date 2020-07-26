@@ -38,11 +38,14 @@ class SongShow extends React.Component {
         return (
             <div className='song-show'>
                 <SongBanner cover={cover} audio={audio} title={title} 
-                artist={username} genre={genre} songId={songId} />   
+                artist={username} genre={genre} songId={songId} history={this.props.history}
+                search={this.props.search} /> 
+
                 <div className='show-body'>
                     <div className='comment-form-div'>
                         <CommentFormContainer />
                     </div>
+
                     <div className='show-content'>
                         <section className='side-section'>
                             <ArtistInfo artist={artist} />
