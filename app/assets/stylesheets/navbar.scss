@@ -216,7 +216,7 @@
     width: 342px;
 }
 
-#search:focus {
+#search:focus, #search-long:focus {
     outline: none;
     background-color: white;
     color: #333;
