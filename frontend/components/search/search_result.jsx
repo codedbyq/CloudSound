@@ -13,11 +13,11 @@ export default class SearchResult extends Component {
     render() {
         const users = this.props.users ? this.props.users.map(user => (
             <li key={user.id}>{user.username}</li>
-        )) : <li>No users found. Narrow your search and try again.</li>
+        )) : <li>No users found.</li>
 
         const songs = this.props.songs ? this.props.songs.map(song => (
             <li><Link key={song.id} to={`/songs/${song.id}`}>{song.title}</Link></li>
-        )) : 'No songs found. Narrow your search and try again.';
+        )) : 'No songs found.';
 
         return (
             <div className='search-index'>
