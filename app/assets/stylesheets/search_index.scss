@@ -1,0 +1,35 @@
+@import 'variables';
+
+.search-index {
+    padding: 20px;
+    border: 1px solid red;
+}
+
+.search-header {
+    font-size: 17px;
+    color: $grey;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.user-results, .song-results {
+    border: 1px solid $lighter-grey;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.user-results > h1, .song-results > h1 {
+    font-size: 28px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+.song-results > a {
+    color: black;
+}
+
+.song-results > a:visited {
+    color: black;
+}

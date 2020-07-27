@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export default class SearchResult extends Component {
     constructor(props) {
@@ -15,21 +16,17 @@ export default class SearchResult extends Component {
         )) : <li>No users found. Narrow your search and try again.</li>
 
         const songs = this.props.songs ? this.props.songs.map(song => (
-            <ul key={song.id}>
-                <li>{song.title}</li>
-                <li>{song.genre}</li>
-                <li>{song.description}</li>
-            </ul>
-        )) : 'No songs found. Narrow your search and try again.'
+            <li><Link key={song.id} to={`/songs/${song.id}`}>{song.title}</Link></li>
+        )) : 'No songs found. Narrow your search and try again.';
 
         return (
-            <div>
-                <p>Showing search results for {this.props.match.params.search}</p>
+            <div className='search-index'>
+                <p className='search-header'>Showing search results for  
+                    "<span className='bold'>{this.props.match.params.search}</span>"
+                </p>
                 <div className='user-results'>
                     <h1>Users Found</h1>
-                    <ul>
-                        {users}
-                    </ul>
+                    {users}
                 </div>
 
                 <div className='song-results'>
