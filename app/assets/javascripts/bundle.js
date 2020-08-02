@@ -445,7 +445,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/comment_api_util */ "./frontend/util/comment_api_util.js");
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/comment_actions */ "./frontend/actions/comment_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -472,6 +476,12 @@ document.addEventListener("DOMContentLoaded", function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root); //! REMOVE BEFORE HEROKU PUSH - window methods and variables for testing 
+
+  window.getComments = _util_comment_api_util__WEBPACK_IMPORTED_MODULE_4__["getComments"];
+  window.store = store;
+  window.fetchComments = _actions_comment_actions__WEBPACK_IMPORTED_MODULE_5__["fetchComments"];
+  window.createComment = _actions_comment_actions__WEBPACK_IMPORTED_MODULE_5__["createComment"];
+  window.deleteComment = _actions_comment_actions__WEBPACK_IMPORTED_MODULE_5__["deleteComment"];
 });
 
 /***/ }),

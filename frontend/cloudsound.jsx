@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+import { getComments } from './util/comment_api_util';
+import { fetchComments, createComment, deleteComment } from './actions/comment_actions';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,4 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<Root store={store}/>, root);
 
     //! REMOVE BEFORE HEROKU PUSH - window methods and variables for testing 
+    window.getComments = getComments;
+    window.store = store;
+    window.fetchComments = fetchComments;
+    window.createComment = createComment;
+    window.deleteComment = deleteComment;
 });

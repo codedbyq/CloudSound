@@ -3,7 +3,8 @@ class Api::CommentsController < ApplicationController
     before_action :require_login, only: [:create, :delete, :update]
 
     def index
-        @comments = Comment.all
+        @song = Song.find(params[:song_id])
+        @comments = @song.comments
         render :index
     end
 
