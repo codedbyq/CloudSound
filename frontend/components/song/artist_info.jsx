@@ -4,7 +4,10 @@ export default function ArtistInfo(props) {
     const username = props.artist ? props.artist.username : null;
     const bio = props.artist ? props.artist.bio : null;
     const profilePic = props.artist ? (
-        <img src={props.artist.photoURL} alt="profile-pic"/> ) : null;
+        <img 
+            className='profile-pic' 
+            src={props.artist.photoURL} 
+            alt="profile-pic"/> ) : null;
 
     return (
         <div className='artist-info'>

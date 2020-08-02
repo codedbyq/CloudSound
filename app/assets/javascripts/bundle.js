@@ -2242,6 +2242,7 @@ function ArtistInfo(props) {
   var username = props.artist ? props.artist.username : null;
   var bio = props.artist ? props.artist.bio : null;
   var profilePic = props.artist ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "profile-pic",
     src: props.artist.photoURL,
     alt: "profile-pic"
   }) : null;
