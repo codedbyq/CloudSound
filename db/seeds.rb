@@ -30,6 +30,26 @@ amalou = User.create!(username: 'amalou', email: 'amalou@email.com', password: '
 her = User.create!(username: 'H.E.R.', email: 'her@email.com', password: '123456')
 shake = User.create!(username: '070shake', email: '070shake@email.com', password: '123456')
 
+amalou.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/ama.jpg'), filename: 'ama.jpg')
+andersonpaak.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/anderson.jpg'), filename: 'anderson.jpg')
+beyonce.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/beyonce.jpg'), filename: 'beyonce.jpg')
+black.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/black.jpg'), filename: 'black.jpg')
+demo.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/dub.jpeg'), filename: 'dub.jpeg')
+her.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/her.jpg'), filename: 'her.jpg')
+jbalvin.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/jbalvin.jpg'), filename: 'jbalvin.jpg')
+joey.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/joey.jpg'), filename: 'joey.jpg')
+kehlani.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/kehlani.jpg'), filename: 'kehlani.jpg')
+leon.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/leon.jpg'), filename: 'leon.jpg')
+phonyppl.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/phony.jpg'), filename: 'phony.jpg')
+rexx.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/rexx.jpg'), filename: 'rexx.jpg')
+rosalia.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/rosalia.jpg'), filename: 'rosalia.jpg')
+shake.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/shake.jpg'), filename: 'shake.jpg')
+tame.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/tame.jpg'), filename: 'tame.jpg')
+xo.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/the-weeknd.jpg'), filename: 'the-weeknd.jpg')
+thundercat.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/thunder.jpg'), filename: 'thunder.jpg')
+travis.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/travis.jpg'), filename: 'travis.jpg')
+tyler.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/tyler.jpg'), filename: 'tyler.jpg')
+usher.photo.attach(io: open('https://cloud-sound-assets.s3-us-west-1.amazonaws.com/seeds/usher.jpg'), filename: 'usher.jpg')
 
 Song.destroy_all
 
