@@ -98,6 +98,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $lighter-grey;
 }
 
 .artist-profile-pic {
@@ -106,6 +109,14 @@
     border-radius: 100px;
     border: 1px solid red;
     margin-bottom: 15px;
+}
+
+.profile-pic {
+    object-fit: cover;
+    object-position: center;
+    height: 150px;
+    width: 150px;
+    border-radius: 1000px;
 }
 
 .artist-info-name {
