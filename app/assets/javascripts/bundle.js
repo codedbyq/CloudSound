@@ -911,7 +911,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     createComment: function createComment(comment) {
-      return dispatch(_actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["createComment"]);
+      return dispatch(Object(_actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["createComment"])(comment));
     }
   };
 };

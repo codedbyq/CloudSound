@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    createComment: comment => dispatch(createComment)
+    createComment: comment => dispatch(createComment(comment))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CommentForm));

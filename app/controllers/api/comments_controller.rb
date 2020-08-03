@@ -1,6 +1,6 @@
 class Api::CommentsController < ApplicationController
 
-    before_action :require_login, only: [:create, :delete, :update]
+    # before_action :require_login, only: [:create, :delete, :update]
 
     def index
         @song = Song.find(params[:song_id])
@@ -9,6 +9,7 @@ class Api::CommentsController < ApplicationController
     end
 
     def create
+        debugger
         @comment = Comment.new(comment_params)
         @comment.user_id = current_user.id 
 
@@ -21,10 +22,9 @@ class Api::CommentsController < ApplicationController
     end
 
     def destroy
-        @comment = Comment.find_by(user_id: current_user.id, song_id: params[:id])
+        debugger
+        @comment = Comment.find(params[:comment][:id])
         @comment.destroy
-        @song = @comment.song 
-        render :show
     end
 
     private
