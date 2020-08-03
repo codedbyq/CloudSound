@@ -26,9 +26,4 @@ document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<Root store={store}/>, root);
 
     //! REMOVE BEFORE HEROKU PUSH - window methods and variables for testing 
-    window.getComments = getComments;
-    window.store = store;
-    window.fetchComments = fetchComments;
-    window.createComment = createComment;
-    window.deleteComment = deleteComment;
 });

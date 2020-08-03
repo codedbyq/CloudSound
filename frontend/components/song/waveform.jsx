@@ -22,7 +22,7 @@ class Waveform extends React.Component {
             // responsive: true,
             // scrollParent: true
         });
-        debugger
+        
         this.waveform.load(this.props.audio);
     }
 

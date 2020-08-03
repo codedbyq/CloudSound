@@ -56,7 +56,6 @@ class SongForm extends React.Component {
         formData.append('song[description]', this.state.description);
         formData.append('song[coverFile]', this.state.coverFile);
         formData.append('song[audioFile]', this.state.audioFile);
-        debugger
         this.props.createSong(formData)
             .then((song) => this.props.history.push(`/songs/${song.id}`));
     }
