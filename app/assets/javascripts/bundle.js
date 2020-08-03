@@ -476,6 +476,8 @@ document.addEventListener("DOMContentLoaded", function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root); //! REMOVE BEFORE HEROKU PUSH - window methods and variables for testing 
+
+  window.store = store;
 });
 
 /***/ }),
@@ -956,9 +958,13 @@ var CommentsIndex = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(CommentsIndex);
 
   function CommentsIndex(props) {
+    var _this;
+
     _classCallCheck(this, CommentsIndex);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.formatDate = _this.formatDate.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(CommentsIndex, [{
@@ -967,14 +973,46 @@ var CommentsIndex = /*#__PURE__*/function (_Component) {
       this.props.fetchComments(this.props.match.params.songId);
     }
   }, {
+    key: "formatDate",
+    value: function formatDate(date) {
+      var today = new Date();
+      var commentDate = new Date(date);
+      var diff = Math.floor((Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) - Date.UTC(commentDate.getFullYear(), commentDate.getMonth(), commentDate.getDate())) / (1000 * 60 * 60 * 24));
+
+      if (diff >= 365) {
+        return "".concat(Math.floor(diff / 365), " years ago");
+      } else if (diff >= 31) {
+        return "".concat(Math.floor(diff / 31), " months ago");
+      } else if (diff >= 7) {
+        return "".concat(Math.floor(diff / 7), " weeks ago");
+      } else if (diff > 0) {
+        return "".concat(diff, " days ago");
+      } else {
+        return this.formatTime(today, commentDate);
+      }
+    }
+  }, {
+    key: "formatTime",
+    value: function formatTime(date1, date2) {
+      var diff = date1.getMinutes() - date2.getMinutes();
+
+      if (diff >= 60) {
+        return "".concat(Math.floor(diff / 60), " hours ago");
+      } else {
+        return "".concat(diff, " minutes ago");
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var comments = this.props.comments ? this.props.comments.map(function (comment) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "comment-item"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "comment-header"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.user_id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.created_at)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.user_id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, _this2.formatDate(comment.created_at))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "comment-body"
         }, comment.body));
       }) : 'No Comments';
