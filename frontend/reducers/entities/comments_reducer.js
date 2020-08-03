@@ -14,7 +14,8 @@ const CommentsReducer = (state = {}, action) => {
             return newState;
     
         case REMOVE_COMMENT:
-            delete newState[action.comment.id];
+            debugger
+            delete newState[action.commentId];
             return newState;
     
         default:

@@ -2995,7 +2995,8 @@ var CommentsReducer = function CommentsReducer() {
       return newState;
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_COMMENT"]:
-      delete newState[action.comment.id];
+      debugger;
+      delete newState[action.commentId];
       return newState;
 
     default:
@@ -3438,12 +3439,12 @@ var postComment = function postComment(comment) {
   });
 }; // delete a comment 
 
-var destroyComment = function destroyComment(comment) {
+var destroyComment = function destroyComment(commentId) {
   return $.ajax({
     method: 'delete',
-    url: "/api/songs/".concat(comment.song_id, "/comments/").concat(comment.id),
+    url: "/api/comments/".concat(commentId),
     data: {
-      comment: comment
+      commentId: commentId
     }
   });
 };

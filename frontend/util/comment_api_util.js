@@ -17,10 +17,10 @@ export const postComment = comment => (
 );
 
 // delete a comment 
-export const destroyComment = comment=> (
+export const destroyComment = commentId=> (
     $.ajax({
         method: 'delete',
-        url: `/api/songs/${comment.song_id}/comments/${comment.id}`,
-        data: { comment }
+        url: `/api/comments/${commentId}`,
+        data: { commentId }
     })
 );

@@ -9,7 +9,6 @@ class Api::CommentsController < ApplicationController
     end
 
     def create
-        debugger
         @comment = Comment.new(comment_params)
         @comment.user_id = current_user.id 
 
@@ -23,8 +22,10 @@ class Api::CommentsController < ApplicationController
 
     def destroy
         debugger
-        @comment = Comment.find(params[:comment][:id])
+        @comment = Comment.find(params[:id])
         @comment.destroy
+
+        render :show
     end
 
     private
