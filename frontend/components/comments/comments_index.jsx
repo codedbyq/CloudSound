@@ -32,7 +32,7 @@ export default class CommentsIndex extends Component {
         } else if (diff > 0) {
             return `${diff} days ago`;
         } else {
-            return this.formatTime(today, commentDate);
+            return this.formatTime(commentDate, today);
         }
     }
 

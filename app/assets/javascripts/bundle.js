@@ -993,7 +993,7 @@ var CommentsIndex = /*#__PURE__*/function (_Component) {
       } else if (diff > 0) {
         return "".concat(diff, " days ago");
       } else {
-        return this.formatTime(today, commentDate);
+        return this.formatTime(commentDate, today);
       }
     }
   }, {
