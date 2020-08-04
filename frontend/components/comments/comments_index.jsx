@@ -32,7 +32,7 @@ export default class CommentsIndex extends Component {
         } else if (diff > 0) {
             return `${diff} days ago`;
         } else {
-            return this.formatTime(commentDate, today);
+            return this.formatTime(today, commentDate);
         }
     }
 
@@ -48,7 +48,7 @@ export default class CommentsIndex extends Component {
 
     render() {
         const comments = this.props.comments ? this.props.comments.map(comment => (
-            <div className='comment-item'>
+            <div key={`comment-${comment.id}`} className='comment-item'>
                 <div className='comment-header'>
                     <Link to={`/users/${comment.user_id}`}>{this.fetchUsername(comment.user_id)}</Link>
                     <span>{this.formatDate(comment.created_at)}</span>

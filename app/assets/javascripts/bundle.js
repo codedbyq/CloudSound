@@ -993,7 +993,7 @@ var CommentsIndex = /*#__PURE__*/function (_Component) {
       } else if (diff > 0) {
         return "".concat(diff, " days ago");
       } else {
-        return this.formatTime(commentDate, today);
+        return this.formatTime(today, commentDate);
       }
     }
   }, {
@@ -1014,6 +1014,7 @@ var CommentsIndex = /*#__PURE__*/function (_Component) {
 
       var comments = this.props.comments ? this.props.comments.map(function (comment) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: "comment-".concat(comment.id),
           className: "comment-item"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "comment-header"
