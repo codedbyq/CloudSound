@@ -26,6 +26,4 @@ document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<Root store={store}/>, root);
 
     //! REMOVE BEFORE HEROKU PUSH - window methods and variables for testing 
-    window.store = store;
-    
 });

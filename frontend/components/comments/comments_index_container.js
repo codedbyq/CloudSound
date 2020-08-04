@@ -6,7 +6,7 @@ import CommentsIndex from './comments_index.jsx';
 
 const mapStateToProps = (state, ownProps) => ({
     comments: Object.values(state.entities.comments),
-    
+    users: state.entities.users
 });
 
 const mapDispatchToProps = dispatch => ({

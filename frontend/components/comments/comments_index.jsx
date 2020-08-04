@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export default class CommentsIndex extends Component {
     constructor(props) {
         super(props);
-        this.formatDate = this.formatDate.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchComments(this.props.match.params.songId);
+    }
+
+    fetchUsername(id) {
+        if (this.props.users[id]) {
+            return this.props.users[id].username;
+        } else {
+            return this.props.fetchUser(id).username;
+        }
     }
 
     formatDate(date) {
@@ -42,7 +50,7 @@ export default class CommentsIndex extends Component {
         const comments = this.props.comments ? this.props.comments.map(comment => (
             <div className='comment-item'>
                 <div className='comment-header'>
-                    <span>{comment.user_id}</span>
+                    <Link to={`/users/${comment.user_id}`}>{this.fetchUsername(comment.user_id)}</Link>
                     <span>{this.formatDate(comment.created_at)}</span>
                 </div>
                 <p className='comment-body'>{comment.body}</p>

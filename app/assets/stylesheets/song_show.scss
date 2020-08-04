@@ -71,6 +71,14 @@
     align-items: center;
 }
 
+.comment-header > a, .comment-header > a:visited {
+    color: $light-grey;
+}
+
+.comment-header > a:hover {
+    text-decoration: underline;
+}
+
 .comment-header {
     font-size: 13px;
     justify-content: space-between;

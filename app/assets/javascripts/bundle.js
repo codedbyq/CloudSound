@@ -476,8 +476,6 @@ document.addEventListener("DOMContentLoaded", function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root); //! REMOVE BEFORE HEROKU PUSH - window methods and variables for testing 
-
-  window.store = store;
 });
 
 /***/ }),
@@ -928,6 +926,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return CommentsIndex; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -952,25 +951,31 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var CommentsIndex = /*#__PURE__*/function (_Component) {
   _inherits(CommentsIndex, _Component);
 
   var _super = _createSuper(CommentsIndex);
 
   function CommentsIndex(props) {
-    var _this;
-
     _classCallCheck(this, CommentsIndex);
 
-    _this = _super.call(this, props);
-    _this.formatDate = _this.formatDate.bind(_assertThisInitialized(_this));
-    return _this;
+    return _super.call(this, props);
   }
 
   _createClass(CommentsIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchComments(this.props.match.params.songId);
+    }
+  }, {
+    key: "fetchUsername",
+    value: function fetchUsername(id) {
+      if (this.props.users[id]) {
+        return this.props.users[id].username;
+      } else {
+        return this.props.fetchUser(id).username;
+      }
     }
   }, {
     key: "formatDate",
@@ -1005,14 +1010,16 @@ var CommentsIndex = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this = this;
 
       var comments = this.props.comments ? this.props.comments.map(function (comment) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "comment-item"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "comment-header"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, comment.user_id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, _this2.formatDate(comment.created_at))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/users/".concat(comment.user_id)
+        }, _this.fetchUsername(comment.user_id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, _this.formatDate(comment.created_at))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "comment-body"
         }, comment.body));
       }) : 'No Comments';
@@ -1055,7 +1062,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    comments: Object.values(state.entities.comments)
+    comments: Object.values(state.entities.comments),
+    users: state.entities.users
   };
 };
 
