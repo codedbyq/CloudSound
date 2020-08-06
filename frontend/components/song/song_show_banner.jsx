@@ -22,7 +22,7 @@ const SongBanner = ({ cover, audio, title, genre, artist, songId, search, histor
 
     return (
         <div className='song-banner' style={background}>
-            <div className='song-banner-backdrop'>
+            <div className='banner-backdrop'>
                 <div className='banner-content'>
 
                     <div className='banner-top'>

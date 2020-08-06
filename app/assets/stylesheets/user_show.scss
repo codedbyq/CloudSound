@@ -1,8 +1,38 @@
 @import 'variables';
 
 .user-banner {
-    display: flex;
     height: 270px;
-    padding: 20px;
+    backdrop-filter: blur(10px);
 }
 
+.user-banner-content {
+    @extend %flex-row;
+}
+.banner-profile-pic {
+    height: 220px;
+    width: 220px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 1000px;
+}
+
+.user-info {
+    @extend %flex-col;
+    margin-left: 25px;
+}
+
+.banner-username, .banner-bio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.banner-bio {
+    color: $light-grey;
+}

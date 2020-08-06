@@ -10,16 +10,18 @@ const UserBanner = ({ username, bio, photo }) => {
     };
 
     return (
-        <div className='user-banner' style={background}>
-            <div className='user-banner-content'>
-                <img src={photo} className='banner-profile-pic'/>
-                <div>
-                    <span>{username}</span>
-                    <p>{bio}</p>
-                </div>
+      <div className="user-banner" style={background}>
+        <div className="banner-backdrop">
+          <div className="user-banner-content">
+            <img src={photo} className="banner-profile-pic" />
+            <div className="user-info">
+              <span className="banner-username">{username}</span>
+              <span className="banner-bio">{bio}</span>
             </div>
+          </div>
         </div>
-    )
+      </div>
+    );
 }
 
 export default UserBanner;
