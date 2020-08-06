@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { getComments } from './util/comment_api_util';
-import { fetchComments, createComment, deleteComment } from './actions/comment_actions';
+import { fetchUserSongs } from './actions/song_actions';
 
 
 document.addEventListener("DOMContentLoaded", () => {
