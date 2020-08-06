@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     get '/searches/:input', to: 'searches#search'
-    resources :users, only: [:index, :create, :show]
+    resources :users, only: [:index, :create, :show] do 
+      get '/users/:user_id/songs', to: 'songs#user_song_index'
+    end
     resource :session, only: [:create, :destroy]
     resources :songs, except: [:new, :edit] do 
       resources :comments, only: [:create, :index]

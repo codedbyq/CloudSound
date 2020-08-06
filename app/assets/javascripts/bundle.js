@@ -3739,7 +3739,7 @@ var createUser = function createUser(user) {
 /*!****************************************!*\
   !*** ./frontend/util/song_api_util.js ***!
   \****************************************/
-/*! exports provided: fetchSongs, fetchSong, createSong, updateSong, deleteSong */
+/*! exports provided: fetchSongs, fetchSong, createSong, updateSong, deleteSong, fetchUserSongs */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3749,6 +3749,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSong", function() { return createSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSong", function() { return updateSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSong", function() { return deleteSong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUserSongs", function() { return fetchUserSongs; });
 var fetchSongs = function fetchSongs() {
   return $.ajax({
     method: 'get',
@@ -3788,6 +3789,15 @@ var deleteSong = function deleteSong(songId) {
     url: "api/songs/".concat(songId),
     data: {
       songId: songId
+    }
+  });
+};
+var fetchUserSongs = function fetchUserSongs(user_id) {
+  return $.ajax({
+    method: 'get',
+    url: "api/users/".concat(user_id, "/songs"),
+    data: {
+      user_id: user_id
     }
   });
 };

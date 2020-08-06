@@ -39,6 +39,13 @@ class Api::SongsController < ApplicationController
         render 'api/songs/show' if @song.delete
     end
 
+    def user_song_index
+        user = User.find(params[:user_id])
+        @songs = user.songs
+
+        render :index
+    end
+
     private 
     def song_params
         params.require(:song).permit(:title, :description, :genre, :audioFile, :coverFile)
