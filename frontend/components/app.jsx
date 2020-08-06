@@ -6,6 +6,7 @@ import NavBarContainer from './navbar/navbar_container';
 import Footer from './footer/footer';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import LandingContainer from './landing/landing_container';
+import UserShowContainer from './user/user_show_container';
 import SongShowContainer from './song/show_container';
 import SongFormContainer from './song/song_form_container';
 import DiscoverContainer from './discover/discover_container';
@@ -21,6 +22,7 @@ const App = () => (
             <AuthRoute exact path='/login' component={LoginContainer} />
             <AuthRoute exact path='/signup' component={SigninContainer} />
             <Route path='/songs/:songId' component={SongShowContainer} />
+            <Route path='/users/:userId' component={UserShowContainer} />
             <ProtectedRoute path='/search/:search' component={SearchResultContainer} />
             <ProtectedRoute path='/upload' component={SongFormContainer} />
             <ProtectedRoute path='/discover' component={DiscoverContainer} />
