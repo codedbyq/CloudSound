@@ -3016,10 +3016,37 @@ var SongBanner = function SongBanner(_ref) {
 /*!**************************************************!*\
   !*** ./frontend/components/user/user_banner.jsx ***!
   \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
+var UserBanner = function UserBanner(_ref) {
+  var username = _ref.username,
+      bio = _ref.bio,
+      photo = _ref.photo;
+  var background = {
+    backgroundImage: "url(".concat(photo, ")"),
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat"
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "user-banner",
+    style: background
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "user-banner-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: photo,
+    className: "banner-profile-pic"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, bio))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (UserBanner);
 
 /***/ }),
 
@@ -3035,7 +3062,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _user_banner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user_banner */ "./frontend/components/user/user_banner.jsx");
-/* harmony import */ var _user_banner__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_user_banner__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
@@ -3046,7 +3072,14 @@ var UserShow = function UserShow(_ref) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchUser(userId);
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, user ? user.username : 'User');
+  var username = user ? user.username : null;
+  var bio = user ? user.bio : null;
+  var photo = user ? user.photoURL : null;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_banner__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    username: username,
+    photo: photo,
+    bio: bio
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (UserShow);
