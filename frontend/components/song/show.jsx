@@ -38,7 +38,7 @@ class SongShow extends React.Component {
         return (
             <div className='song-show'>
                 <SongBanner cover={cover} audio={audio} title={title} 
-                artist={username} genre={genre} songId={songId} history={this.props.history}
+                artist={artist} genre={genre} songId={songId} history={this.props.history}
                 search={this.props.search} /> 
 
                 <div className='show-body'>

@@ -2548,7 +2548,7 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
         cover: cover,
         audio: audio,
         title: title,
-        artist: username,
+        artist: artist,
         genre: genre,
         songId: songId,
         history: this.props.history,
@@ -2991,10 +2991,10 @@ var SongBanner = function SongBanner(_ref) {
     songId: songId
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "title-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+    to: "/users/".concat(artist.id),
     id: "banner-artist"
-  }, artist)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, artist.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "banner-title"
   }, title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "basic-info"

@@ -1,7 +1,7 @@
 import React from 'react';
 import PlayButtonContainer from './play_button_container';
 import { search } from '../../actions/search_actions';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SongBanner = ({ cover, audio, title, genre, artist, songId, search, history }) => {
 
@@ -31,7 +31,7 @@ const SongBanner = ({ cover, audio, title, genre, artist, songId, search, histor
                         </div>
 
                         <div className='title-container'>
-                            <span><a href="" id='banner-artist'>{artist}</a></span>
+                            <span><Link to={`/users/${artist.id}`} id='banner-artist'>{artist.username}</Link></span>
                             <span id='banner-title'>{title}</span>
                         </div>
 
