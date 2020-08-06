@@ -4,6 +4,7 @@ export const RECEIVE_SONG_ERRORS = 'RECEIVE_SONG_ERRORS';
 export const RECEIVE_SONGS = 'RECEIVE_SONGS';
 export const RECEIVE_SONG = 'RECEIVE_SONG';
 export const REMOVE_SONG = 'REMOVE_SONG';
+export const RECEIVE_USER_SONGS = "RECEIVE_USER_SONGS";
 
 const receiveSongs = songs => ({
     type: RECEIVE_SONGS, 
@@ -24,6 +25,11 @@ const receiveSongErrors = errors => ({
     type: RECEIVE_SONG_ERRORS,
     errors
 });
+
+const receiveUserSongs = songs =>  ({
+    type: RECEIVE_USER_SONGS,
+    songs
+})
 
 export const fetchSongs = () => dispatch => (
     SongAPI.fetchSongs().then(songs => dispatch(receiveSongs(songs)))
@@ -54,3 +60,7 @@ export const updateSong = song => dispatch => (
 export const deleteSong = songId => dispatch => (
     SongAPI.deleteSong(songId).then(song => dispatch(removeSong(song.id)))
 );
+
+export const fetchUserSongs = userId => dispatch => (
+    SongAPI.fetchUserSongs(userId).then(songs => dispatch(receiveUserSongs(songs)))
+)

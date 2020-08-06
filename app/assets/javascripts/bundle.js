@@ -288,7 +288,7 @@ var signup = function signup(user) {
 /*!******************************************!*\
   !*** ./frontend/actions/song_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_SONG_ERRORS, RECEIVE_SONGS, RECEIVE_SONG, REMOVE_SONG, fetchSongs, fetchSong, createSong, updateSong, deleteSong */
+/*! exports provided: RECEIVE_SONG_ERRORS, RECEIVE_SONGS, RECEIVE_SONG, REMOVE_SONG, RECEIVE_USER_SONGS, fetchSongs, fetchSong, createSong, updateSong, deleteSong, fetchUserSongs */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -297,17 +297,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SONGS", function() { return RECEIVE_SONGS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SONG", function() { return RECEIVE_SONG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_SONG", function() { return REMOVE_SONG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USER_SONGS", function() { return RECEIVE_USER_SONGS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSongs", function() { return fetchSongs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSong", function() { return fetchSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSong", function() { return createSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSong", function() { return updateSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSong", function() { return deleteSong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUserSongs", function() { return fetchUserSongs; });
 /* harmony import */ var _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/song_api_util */ "./frontend/util/song_api_util.js");
 
 var RECEIVE_SONG_ERRORS = 'RECEIVE_SONG_ERRORS';
 var RECEIVE_SONGS = 'RECEIVE_SONGS';
 var RECEIVE_SONG = 'RECEIVE_SONG';
 var REMOVE_SONG = 'REMOVE_SONG';
+var RECEIVE_USER_SONGS = "RECEIVE_USER_SONGS";
 
 var receiveSongs = function receiveSongs(songs) {
   return {
@@ -334,6 +337,13 @@ var receiveSongErrors = function receiveSongErrors(errors) {
   return {
     type: RECEIVE_SONG_ERRORS,
     errors: errors
+  };
+};
+
+var receiveUserSongs = function receiveUserSongs(songs) {
+  return {
+    type: RECEIVE_USER_SONGS,
+    songs: songs
   };
 };
 
@@ -375,6 +385,13 @@ var deleteSong = function deleteSong(songId) {
   return function (dispatch) {
     return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteSong"](songId).then(function (song) {
       return dispatch(removeSong(song.id));
+    });
+  };
+};
+var fetchUserSongs = function fetchUserSongs(userId) {
+  return function (dispatch) {
+    return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchUserSongs"](userId).then(function (songs) {
+      return dispatch(receiveUserSongs(songs));
     });
   };
 };
@@ -3258,6 +3275,10 @@ var SongsReducer = function SongsReducer() {
 
     case _actions_song_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_SONG"]:
       delete newState[action.songId];
+      return newState;
+
+    case _actions_song_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_USER_SONGS"]:
+      newState = action.songs;
       return newState;
 
     default:
