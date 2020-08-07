@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import UserBanner from './user_banner';
-import UserSongIndex from './user_song_index';
+import UserSongIndexContainer from './user_song_index_container';
 
 const UserShow = ({ userId, user, fetchUser }) => {
     useEffect( () => { fetchUser(userId) }, [] );
@@ -17,7 +17,7 @@ const UserShow = ({ userId, user, fetchUser }) => {
                 bio={bio}
             />
 
-            <UserSongIndex />
+            <UserSongIndexContainer />
         </div>
     )
 };
