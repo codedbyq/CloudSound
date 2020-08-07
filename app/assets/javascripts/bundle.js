@@ -946,7 +946,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return CommentsIndex; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/util */ "./frontend/util/util.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -968,6 +969,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -996,37 +998,31 @@ var CommentsIndex = /*#__PURE__*/function (_Component) {
       } else {
         return this.props.fetchUser(id).username;
       }
-    }
-  }, {
-    key: "formatDate",
-    value: function formatDate(date) {
-      var today = new Date();
-      var commentDate = new Date(date);
-      var diff = Math.floor((Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) - Date.UTC(commentDate.getFullYear(), commentDate.getMonth(), commentDate.getDate())) / (1000 * 60 * 60 * 24));
+    } // formatDate(date) {
+    //     const today = new Date();
+    //     const commentDate = new Date(date);
+    //     const diff = Math.floor((Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) - Date.UTC(commentDate.getFullYear(), commentDate.getMonth(), commentDate.getDate())) / (1000 * 60 * 60 * 24));
+    //     if (diff >= 365) {
+    //         return `${Math.floor(diff / 365)} years ago`;
+    //     } else if (diff >= 31) {
+    //         return `${Math.floor(diff / 31)} months ago`;
+    //     } else if (diff >= 7) {
+    //         return `${Math.floor(diff / 7)} weeks ago`;
+    //     } else if (diff > 0) {
+    //         return `${diff} days ago`;
+    //     } else {
+    //         return this.formatTime(today, commentDate);
+    //     }
+    // }
+    // formatTime(date1, date2) {
+    //     const diff = date1.getMinutes() - date2.getMinutes();
+    //     if (diff >= 60) {
+    //         return `${Math.floor(diff / 60)} hours ago`;
+    //     } else {
+    //         return `${diff} minutes ago`;
+    //     }
+    // }
 
-      if (diff >= 365) {
-        return "".concat(Math.floor(diff / 365), " years ago");
-      } else if (diff >= 31) {
-        return "".concat(Math.floor(diff / 31), " months ago");
-      } else if (diff >= 7) {
-        return "".concat(Math.floor(diff / 7), " weeks ago");
-      } else if (diff > 0) {
-        return "".concat(diff, " days ago");
-      } else {
-        return this.formatTime(today, commentDate);
-      }
-    }
-  }, {
-    key: "formatTime",
-    value: function formatTime(date1, date2) {
-      var diff = date1.getMinutes() - date2.getMinutes();
-
-      if (diff >= 60) {
-        return "".concat(Math.floor(diff / 60), " hours ago");
-      } else {
-        return "".concat(diff, " minutes ago");
-      }
-    }
   }, {
     key: "render",
     value: function render() {
@@ -1038,9 +1034,9 @@ var CommentsIndex = /*#__PURE__*/function (_Component) {
           className: "comment-item"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "comment-header"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: "/users/".concat(comment.user_id)
-        }, _this.fetchUsername(comment.user_id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, _this.formatDate(comment.created_at))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, _this.fetchUsername(comment.user_id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, Object(_util_util__WEBPACK_IMPORTED_MODULE_1__["formatDate"])(comment.created_at))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "comment-body"
         }, comment.body));
       }) : 'No Comments';
@@ -3985,6 +3981,46 @@ var fetchUsers = function fetchUsers() {
     method: 'get',
     url: '/api/users'
   });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/util.js":
+/*!*******************************!*\
+  !*** ./frontend/util/util.js ***!
+  \*******************************/
+/*! exports provided: formatDate, formatTime */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatDate", function() { return formatDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatTime", function() { return formatTime; });
+var formatDate = function formatDate(date) {
+  var today = new Date();
+  var commentDate = new Date(date);
+  var diff = Math.floor((Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) - Date.UTC(commentDate.getFullYear(), commentDate.getMonth(), commentDate.getDate())) / (1000 * 60 * 60 * 24));
+
+  if (diff >= 365) {
+    return "".concat(Math.floor(diff / 365), " years ago");
+  } else if (diff >= 31) {
+    return "".concat(Math.floor(diff / 31), " months ago");
+  } else if (diff >= 7) {
+    return "".concat(Math.floor(diff / 7), " weeks ago");
+  } else if (diff > 0) {
+    return "".concat(diff, " days ago");
+  } else {
+    return formatTime(today, commentDate);
+  }
+};
+var formatTime = function formatTime(date1, date2) {
+  var diff = date1.getMinutes() - date2.getMinutes();
+
+  if (diff >= 60) {
+    return "".concat(Math.floor(diff / 60), " hours ago");
+  } else {
+    return "".concat(diff, " minutes ago");
+  }
 };
 
 /***/ }),
