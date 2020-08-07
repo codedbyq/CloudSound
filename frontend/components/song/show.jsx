@@ -33,6 +33,7 @@ class SongShow extends React.Component {
         const title = song ? song.title : null;
         const genre = song ? song.genre : null;
         const songId = song? song.id : null
+        const date = song ? song.created_at : null;
         const description = song ? song.description : null;
        
             
@@ -46,6 +47,7 @@ class SongShow extends React.Component {
                     username={username}
                     genre={genre} 
                     songId={songId} 
+                    date={date}
                     history={this.props.history}
                     search={this.props.search} 
                     /> 

@@ -1,9 +1,9 @@
 import React from 'react';
 import PlayButtonContainer from './play_button_container';
-import { search } from '../../actions/search_actions';
+import { formatTime, formatDate } from '../../util/util';
 import { Link } from 'react-router-dom';
 
-const SongBanner = ({ cover, audio, title, genre, artistId, username, songId, search, history }) => {
+const SongBanner = ({ cover, audio, title, genre, artistId, username, songId, search, history, date }) => {
 
     const background = {
         backgroundImage: `url(${cover})`,
@@ -36,7 +36,7 @@ const SongBanner = ({ cover, audio, title, genre, artistId, username, songId, se
                         </div>
 
                         <div className='basic-info'>
-                            <span> 2 weeks ago</span> 
+                            <span>{formatDate(date)}</span> 
                             <button className='genre-btn' value={genre} onClick={handleClick}># {genre}</button> 
                         </div>
 

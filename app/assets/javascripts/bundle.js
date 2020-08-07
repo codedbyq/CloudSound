@@ -2533,6 +2533,7 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
       var title = song ? song.title : null;
       var genre = song ? song.genre : null;
       var songId = song ? song.id : null;
+      var date = song ? song.created_at : null;
       var description = song ? song.description : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "song-show"
@@ -2544,6 +2545,7 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
         username: username,
         genre: genre,
         songId: songId,
+        date: date,
         history: this.props.history,
         search: this.props.search
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2938,7 +2940,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _play_button_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./play_button_container */ "./frontend/components/song/play_button_container.js");
-/* harmony import */ var _actions_search_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/search_actions */ "./frontend/actions/search_actions.js");
+/* harmony import */ var _util_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/util */ "./frontend/util/util.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
@@ -2954,7 +2956,8 @@ var SongBanner = function SongBanner(_ref) {
       username = _ref.username,
       songId = _ref.songId,
       search = _ref.search,
-      history = _ref.history;
+      history = _ref.history,
+      date = _ref.date;
   var background = {
     backgroundImage: "url(".concat(cover, ")"),
     backgroundPosition: 'center',
@@ -2992,7 +2995,7 @@ var SongBanner = function SongBanner(_ref) {
     id: "banner-title"
   }, title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "basic-info"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " 2 weeks ago"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, Object(_util_util__WEBPACK_IMPORTED_MODULE_2__["formatDate"])(date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "genre-btn",
     value: genre,
     onClick: handleClick
@@ -3151,31 +3154,7 @@ var UserSongIndex = function UserSongIndex(_ref) {
       fetchUserSongs = _ref.fetchUserSongs;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchUserSongs(userId);
-  }, []); // const formatDate = (date) => {
-  //     const today = new Date();
-  //     const commentDate = new Date(date);
-  //     const diff = Math.floor((Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) - Date.UTC(commentDate.getFullYear(), commentDate.getMonth(), commentDate.getDate())) / (1000 * 60 * 60 * 24));
-  //     if (diff >= 365) {
-  //         return `${Math.floor(diff / 365)} years ago`;
-  //     } else if (diff >= 31) {
-  //         return `${Math.floor(diff / 31)} months ago`;
-  //     } else if (diff >= 7) {
-  //         return `${Math.floor(diff / 7)} weeks ago`;
-  //     } else if (diff > 0) {
-  //         return `${diff} days ago`;
-  //     } else {
-  //         return formatTime(today, commentDate);
-  //     }
-  // }
-  // const formatTime = (date1, date2) => {
-  //     const diff = date1.getMinutes() - date2.getMinutes();
-  //     if (diff >= 60) {
-  //         return `${Math.floor(diff / 60)} hours ago`;
-  //     } else {
-  //         return `${diff} minutes ago`;
-  //     }
-  // }
-
+  }, []);
   var username = user ? user.username : null;
   var songIndex = songs ? Object.values(songs).map(function (song) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
