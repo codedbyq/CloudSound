@@ -998,31 +998,7 @@ var CommentsIndex = /*#__PURE__*/function (_Component) {
       } else {
         return this.props.fetchUser(id).username;
       }
-    } // formatDate(date) {
-    //     const today = new Date();
-    //     const commentDate = new Date(date);
-    //     const diff = Math.floor((Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) - Date.UTC(commentDate.getFullYear(), commentDate.getMonth(), commentDate.getDate())) / (1000 * 60 * 60 * 24));
-    //     if (diff >= 365) {
-    //         return `${Math.floor(diff / 365)} years ago`;
-    //     } else if (diff >= 31) {
-    //         return `${Math.floor(diff / 31)} months ago`;
-    //     } else if (diff >= 7) {
-    //         return `${Math.floor(diff / 7)} weeks ago`;
-    //     } else if (diff > 0) {
-    //         return `${diff} days ago`;
-    //     } else {
-    //         return this.formatTime(today, commentDate);
-    //     }
-    // }
-    // formatTime(date1, date2) {
-    //     const diff = date1.getMinutes() - date2.getMinutes();
-    //     if (diff >= 60) {
-    //         return `${Math.floor(diff / 60)} hours ago`;
-    //     } else {
-    //         return `${diff} minutes ago`;
-    //     }
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -3163,6 +3139,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/util */ "./frontend/util/util.js");
+
 
 
 
@@ -3173,35 +3151,30 @@ var UserSongIndex = function UserSongIndex(_ref) {
       fetchUserSongs = _ref.fetchUserSongs;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchUserSongs(userId);
-  }, []);
-
-  var formatDate = function formatDate(date) {
-    var today = new Date();
-    var commentDate = new Date(date);
-    var diff = Math.floor((Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) - Date.UTC(commentDate.getFullYear(), commentDate.getMonth(), commentDate.getDate())) / (1000 * 60 * 60 * 24));
-
-    if (diff >= 365) {
-      return "".concat(Math.floor(diff / 365), " years ago");
-    } else if (diff >= 31) {
-      return "".concat(Math.floor(diff / 31), " months ago");
-    } else if (diff >= 7) {
-      return "".concat(Math.floor(diff / 7), " weeks ago");
-    } else if (diff > 0) {
-      return "".concat(diff, " days ago");
-    } else {
-      return formatTime(today, commentDate);
-    }
-  };
-
-  var formatTime = function formatTime(date1, date2) {
-    var diff = date1.getMinutes() - date2.getMinutes();
-
-    if (diff >= 60) {
-      return "".concat(Math.floor(diff / 60), " hours ago");
-    } else {
-      return "".concat(diff, " minutes ago");
-    }
-  };
+  }, []); // const formatDate = (date) => {
+  //     const today = new Date();
+  //     const commentDate = new Date(date);
+  //     const diff = Math.floor((Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) - Date.UTC(commentDate.getFullYear(), commentDate.getMonth(), commentDate.getDate())) / (1000 * 60 * 60 * 24));
+  //     if (diff >= 365) {
+  //         return `${Math.floor(diff / 365)} years ago`;
+  //     } else if (diff >= 31) {
+  //         return `${Math.floor(diff / 31)} months ago`;
+  //     } else if (diff >= 7) {
+  //         return `${Math.floor(diff / 7)} weeks ago`;
+  //     } else if (diff > 0) {
+  //         return `${diff} days ago`;
+  //     } else {
+  //         return formatTime(today, commentDate);
+  //     }
+  // }
+  // const formatTime = (date1, date2) => {
+  //     const diff = date1.getMinutes() - date2.getMinutes();
+  //     if (diff >= 60) {
+  //         return `${Math.floor(diff / 60)} hours ago`;
+  //     } else {
+  //         return `${diff} minutes ago`;
+  //     }
+  // }
 
   var username = user ? user.username : null;
   var songIndex = songs ? Object.values(songs).map(function (song) {
@@ -3225,7 +3198,7 @@ var UserSongIndex = function UserSongIndex(_ref) {
     }, song.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       className: "user-song-username",
       to: "/songs/".concat(userId)
-    }, username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, formatDate(song.created_at))));
+    }, username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, Object(_util_util__WEBPACK_IMPORTED_MODULE_2__["formatDate"])(song.created_at))));
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "".concat(username, " has no uploaded any songs yet."));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "user-song-index"
