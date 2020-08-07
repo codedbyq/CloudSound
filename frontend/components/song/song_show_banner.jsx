@@ -3,7 +3,7 @@ import PlayButtonContainer from './play_button_container';
 import { search } from '../../actions/search_actions';
 import { Link } from 'react-router-dom';
 
-const SongBanner = ({ cover, audio, title, genre, artist, songId, search, history }) => {
+const SongBanner = ({ cover, audio, title, genre, artistId, username, songId, search, history }) => {
 
     const background = {
         backgroundImage: `url(${cover})`,
@@ -31,7 +31,7 @@ const SongBanner = ({ cover, audio, title, genre, artist, songId, search, histor
                         </div>
 
                         <div className='title-container'>
-                            <span><Link to={`/users/${artist.id}`} id='banner-artist'>{artist.username}</Link></span>
+                            <span><Link to={`/users/${artistId}`} id='banner-artist'>{username}</Link></span>
                             <span id='banner-title'>{title}</span>
                         </div>
 

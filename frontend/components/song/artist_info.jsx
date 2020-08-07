@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function ArtistInfo(props) {
+    const artistId = props.artist ? props.artist.id : null;
     const username = props.artist ? props.artist.username : null;
     const bio = props.artist ? props.artist.bio : null;
     const profilePic = props.artist ? (
@@ -12,7 +14,7 @@ export default function ArtistInfo(props) {
     return (
         <div className='artist-info'>
             <div className='artist-photo'>{profilePic}</div>
-            <span className='artist-info-name'>{username}</span>
+            <Link to={`/users/${artistId}`} className='artist-info-name'>{username}</Link>
             <span className='artist-info-bio'>{bio}</span>
         </div>
     )

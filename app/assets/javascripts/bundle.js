@@ -2308,8 +2308,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ArtistInfo; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 function ArtistInfo(props) {
+  var artistId = props.artist ? props.artist.id : null;
   var username = props.artist ? props.artist.username : null;
   var bio = props.artist ? props.artist.bio : null;
   var profilePic = props.artist ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -2321,7 +2324,8 @@ function ArtistInfo(props) {
     className: "artist-info"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "artist-photo"
-  }, profilePic), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, profilePic), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/".concat(artistId),
     className: "artist-info-name"
   }, username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "artist-info-bio"
@@ -2550,6 +2554,7 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var song = this.props.song;
       var artist = this.props.artist;
+      var artistId = artist ? artist.id : null;
       var username = artist ? artist.username : null;
       var cover = song ? song.coverURL : null;
       var audio = song ? song.audioURL : null;
@@ -2563,7 +2568,8 @@ var SongShow = /*#__PURE__*/function (_React$Component) {
         cover: cover,
         audio: audio,
         title: title,
-        artist: artist,
+        artistId: artistId,
+        username: username,
         genre: genre,
         songId: songId,
         history: this.props.history,
@@ -2972,7 +2978,8 @@ var SongBanner = function SongBanner(_ref) {
       audio = _ref.audio,
       title = _ref.title,
       genre = _ref.genre,
-      artist = _ref.artist,
+      artistId = _ref.artistId,
+      username = _ref.username,
       songId = _ref.songId,
       search = _ref.search,
       history = _ref.history;
@@ -3007,9 +3014,9 @@ var SongBanner = function SongBanner(_ref) {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "title-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-    to: "/users/".concat(artist.id),
+    to: "/users/".concat(artistId),
     id: "banner-artist"
-  }, artist.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "banner-title"
   }, title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "basic-info"

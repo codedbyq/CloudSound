@@ -26,6 +26,7 @@ class SongShow extends React.Component {
         const song = this.props.song;
         const artist = this.props.artist;
 
+        const artistId = artist ? artist.id : null
         const username = artist ? artist.username : null
         const cover = song ? song.coverURL : null;
         const audio = song ? song.audioURL : null;
@@ -37,9 +38,17 @@ class SongShow extends React.Component {
             
         return (
             <div className='song-show'>
-                <SongBanner cover={cover} audio={audio} title={title} 
-                artist={artist} genre={genre} songId={songId} history={this.props.history}
-                search={this.props.search} /> 
+                <SongBanner 
+                    cover={cover} 
+                    audio={audio} 
+                    title={title} 
+                    artistId={artistId} 
+                    username={username}
+                    genre={genre} 
+                    songId={songId} 
+                    history={this.props.history}
+                    search={this.props.search} 
+                    /> 
 
                 <div className='show-body'>
                     <div className='comment-form-div'>
