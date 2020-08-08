@@ -3177,7 +3177,9 @@ var UserSongIndex = function UserSongIndex(_ref) {
     }, song.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       className: "user-song-username",
       to: "/songs/".concat(userId)
-    }, username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, Object(_util_util__WEBPACK_IMPORTED_MODULE_2__["formatDate"])(song.created_at))));
+    }, username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "user-song-date"
+    }, Object(_util_util__WEBPACK_IMPORTED_MODULE_2__["formatDate"])(song.created_at))));
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "".concat(username, " has no uploaded any songs yet."));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "user-song-index"

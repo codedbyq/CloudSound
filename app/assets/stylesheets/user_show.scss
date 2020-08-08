@@ -65,3 +65,19 @@
     @extend %flex-col;
     margin-left: 20px;
 }
+
+.user-song-username, .user-song-username:visited {
+    color: $lighter-grey;
+}
+
+.user-song-username:hover {
+    color: $light-grey;
+}
+
+.user-song-title, .user-song-title:visited {
+    color: $dark-grey;
+}
+
+.user-song-date {
+    color: $dark-grey;
+}

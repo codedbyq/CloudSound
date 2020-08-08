@@ -16,15 +16,15 @@ const UserSongIndex = ({ user, userId, songs, fetchUserSongs }) => {
           <div className='user-song-content'>
             <div className="user-song-info">
                 <Link className="user-song-title" to={`/songs/${song.id}`}>
-                {song.title}
+                  {song.title}
                 </Link>
 
                 <Link className="user-song-username" to={`/songs/${userId}`}>
-                {username}
+                  {username}
                 </Link>
             </div>
             
-            <span>{formatDate(song.created_at)}</span>
+            <span className='user-song-date'>{formatDate(song.created_at)}</span>
           </div>
         </div>
       ))
