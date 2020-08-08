@@ -1158,7 +1158,7 @@ var Discover = /*#__PURE__*/function (_React$Component) {
             to: "/songs/".concat(song.id)
           }, song.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             id: "player-artist",
-            to: "/"
+            to: "/users/".concat(artist.id)
           }, artist.username));
         }
       }) : null; //set trending list
@@ -1177,7 +1177,7 @@ var Discover = /*#__PURE__*/function (_React$Component) {
             width: "200px"
           })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             id: "player-artist",
-            to: "/"
+            to: "/users/".concat(artist.id)
           }, artist.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             id: "player-title",
             to: "/songs/".concat(song.id)
@@ -1199,7 +1199,7 @@ var Discover = /*#__PURE__*/function (_React$Component) {
             width: "200px"
           })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             id: "player-artist",
-            to: "/"
+            to: "/users/".concat(artist.id)
           }, artist.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             id: "player-title",
             to: "/songs/".concat(song.id)
@@ -1221,7 +1221,7 @@ var Discover = /*#__PURE__*/function (_React$Component) {
             width: "200px"
           })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             id: "player-artist",
-            to: "/"
+            to: "/users/".concat(artist.id)
           }, artist.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             id: "player-title",
             to: "/songs/".concat(song.id)
