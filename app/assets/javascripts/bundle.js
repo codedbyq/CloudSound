@@ -1176,12 +1176,12 @@ var Discover = /*#__PURE__*/function (_React$Component) {
             height: "200px",
             width: "200px"
           })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-            id: "player-artist",
-            to: "/users/".concat(artist.id)
-          }, artist.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             id: "player-title",
             to: "/songs/".concat(song.id)
-          }, song.title));
+          }, song.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            id: "player-artist",
+            to: "/users/".concat(artist.id)
+          }, artist.username));
         }
       }) : null; //set latin list
 
@@ -1198,12 +1198,12 @@ var Discover = /*#__PURE__*/function (_React$Component) {
             height: "200px",
             width: "200px"
           })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-            id: "player-artist",
-            to: "/users/".concat(artist.id)
-          }, artist.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             id: "player-title",
             to: "/songs/".concat(song.id)
-          }, song.title));
+          }, song.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            id: "player-artist",
+            to: "/users/".concat(artist.id)
+          }, artist.username));
         }
       }) : null; //set bubble list
 
@@ -1220,12 +1220,12 @@ var Discover = /*#__PURE__*/function (_React$Component) {
             height: "200px",
             width: "200px"
           })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-            id: "player-artist",
-            to: "/users/".concat(artist.id)
-          }, artist.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             id: "player-title",
             to: "/songs/".concat(song.id)
-          }, song.title));
+          }, song.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            id: "player-artist",
+            to: "/users/".concat(artist.id)
+          }, artist.username));
         }
       }) : null; //set phony list
 
@@ -1242,12 +1242,12 @@ var Discover = /*#__PURE__*/function (_React$Component) {
             height: "200px",
             width: "200px"
           })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-            id: "player-artist",
-            to: "/users/".concat(artist.id)
-          }, artist.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             id: "player-title",
             to: "/songs/".concat(song.id)
-          }, song.title));
+          }, song.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            id: "player-artist",
+            to: "/users/".concat(artist.id)
+          }, artist.username));
         }
       }) : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

@@ -43,8 +43,8 @@ class Discover extends React.Component {
                             <Link to={`/songs/${song.id}`}>
                                 <img src={song.coverURL} height='200px' width='200px' />
                             </Link>
-                            <Link id='player-artist' to={`/users/${artist.id}`}>{artist.username}</Link>
                             <Link id='player-title' to={`/songs/${song.id}`}>{song.title}</Link>
+                            <Link id='player-artist' to={`/users/${artist.id}`}>{artist.username}</Link>
                         </div>
                     )
                 }
@@ -62,8 +62,8 @@ class Discover extends React.Component {
                             <Link to={`/songs/${song.id}`}>
                                 <img src={song.coverURL} height='200px' width='200px' />
                             </Link>
-                            <Link id='player-artist' to={`/users/${artist.id}`}>{artist.username}</Link>
                             <Link id='player-title' to={`/songs/${song.id}`}>{song.title}</Link>
+                            <Link id='player-artist' to={`/users/${artist.id}`}>{artist.username}</Link>
                         </div>
                     )
                 }
@@ -80,8 +80,8 @@ class Discover extends React.Component {
                             <Link to={`/songs/${song.id}`}>
                                 <img src={song.coverURL} height='200px' width='200px' />
                             </Link>
-                            <Link id='player-artist' to={`/users/${artist.id}`}>{artist.username}</Link>
                             <Link id='player-title' to={`/songs/${song.id}`}>{song.title}</Link>
+                            <Link id='player-artist' to={`/users/${artist.id}`}>{artist.username}</Link>
                         </div>
                     )
                 }
@@ -98,8 +98,8 @@ class Discover extends React.Component {
                             <Link to={`/songs/${song.id}`}>
                                 <img src={song.coverURL} height='200px' width='200px'/>
                             </Link>
-                            <Link id='player-artist' to={`/users/${artist.id}`}>{artist.username}</Link>
                             <Link id='player-title' to={`/songs/${song.id}`}>{song.title}</Link>
+                            <Link id='player-artist' to={`/users/${artist.id}`}>{artist.username}</Link>
                         </div>
                     )
                 }

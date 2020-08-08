@@ -75,9 +75,13 @@
 }
 
 .user-song-title, .user-song-title:visited {
+    color: $grey;
+}
+
+.user-song-title:hover {
     color: $dark-grey;
 }
 
 .user-song-date {
-    color: $dark-grey;
+    color: $grey;
 }
