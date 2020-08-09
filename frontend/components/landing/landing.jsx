@@ -5,7 +5,7 @@ const Landing = (props) => {
     const handleClick = (e) => {
         e.preventDefault();
 
-        if (currentUser) {
+        if (props.currentUser) {
             props.history.push('/discover')
         } else {
             props.history.push('/signup');

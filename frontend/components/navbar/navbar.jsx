@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import NavDropdown from './nav_dropdown';
-import { render } from 'react-dom';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -28,7 +27,7 @@ class NavBar extends React.Component {
         const navRight = this.props.currentUser ? (
             <>
                 <NavLink id='right-btn' to='/discover'>Try Pro</NavLink>
-                <NavLink id='profile-drop' to='/discover'>Profile</NavLink>
+                <NavLink id='profile-drop' to={`/users/${this.props.currentUser}`}>Profile</NavLink>
             </>
         ) : (
             <>
