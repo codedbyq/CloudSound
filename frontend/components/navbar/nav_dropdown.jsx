@@ -4,8 +4,6 @@ import { Redirect } from 'react-router-dom';
 
 const NavDropdown = ({logout}) => {
 
-
-   
     const handleClick = (e) => {
         e.preventDefault();
         const dropLinks = document.querySelectorAll('.droplink');
