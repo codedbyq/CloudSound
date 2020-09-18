@@ -70,14 +70,14 @@ Users can explore through the app while listening to a song on our custom audio 
 
 # Future Provisions
 
-~~* Comments
-  * Users will be able to comment on their favorite songs ~~
-* Follow
+- [x] Comments
+  * Users will be able to comment on their favorite songs
+- [ ] Follow
   * Users will be able to follow other artists in the community
   * Users will have a feed to see uploads from artists they follow
-* Waveforms
+- [ ] Waveforms
   * Add a new aesthetic element to a song's show page
-* Queue
+- [ ] Queue
   * Load the audio player with a queue of songs to play next
 
 
