@@ -51,14 +51,27 @@ CloudSound gives our users the opportunity to upload and share their own music w
 
 ## Audio Player
 Users can explore through the app while listening to a song on our custom audio player, without interuption and without ads.
+```
+<div className={`${currentSong ? 'audio-popup' : 'hidden'}`}>
+   <audio id='audio' src={audio} preload='auto' controls 
+       onPlaying={this.handleTimeElapsed} onLoadedMetadata={this.setMetadata}/>
+   {playerControls}
+   {playerProgress}
+   <div className='song-details'>
+       <img src={cover} className='audio-player-cover'/>
+       {songInfo}
+   </div>
+</div>
+```
 
 ![alt text][audio]
 
 ---
 
 # Future Provisions
-* Comments
-  * Users will be able to comment on their favorite songs
+
+~~* Comments
+  * Users will be able to comment on their favorite songs ~~
 * Follow
   * Users will be able to follow other artists in the community
   * Users will have a feed to see uploads from artists they follow
