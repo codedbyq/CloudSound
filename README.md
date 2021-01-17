@@ -9,7 +9,6 @@ CloudSound is a clone of [Soundcloud.com][soundcloud], an online community where
 ### Frontend
 * React.js
 * Redux.js
-* Node.js
 * Javascript
 * SCSS
 * HTML5
